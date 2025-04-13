@@ -1,3 +1,7 @@
+*
+!/**/
+!*.*
+
 # Archivos de compilación
 *.o
 *.obj
@@ -61,3 +65,28 @@ Thumbs.db
 build/
 bin/
 dist/
+
+# Ejecutables comunes (sin extensión)
+HelloWorld
+*.out
+*.run
+
+# Ejecutables de Windows
+*.exe
+*.dll
+
+# Archivos de objeto intermedios
+*.o
+*.obj
+
+# Archivos de enlace intermedios
+*.so
+*.a
+*.lib
+*.dll
+
+# Binarios de depuración o profiling
+*.gch
+*.pch
+*.pdb
+*.dSYM/
