@@ -1,0 +1,31 @@
+Librerías:
+
+- iostream
+- iomanip
+- cmath
+
+Cosas fundamentales:
+
+- Funciones
+- Referencias
+- Variables primitivas y su tamaño
+- void
+
+Funciones:
+
+- setprecision()
+- pow()
+- sqrt()
+
+Palabras reservadas/operaciones:
+
+- cin
+- cout
+- endl
+- caracteres de control. En especial '\n'
+- if
+- switch -> default
+- for i
+- i++ | i += 1 | i *= i
+- while
+- do while
