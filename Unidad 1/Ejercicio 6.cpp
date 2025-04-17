@@ -1,8 +1,9 @@
+// Unidad 1 - Ejercicio 6
 #include <iostream>
 
 using namespace std;
 
-int main(){
+int main() {
     short n = 0;
     long double fact = 1;
     cout << "Ingrese un numero natural (incluido el 0) y se calculará su factorial!" << endl;
