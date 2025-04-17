@@ -10,20 +10,24 @@
 
 ### Crear archivo C++
 
-``bash
+```bash
 ./n.sh
 ```
 
-`./n.sh u e`
-
 ### Compilar archivo C++
 
-`./c.sh`
+```bash
+./c.sh
+```
 
 ### Ejecutar
 
-`./r.sh`
+```bash
+./e.sh
+```
 
 ### Borrar ejecutables y otros archivos del .gitignore
 
-`./g.sh`
+```bash
+./g.sh
+```
