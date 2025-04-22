@@ -60,5 +60,5 @@
 
 ## Leer PDFs
 
-### Se puede utilizar la extensión de VS Code ``` bash
+### Se puede utilizar la extensión de VS Code ```bash
 bashtomoki1207.pdf```
