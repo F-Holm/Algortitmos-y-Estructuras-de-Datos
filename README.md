@@ -49,9 +49,9 @@
 ### Cuando compilás, se ejecuta automáticamente. Si no querés esto le tenés que pasar cualquier valor extra sin espacios:
 
 ```bash
-./n.sh k
+./n.sh K
 ```
 #### También se puede hacer así:
 ```bash
-./n.sh 1 1 i
+./n.sh 1 1 K
 ```
