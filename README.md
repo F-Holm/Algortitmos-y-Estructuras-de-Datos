@@ -55,3 +55,10 @@
 ```bash
 ./n.sh 1 1 K
 ```
+
+---
+
+## Leer PDFs
+
+### Se puede utilizar la extensión de VS Code ``` bash
+bashtomoki1207.pdf```
