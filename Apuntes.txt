@@ -1,0 +1,47 @@
+Entrega TPs:
+
+- IDE: Code::Blocks
+- Compilador: Borland 5.5 (solo windows)
+
+Diccionario:
+
+Nibble = 4B
+Registro = Estructura heterogenea = struct
+Estructura homogenea = Arreglo
+
+Variables:
+
+- short -> 2B
+- int -> 4B
+- long -> 4/8B (Generalmente 8)
+
+- float -> 4B
+- double -> 8B
+- long double -> 10B
+
+- char -> 1B
+- bool -> 1B
+
+Metodología para resolver problemas:
+
+1- Comprender el problemas2-
+2- Diseñar estrategia
+3- Desarrollar el algoritmo
+4- Codificar el algoritmo
+5- Ejecutar
+
+Problema compuesto = 2+ problemas elementales
+
+Algoritmo = Sucesión de pasos dados bajo un criterio lógico que tomando datos de entrada permite obtener algún resultado
+
+Estructuras de control de programas:
+
+- Concatenación
+- Selección
+- Repetición
+
+Un módulo está formado por un conjunto de acciones que resuelven un determinado problema pero estas acciones se escriben en otro punto del algoritmo
+Un módulo puede ser procedimiento / función (pascal) o función (c++) dependiendo del lenguaje
+
+Devolver -> por Referencia
+Retornar -> Return
