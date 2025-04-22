@@ -2,14 +2,12 @@
 #include <iostream>
 
 using namespace std;
-//num perfecto = suma de sus partes alicuotas excepto el propio número es el númeor dado
+//num perfecto = suma de sus partes alicuotas excepto el propio número es el número dado
 //2^(n-1) * (2^n -1)
 
 bool esPrimo(unsigned long num){
     switch (num){
-        case 0:
-        return false;
-        
+        case 0:        
         case 1:
         return false;
 

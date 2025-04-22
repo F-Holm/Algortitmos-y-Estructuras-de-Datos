@@ -2,7 +2,7 @@
 #include <iostream>
 
 using namespace std;
-//num perfecto = suma de sus partes alicuotas excepto el propio número es el númeor dado
+//num perfecto = suma de sus partes alicuotas excepto el propio número es el número dado
 int main(){
     unsigned int k = 0, num = 0;
     while(k < 5){
