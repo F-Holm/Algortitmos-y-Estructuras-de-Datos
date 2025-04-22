@@ -8,7 +8,8 @@
 	Lenguaje...: Borland V.5.5
 */
 
-#include <fstream>
+#include <iostream>
+
 using namespace std;
 
 int iif (bool expLog, int ent1, int ent2) {
@@ -18,7 +19,7 @@ int iif (bool expLog, int ent1, int ent2) {
     return ent2;
 } // iif
 
-main() {
+int main() {
   int a,
       b;
 

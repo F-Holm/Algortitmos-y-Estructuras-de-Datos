@@ -6,12 +6,14 @@
 	Lenguaje...: Borland V.5.5
 */
 
-#include <fstream>
+#include <iostream>
+#include <cmath>
+
 using namespace std;
 
 const double PI = 3.141592654;
 
-main() {
+int main() {
   double x = 4,
          y = 3;
 

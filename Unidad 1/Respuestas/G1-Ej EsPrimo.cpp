@@ -6,7 +6,8 @@
 	Lenguaje...: Borland V.5.5
 */
 
-#include <fstream>
+#include <iostream>
+
 using namespace std;
 
 bool EsPrimo(long x) {
@@ -26,7 +27,7 @@ bool EsPrimo(long x) {
   }
 } //EsPrimo
 
-main() {
+int main() {
   long num;
 
   cout << "Determina si un entero es o no Primo" << endl;

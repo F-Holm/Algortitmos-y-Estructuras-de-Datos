@@ -8,12 +8,16 @@
 
 #include <cstdlib>
 #include <ctime>
-#include <fstream>
+#include <iostream>
+#include <cmath>
+
+#include "Borland.h"
+
 using namespace std;
 
 const float PI = 3.141592654;
 
-main() {
+int main() {
   div_t rDiv;
   double x; //pos 0  1  2  3
   double vC[4] = {3, 1, 5, 2};

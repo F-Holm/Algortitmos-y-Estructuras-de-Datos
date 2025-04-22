@@ -9,7 +9,11 @@
 */
 
 #include <ctime>
-#include <fstream>
+#include <iostream>
+#include <cstring>
+
+#include "Borland.h"
+
 using namespace std;
 
 #define CENTINELA "*"
@@ -104,7 +108,7 @@ void EmiteTot (ushort tRespC, ushort tRespI) {
   cout << "Cantidad de respuestas incorrectas: " << tRespI << endl;
 } // EmiteTot
 
-main () {
+int main () {
   ushort totRespCor,
          totRespIncor,
          a,

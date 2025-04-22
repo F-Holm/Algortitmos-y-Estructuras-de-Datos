@@ -7,10 +7,11 @@
 	Lenguaje...: Borland V.5.5
 */
 
-#include <fstream>
+#include <iostream>
+
 using namespace std;
 
-main () {
+int main () {
   short n;
   long sum;
 

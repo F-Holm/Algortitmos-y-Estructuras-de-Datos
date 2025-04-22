@@ -7,10 +7,11 @@
 */
 
 #include <iomanip>
-#include <fstream>
+#include <iostream>
+
 using namespace std;
 
-main () {
+int main () {
   short n;
   long  double fact = 1;
   long double e = 1;

@@ -6,7 +6,8 @@
     Lenguaje...: Borland V.5.5
 */
 
-#include <fstream>
+#include <iostream>
+
 using namespace std;
 
 int iif (bool expLog, int x, int y) {
@@ -16,7 +17,7 @@ int iif (bool expLog, int x, int y) {
     return y;
 } // iif
 
-main() {
+int main() {
   int a,
       b;
 

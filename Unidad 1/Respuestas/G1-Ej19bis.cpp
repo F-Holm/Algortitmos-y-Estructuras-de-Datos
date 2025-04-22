@@ -10,7 +10,8 @@
 */
 
 #include <cmath>
-#include <fstream>
+#include <iostream>
+
 using namespace std;
 
 string iif (bool expLog, string x, string y) {
@@ -27,7 +28,7 @@ short sgn (float x) {
     return x / fabs (x);
 } // sgn
 
-main () {
+int main () {
   float a;
 
   cout << "Valor real: ";

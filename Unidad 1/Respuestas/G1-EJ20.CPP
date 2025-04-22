@@ -8,7 +8,8 @@
 */
 
 #include <cmath>
-#include <fstream>
+#include <iostream>
+
 using namespace std;
 
 const
@@ -18,7 +19,7 @@ int Resto (int x, int y) {
   return x - x / y * y;
 } // Resto
 
-main() {
+int main() {
   int   a,
         b;
   float x = 30.0;

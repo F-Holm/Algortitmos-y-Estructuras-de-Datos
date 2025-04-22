@@ -9,7 +9,9 @@
 	Lenguaje...: Borland V.5.5
 */
 
-#include <fstream>
+#include <iostream>
+#include <cmath>
+
 using namespace std;
 
 void ObtDatos (float &cata, float &catb) {
@@ -31,7 +33,7 @@ void EmiteHipot (float hipot) {
   cout << "Hipotenusa: " << hipot << endl;
 } // EmiteHipot
 
-main () {
+int main () {
   float a,
         b;
 

@@ -7,7 +7,8 @@
 	Lenguaje...: Borland V.5.5
 */
 
-#include <fstream>
+#include <iostream>
+
 using namespace std;
 
 int mcd (int x, int y) {
@@ -21,7 +22,7 @@ int mcd (int x, int y) {
   return x;
 } // mcd
 
-main() {
+int main() {
   int a,
       b,
       maxComDiv,

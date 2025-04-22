@@ -8,7 +8,8 @@
 	Lenguaje...: Borland V.5.5
 */
 
-#include <fstream>
+#include <iostream>
+
 using namespace std;
 
 typedef unsigned short ushort;
@@ -26,7 +27,7 @@ void EmiteTerna(short x, short y, short z);
 void EmiteMinMax(short vMin, short vMax);
 // Fin Prototipos
 
-main () {
+int main () {
   ushort n;
   short  a,
          b,

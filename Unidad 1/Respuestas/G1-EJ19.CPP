@@ -8,7 +8,8 @@
 	Lenguaje...: Borland V.5.5
 */
 
-#include <fstream>
+#include <iostream>
+
 using namespace std;
 
 float vabs (float x) {
@@ -25,7 +26,7 @@ short sgn (float x) {
     return x / vabs (x);
 } // sgn
 
-main () {
+int main () {
   float a;
 
   cout << "Funcion que retorna el signo de x: ";

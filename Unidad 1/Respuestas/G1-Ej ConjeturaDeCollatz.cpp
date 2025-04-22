@@ -9,19 +9,20 @@
                   Regla 2: Si el nro. es par, se lo
                           divide por 2.
                   Todo nro. positivo si se aplican estas
-                  2 reglas terminará en el ciclo 4,2,1.
-                  El nro. más bajo conseguido es 1.
+                  2 reglas terminarï¿½ en el ciclo 4,2,1.
+                  El nro. mï¿½s bajo conseguido es 1.
 	Lenguaje...: Borland V.5.5
 */
 
-#include <fstream>
+#include <iostream>
+
 using namespace std;
 
 bool EsPar(unsigned short x) {
   return !(x % 2);
 } // EsPar
 
-main() {
+int main() {
   unsigned short num,
                  cant = 0;
 

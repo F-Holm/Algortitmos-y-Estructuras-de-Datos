@@ -12,7 +12,8 @@
 */
 
 #include <iomanip>
-#include <fstream>
+#include <iostream>
+
 using namespace std;
 
 typedef unsigned short ushort;

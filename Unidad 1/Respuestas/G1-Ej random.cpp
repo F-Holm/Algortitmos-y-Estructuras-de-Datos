@@ -6,12 +6,15 @@
 	Lenguaje...: Borland V.5.5
 */
 
-#include <fstream>
+#include <iostream>
+
+#include "Borland.h"
+
 using namespace std;
 
 const double PI = 3.1415926;
 
-main() {
+int main() {
   short a = 12,
         b = 37; // [12, 37]
 

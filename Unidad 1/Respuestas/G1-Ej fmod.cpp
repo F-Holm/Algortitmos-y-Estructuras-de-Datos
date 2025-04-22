@@ -6,10 +6,12 @@
 	Lenguaje...: Borland V.5.5
 */
 
-#include <fstream>
+#include <iostream>
+#include <cmath>
+
 using namespace std;
 
-main() {
+int main() {
   int x;
 
   x = fmod(7, 3);

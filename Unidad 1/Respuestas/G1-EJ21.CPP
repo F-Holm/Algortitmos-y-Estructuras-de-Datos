@@ -8,14 +8,14 @@
 	Lenguaje...: Borland V.5.5
 */
 
-#include <fstream>
+#include <iostream>
 using namespace std;
 
 bool EsDivis (int x, int y) {
   return x % y == 0;
 } // EsDivis
 
-main () {
+int main () {
   int a,
       b;
 

@@ -13,7 +13,8 @@
 */
 
 #include <iomanip>
-#include <fstream>
+#include <iostream>
+
 using namespace std;
 
 typedef unsigned long ulong;
@@ -30,7 +31,7 @@ bool EsPrimo (double x) {
   return true;
 } //EsPrimo
 
-main () {
+int main () {
   double ultTer = 2,
       num = 1,
    nroPerf;

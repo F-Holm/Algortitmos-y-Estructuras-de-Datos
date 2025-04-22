@@ -9,7 +9,8 @@
 	Lenguaje...: Borland V.5.5
 */
 
-#include <fstream>
+#include <iostream>
+
 using namespace std;
 
 float Vabs(float x) {
@@ -70,7 +71,7 @@ bool EsPrimo(int x) {
   return true;
 } // EsPrimo
 
-main() {
+int main() {
   float a;
   int   c,
         d;
