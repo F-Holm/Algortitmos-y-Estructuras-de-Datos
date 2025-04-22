@@ -6,17 +6,12 @@ using namespace std;
 //2^(n-1) * (2^n -1)
 
 bool esPrimo(unsigned long num){
-    switch (num){
-        case 0:        
-        case 1:
+    if (num == 0 || num == 1)
         return false;
-
-        default:
-        for (unsigned long i = 2; i < num/2;i++)
-            if (num % i == 0)
-                return false;
-        return true;
-    }
+    for (unsigned long i = 2; i < num/2;i++)
+        if (num % i == 0)
+            return false;
+    return true;
 }
 
 int main(){
