@@ -24,7 +24,7 @@ Variables:
 
 Metodología para resolver problemas:
 
-1- Comprender el problemas2-
+1- Comprender el problema
 2- Diseñar estrategia
 3- Desarrollar el algoritmo
 4- Codificar el algoritmo
@@ -45,3 +45,8 @@ Un módulo puede ser procedimiento / función (pascal) o función (c++) dependie
 
 Devolver -> por Referencia
 Retornar -> Return
+
+Módulo = Función / procedimiento
+Tiene 2 partes -> Header/Cabecera | cuerpo
+
+Heap -> Donde se guardan las variables dinámicas
