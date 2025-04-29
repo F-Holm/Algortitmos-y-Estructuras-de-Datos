@@ -10,7 +10,7 @@
 #include <iostream>
 using namespace std;
 
-main() {
+int main() {
   div_t x;
 
   x = div(7, 3);

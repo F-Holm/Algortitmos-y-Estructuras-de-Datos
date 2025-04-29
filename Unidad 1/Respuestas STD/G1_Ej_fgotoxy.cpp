@@ -6,7 +6,7 @@
 	Lenguaje...: cygwin64 g++ 64bits for windows
 */
 
-#include <windows.h>
+#include <windows.h> // Librería específica de windows
 #include <stdio.h>
 #include <stdlib.h>
 using namespace std;

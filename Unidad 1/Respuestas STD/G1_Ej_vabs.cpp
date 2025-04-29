@@ -16,7 +16,7 @@ float vabs(float x) {
     return -x;
 } // vabs
 
-main() {
+int main() {
   float a,
         b;
   int   c,

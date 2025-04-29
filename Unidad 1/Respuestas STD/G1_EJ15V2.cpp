@@ -30,7 +30,7 @@ bool EsPrimo (double x) {
   return true;
 } //EsPrimo
 
-main () {
+int main () {
   int ultTer = 2,
       num = 1,
       nroPerf;

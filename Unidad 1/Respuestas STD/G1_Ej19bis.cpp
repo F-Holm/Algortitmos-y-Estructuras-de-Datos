@@ -27,7 +27,7 @@ short sgn (float x) {
     return x / fabs (x);
 } // sgn
 
-main () {
+int main () {
   float a;
 
   cout << "Valor real: ";

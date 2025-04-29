@@ -103,7 +103,7 @@ void EmiteTot (ushort tRespC, ushort tRespI) {
   cout << "Cantidad de respuestas incorrectas: " << tRespI << endl;
 } // EmiteTot
 
-main () {
+int main () {
   ushort totRespCor,
          totRespIncor,
          a,

@@ -18,7 +18,7 @@ int Resto (int x, int y) {
   return x - x / y * y;
 } // Resto
 
-main() {
+int main() {
   int   a,
         b;
   float x = 30.0;

@@ -15,7 +15,7 @@
 #include <iostream>
 using namespace std;
 
-main () {
+int main () {
   int sum,
       num = 0,
       k = 0;

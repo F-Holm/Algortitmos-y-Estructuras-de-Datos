@@ -10,7 +10,7 @@
 #include <iostream>
 using namespace std;
 
-main () {
+int main () {
   short n;
   long double e = 1,
               fact;

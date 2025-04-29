@@ -15,7 +15,7 @@ bool EsDivis (int x, int y) {
   return x % y == 0;
 } // EsDivis
 
-main () {
+int main () {
   int a,
       b;
 

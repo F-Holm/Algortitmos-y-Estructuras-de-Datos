@@ -9,7 +9,7 @@
 #include <iostream>
 using namespace std;
 
-main () {
+int main () {
   int  i,
        n;
   long anteult,

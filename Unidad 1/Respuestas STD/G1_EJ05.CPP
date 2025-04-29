@@ -10,7 +10,7 @@
 #include <iostream>
 using namespace std;
 
-main () {
+int main () {
   short  a,
          b;
   long   pot = 1;

@@ -32,7 +32,7 @@ bool EsPrimo (double x) {
 }
 //EsPrimo
 
-main () {
+int main () {
   short  n = 1,
          k = 0;
   double nroPerfecto;

@@ -9,7 +9,7 @@
 #include <iostream>
 using namespace std;
 
-main () {
+int main () {
   short  n;
   long double fact = 1;
 

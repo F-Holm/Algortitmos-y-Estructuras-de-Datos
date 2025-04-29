@@ -12,7 +12,7 @@ using namespace std;
 
 const double PI = 3.1415926;
 
-main() {
+int main() {
   short a = 12,
         b = 37; // [12, 37]
 

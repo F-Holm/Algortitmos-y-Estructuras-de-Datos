@@ -70,7 +70,7 @@ bool EsPrimo(int x) {
   return true;
 } // EsPrimo
 
-main() {
+int main() {
   float a;
   int   c,
         d;

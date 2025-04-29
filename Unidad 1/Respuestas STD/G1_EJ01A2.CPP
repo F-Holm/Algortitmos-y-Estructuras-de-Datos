@@ -32,7 +32,7 @@ void EmiteHipot (float hipot) {
   cout << "Hipotenusa: " << hipot << endl;
 } // EmiteHipot
 
-main () {
+int main () {
   float a,
         b;
 

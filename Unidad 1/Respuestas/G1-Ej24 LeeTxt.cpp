@@ -97,7 +97,7 @@ void EmitePieLst (ofstream &Sld, float tGral, ushort cVenMax) {
   Sld << "Cod.Ven.Max.Vta.: " << setfill ('.') << setw(54) << cVenMax;
 } // EmitePieLst
 
-main() {
+int main() {
   float    totVen,
            totGral,
            impMaxVta,

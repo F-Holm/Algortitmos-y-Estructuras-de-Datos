@@ -16,7 +16,7 @@ int iif (bool expLog, int x, int y) {
     return y;
 } // iif
 
-main() {
+int main() {
   int a,
       b;
 

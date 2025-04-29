@@ -21,7 +21,7 @@ int mcd (int x, int y) {
   return x;
 } // mcd
 
-main() {
+int main() {
   int a,
       b,
       maxComDiv,
