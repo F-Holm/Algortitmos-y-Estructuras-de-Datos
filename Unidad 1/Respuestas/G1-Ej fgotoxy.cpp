@@ -6,7 +6,7 @@
     Lenguaje...: Borland V.5.5
   */
 
-  #include <dos.h> // no se que es pero no funciona en linux
+  #include <dos.h> // no se que es pero no funciona en linux -- Creo que es de Borland
   #include <windows.h> //función específica de windows
   #include <stdio.h>
   #include <stdlib.h>
