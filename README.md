@@ -58,11 +58,11 @@
 
 #### Windows
 ```bash
-./n.ps1 ${unidad} ${ejercicio}
+./c.ps1 ${unidad} ${ejercicio}
 ```
 #### Linux
 ```bash
-./n.sh ${unidad} ${ejercicio}
+./c.sh ${unidad} ${ejercicio}
 ```
 
 #### Por ejemplo, para crear el ejercicio 1 de la unidad 1 hacés lo siguiente:
@@ -78,12 +78,24 @@
 
 ### Cuando compilás, se ejecuta automáticamente. Si no querés esto le tenés que pasar cualquier valor extra sin espacios:
 
+#### Windows
 ```bash
-./n.sh K
+./n.ps1 k
 ```
-#### También se puede hacer así:
+#### Linux
 ```bash
-./n.sh 1 1 K
+./n.sh k
+```
+
+#### También se puede hacer así:
+
+#### Windows
+```bash
+./n.ps1 1 1 k
+```
+#### Linux
+```bash
+./n.sh 1 1 k
 ```
 
 ---
