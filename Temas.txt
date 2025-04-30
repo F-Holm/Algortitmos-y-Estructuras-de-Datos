@@ -5,6 +5,7 @@ Librerías:
 - cmath
 - cstdlib
 - ctime
+- cstring
 
 Cosas fundamentales:
 
@@ -38,6 +39,10 @@ Funciones:
 - rand() -> standard -> [0; RAND_MAX] -> rand() % x | [0; x) = [0; x-1]
 - randomize() -> Borland
 - srand(x) -> standard
+- strcpm(str, size)
+- fixed
+- setw()
+- setfill()
 
 Palabras reservadas/operaciones:
 
@@ -52,3 +57,7 @@ Palabras reservadas/operaciones:
 - while
 - do while
 - x % y = resto de x/y
+- define
+- typedef (typedef char str20[21];)
+- static (en funciones)
+- struct
