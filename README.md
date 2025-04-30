@@ -122,3 +122,25 @@ bashtomoki1207.pdf
 ```bash
 tomoki1207.pdf
 ```
+
+---
+
+# Instalación
+
+## Windows
+
+```bash
+winget install --id Microsoft.PowerShell --source winget
+```
+```bash
+winget install --id BrechtSanders.WinLibs.POSIX.UCRT.LLVM --source winget
+```
+
+## Linux (Ubuntu)
+
+```bash
+sudo apt update
+```
+```bash
+sudo apt install clang++
+```
