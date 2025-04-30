@@ -51,6 +51,17 @@
 ```bash
 ./g.sh
 ```
+
+### Compilar todos los archivos ".cpp"
+
+#### Windows
+```bash
+./build.ps1
+```
+#### Linux
+```bash
+./build.sh
+```
 ---
 ## Más Scripts
 
