@@ -21,6 +21,7 @@
 
 ### Compilar archivo C++
 
+#### Windows
 ```bash
 ./c.ps1
 ```
@@ -31,6 +32,7 @@
 
 ### Ejecutar
 
+#### Windows
 ```bash
 ./r.ps1
 ```
@@ -41,6 +43,7 @@
 
 ### Borrar ejecutables y otros archivos del .gitignore
 
+#### Windows
 ```bash
 ./g.ps1
 ```
@@ -53,6 +56,7 @@
 
 ### Tanto en la creación, compilación y ejecución de archivos se puede usar el siguiente script:
 
+#### Windows
 ```bash
 ./n.ps1 ${unidad} ${ejercicio}
 ```
@@ -63,6 +67,7 @@
 
 #### Por ejemplo, para crear el ejercicio 1 de la unidad 1 hacés lo siguiente:
 
+#### Windows
 ```bash
 ./n.ps1 1 1
 ```
