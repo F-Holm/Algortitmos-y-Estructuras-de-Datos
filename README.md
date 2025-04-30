@@ -2,14 +2,19 @@
 ---
 ## Requisitos
 
-- Linux (Ubuntu)
-- clang++
-- Bash
+- Linux (Ubuntu) | Windows
+- clang++ (pueden usarse otros compiladores pero se debe cambiar la variable "compilador" en los scripts)
+- Bash | Powershell 7.0.0+
 ---
 ## Scripts
 
 ### Crear archivo C++
 
+#### Windows
+```bash
+./n.ps1
+```
+#### Linux
 ```bash
 ./n.sh
 ```
