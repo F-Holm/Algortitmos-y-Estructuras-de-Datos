@@ -50,3 +50,5 @@ Módulo = Función / procedimiento
 Tiene 2 partes -> Header/Cabecera | cuerpo
 
 Heap -> Donde se guardan las variables dinámicas
+
+Valor centinela = valor especial que ... (Ej: valor de input para salir de un loop)
