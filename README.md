@@ -142,5 +142,5 @@ winget install --id BrechtSanders.WinLibs.POSIX.UCRT.LLVM --source winget
 sudo apt update
 ```
 ```bash
-sudo apt install clang++
+sudo apt install clang
 ```
