@@ -22,17 +22,29 @@
 ### Compilar archivo C++
 
 ```bash
+./c.ps1
+```
+#### Linux
+```bash
 ./c.sh
 ```
 
 ### Ejecutar
 
 ```bash
-./e.sh
+./r.ps1
+```
+#### Linux
+```bash
+./r.sh
 ```
 
 ### Borrar ejecutables y otros archivos del .gitignore
 
+```bash
+./g.ps1
+```
+#### Linux
 ```bash
 ./g.sh
 ```
@@ -42,11 +54,19 @@
 ### Tanto en la creación, compilación y ejecución de archivos se puede usar el siguiente script:
 
 ```bash
+./n.ps1 ${unidad} ${ejercicio}
+```
+#### Linux
+```bash
 ./n.sh ${unidad} ${ejercicio}
 ```
 
 #### Por ejemplo, para crear el ejercicio 1 de la unidad 1 hacés lo siguiente:
 
+```bash
+./n.ps1 1 1
+```
+#### Linux
 ```bash
 ./n.sh 1 1
 ```
