@@ -21,7 +21,7 @@ void gotoxy(int x, int y) {
   SetConsoleCursorPosition (hCon,dwPos);
 } // gotoxy
 
-main() {
+int main() {
   gotoxy(0,0);
   printf("*");
   getchar();
