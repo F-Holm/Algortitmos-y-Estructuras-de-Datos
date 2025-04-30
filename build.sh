@@ -2,13 +2,26 @@
 
 set -e
 
+# 🔧 Variables configurables
+compilador="clang++"         # Podés cambiar a g++ u otro
+optimizaciones="-O3"         # Para sin optimización: usar "-O0"
+debug=false                  # true para debug, false para release
+estandar="c++23"             # Si no se especifica, clang++ usa c++98 como default
+
+# 🧠 Ajustes según debug
+extra_flags=""
+if [ "$debug" = true ]; then
+    extra_flags="-g"  # Genera información de depuración
+    optimizaciones="-O0"  # Generalmente se combina -g con -O0
+fi
+
 ROOT_DIR=$(pwd)
 FAILED=()
 
 echo "🔍 Buscando archivos .cpp..."
 mapfile -t CPP_FILES < <(find "$ROOT_DIR" -type f -name "*.cpp")
 
-echo "🛠 Compilando con Clang++, optimización -O3..."
+echo "🛠 Compilando con $compilador, estándar $estandar, optimización $optimizaciones..."
 
 for SRC_FILE in "${CPP_FILES[@]}"; do
     REL_DIR=$(dirname "$SRC_FILE")
@@ -16,7 +29,7 @@ for SRC_FILE in "${CPP_FILES[@]}"; do
     OUT_PATH="$REL_DIR/$EXEC_NAME"
 
     echo "🔧 Compilando $SRC_FILE..."
-    if clang++ -std=c++17 -O3 "$SRC_FILE" -o "$OUT_PATH"; then
+    if "$compilador" -std="$estandar" $optimizaciones $extra_flags "$SRC_FILE" -o "$OUT_PATH"; then
         echo "✅ Compilado: $OUT_PATH"
     else
         echo "❌ Error al compilar: $SRC_FILE"
@@ -35,6 +48,5 @@ else
 fi
 
 echo "🧹 Limpiando archivos intermedios..."
-# No hay archivos intermedios si no usás CMake, pero podés limpiar .o si existiera
 find "$ROOT_DIR" -type f -name "*.o" -delete
 echo "✅ Limpieza completada."

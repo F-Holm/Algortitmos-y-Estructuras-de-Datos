@@ -111,7 +111,7 @@ void EmitePieLst (float tGral, ushort cVenMax) {
   cout << "Cod.Ven.Max.Vta.: " << setfill('.') << setw(55) << cVenMax;
 } // EmitePieLst
 
-main() {
+int main() {
   float  totVen,
          totGral,
          impMaxVta,
