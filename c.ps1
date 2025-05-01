@@ -42,7 +42,7 @@ if (-not (Test-Path $archivo)) {
 
 # 🛠 Compilar
 Write-Host "🔧 Compilando con $compilador -std=$estandar $optimizaciones $extra_flags..."
-& $compilador "-std=$estandar" $optimizaciones $extra_flags "$archivo" -o "$salida"
+& $compilador "-std=$estandar" "-finput-charset=UTF-8" "-fexec-charset=UTF-8" $optimizaciones $extra_flags "$archivo" -o "$salida"
 
 # ✅ Verificar si la compilación fue exitosa
 if ($LASTEXITCODE -eq 0) {

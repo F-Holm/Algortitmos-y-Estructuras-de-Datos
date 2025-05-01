@@ -7,7 +7,7 @@ typedef char str20[21];
 using namespace std;
 
 struct venta {
-    ushort codVen,
+    unsigned short codVen,
            cant;
     str20  descrip; // cadena de caracteres al estilo Leng. C
     float  preUni;
@@ -15,7 +15,7 @@ struct venta {
 
 int main() {
     cout << fixed << setprecision(2);
-
+    double a = 1.2;
     cout << a << endl;
     cout << setfill('0') << setw(8) << a << endl;
     return 0;
