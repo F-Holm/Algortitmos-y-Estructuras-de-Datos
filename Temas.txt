@@ -17,12 +17,12 @@ Cosas fundamentales:
 
 Funciones:
 
-- setprecision()
-- pow(x, y) -> Potencia -> x^y
-- sqrt(x) -> Raiz cuadrada
-- abs(x) -> Módulo (entero)
-- fabs(x) -> Módulo (punto flotante)
-- sin(x) -> seno radianes | grados a radianes -> x*PI/180
+#include <cmath>
+- pow(x, y) -> Potencia -> x^y -> double pow(double base, double exponent);
+- sqrt(x) -> Raiz cuadrada -> double sqrt(double x);
+- abs(x) -> Módulo (entero) -> int abs(int x);
+- fabs(x) -> Módulo (punto flotante) -> double fabs(double x);
+- sin(x) -> seno radianes | grados a radianes -> x*PI/180 -> double sin(double x);
 - cos(x) -> coseno radianes
 - atan(x) -> arco tangente radianes
 - log(x) -> logaritmo natural
@@ -30,16 +30,23 @@ Funciones:
 - exp(x) -> e^x | exp(x * log(y)) = y^x
 - ceil(x) -> parte entera para arriba -> ceil(3.1) = 4.0 -> ceil(-3.1) = -3.0
 - floor(x) -> parte entera para abajo -> floor(3.1) = 3.0 -> floor(-3.1) = -4.0
-- div(x, y) -> retorna registro/struct (div_t -> int quot, int rem)
 - fmod(x, y) -> resto de x/y
 - modf(x, y) -> retorna parte entera y parte decimal -> y por referencia | retorna parte decimal -> x, y, y return son doubles
 - hypot(x, y) -> pitágoras
 - poly(x, n, c) -> Borland -> (x = var. independiente | n = grado polinomio | c = conjunto de coeficientes)
+
+#include <cstdlib>
+- div(x, y) -> retorna registro/struct (div_t -> int quot, int rem)
 - random(x) -> Borland -> [0; x) = [0; x-1] -> random(MAX - MIN + 1) + MIN
 - rand() -> standard -> [0; RAND_MAX] -> rand() % x | [0; x) = [0; x-1]
 - randomize() -> Borland
 - srand(x) -> standard
-- strcpm(str, size)
+
+#include <cstring>
+- strcmp(c_str, c_str)
+
+#include <iomanip>
+- setprecision()
 - fixed
 - setw()
 - setfill()
