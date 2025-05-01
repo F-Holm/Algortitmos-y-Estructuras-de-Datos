@@ -13,7 +13,9 @@ Librerías y Funciones:
 - cout
 - endl -> cout << endl; == cout << '\n' << flush;
 - cin.get(&char)
-- cin.ignore()
+- cin.ignore() -> vacía el buffer de entrada
+- boolalpha -> ahora los booleanos se muestran como true o false
+- noboolalpha -> ahora los booleanos se muestran como 0 o 1 (default)
 
 #include <cmath>
 - pow(x, y) -> Potencia -> x^y -> double pow(double base, double exponent);
