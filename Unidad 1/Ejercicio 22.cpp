@@ -34,16 +34,16 @@ void calcular(unsigned short a, unsigned short b, unsigned short c, unsigned sho
 }
 
 void responder(unsigned short &perimetro, char &tipo){
-    cout << "Perímetro: ";
+    cout << "Perímetro: " << flush;
     cin >> perimetro;
     do {
-        cout << "Tipo ( Isosceles (" << ISOSCELES << ") | Escaleno (" << ESCALENO << ") | Equilatero (" << EQUILATERO << ") ):\n";
+        cout << "Tipo ( Isosceles (" << ISOSCELES << ") | Escaleno (" << ESCALENO << ") | Equilatero (" << EQUILATERO << ") ):" << endl;
         cin >> tipo;
     } while(tipo != ISOSCELES && tipo != ESCALENO && tipo != EQUILATERO);
 }
 
 void verificar(str20 alumno, unsigned short perimetro, char tipo, unsigned short perimetroAlumno, char tipoAlumno, unsigned short rCorrectas, unsigned short rIncorrectas){
-    if (tipo == tipoAlumno && perimetro == perimetroAlumno) {
+    if (tipo != tipoAlumno || perimetro != perimetroAlumno) {
         cout << "RESPUESTA INCORRECTA\n";
         cout << "La respuesta correcta es:\n\tperimetro = " << perimetro << "\n\ttipo = " << tipo << endl;
         cout << alumno << " - debe estudiar más\n\n";
@@ -59,9 +59,8 @@ int main() {
     srand(time(NULL));
     str20 alumno;
     unsigned short rCorrectas = 0, rIncorrectas = 0;
-    cout << "Ingrese su nombre (" << CENTINELA << " = SALIR)\n";
+    cout << "Ingrese su nombre (" << CENTINELA << " = SALIR)" << endl;
     cin.get(alumno, 21);
-    cin.ignore(100, '\n');
 
     while(strcmp(alumno, CENTINELA)) {
         unsigned short a, b, c, perimetro,
@@ -72,9 +71,9 @@ int main() {
         responder(perimetroAlumno, tipoAlumno);
         verificar(alumno, perimetro, tipo, perimetroAlumno, tipoAlumno, rCorrectas, rIncorrectas);
 
-        cout << "Ingrese su nombre (" << CENTINELA << " = SALIR)\n";
+        cout << "Ingrese su nombre (" << CENTINELA << " = SALIR)" << endl;
+        cin.ignore();
         cin.get(alumno, 21);
-        cin.ignore(100, '\n');
     }
 
     cout << "Respuestas correctas: " << rCorrectas << endl;
