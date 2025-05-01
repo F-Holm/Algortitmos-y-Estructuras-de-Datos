@@ -3,20 +3,26 @@
 
 using namespace std;
 //num perfecto = suma de sus partes alicuotas excepto el propio número es el número dado
+
+bool esPrimo(unsigned int num){
+    if (num < 2)
+        return false;
+    for (unsigned int i = 2;i < num / 2;i++)
+        if (num % i == 0)
+            return false;
+    return true;
+}
+
 int main(){
-    unsigned int k = 0, num = 0;
-    while(k < 5){
-        num += 2;
-        unsigned int sumDiv = 1;
-
-        for (unsigned int i = 2;i <= num/2;i++)
-            if (num % i == 0)
-                sumDiv += i;
-
-        if (num == sumDiv){
+    unsigned int k = 0, num = 1;
+    while(k < 3){//puede llegar hasta 8
+        unsigned int sum = 2*num + 1;
+        
+        if (esPrimo(sum)){
             k++;
-            cout << k << ") " << num << " es un número perfecto\n";
+            cout << k << ") " << sum * (num + 1) << " es un número perfecto\n";
         }
+        num = sum;
     }
     return 0;
 }

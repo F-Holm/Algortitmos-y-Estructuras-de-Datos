@@ -5,7 +5,7 @@ using namespace std;
 //num perfecto = suma de sus partes alicuotas excepto el propio número es el número dado
 int main(){
     unsigned int k = 0, num = 0;
-    while(k < 5){
+    while(k < 3){ // puede llegar hasta 4
         num += 2;
         unsigned int sumDiv = 1;
 

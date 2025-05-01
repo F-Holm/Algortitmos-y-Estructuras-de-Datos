@@ -7,6 +7,8 @@ int main() {
     unsigned int n, sum = 0;
     cout << "Ingrese un número natural: ";
     cin >> n;
-    cout << "La sumatoria de todos los números naturales hasta " << n << " es: " << n/2.0*(n+1) << endl;
+    for (unsigned int i = 1;i <= n;i++)
+        sum += i;
+    cout << "La sumatoria de todos los números naturales hasta " << n << " es: " << sum << endl;
     return 0;
 }
