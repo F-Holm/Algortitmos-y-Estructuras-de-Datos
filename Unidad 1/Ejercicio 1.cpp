@@ -12,6 +12,6 @@
                 cin >> b;
             } while(a < 0 || b < 0);
             //hypotf(a, b) == sqrt(pow(a, 2) + pow(b, 2))
-            cout << "El valor de la hipotenusa es: " << hypotf(a, b) << endl;
+            cout << "El valor de la hipotenusa es: " << hypot(a, b) << endl;
             return 0;
         }
