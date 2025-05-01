@@ -31,15 +31,15 @@ if (Test-Path $archivo) {
     # Crear archivo y escribir contenido
     New-Item -ItemType File -Force -Path $archivo
     $contenido = @"
-        // Unidad $unidad - Ejercicio $ejercicio
-        #include <iostream>
+// Unidad $unidad - Ejercicio $ejercicio
+#include <iostream>
 
-        using namespace std;
+using namespace std;
 
-        int main() {
+int main() {
             
-            return 0;
-        }
+    return 0;
+}
 "@
     Set-Content -Path $archivo -Value $contenido
     Write-Host "Archivo '$archivo' creado con éxito."
