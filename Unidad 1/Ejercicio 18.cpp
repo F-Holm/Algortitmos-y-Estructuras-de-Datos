@@ -13,6 +13,6 @@ int mcd(int a, int b) {
 }
 
 int main() {
-    cout << mcd(322, 7322) << endl;
+    cout << "MCD(322, 7322): " << mcd(322, 7322) << endl;
     return 0;
 }
