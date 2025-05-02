@@ -9,13 +9,13 @@ using namespace std;
 struct venta {
     unsigned short codVen,
            cant;
-    str20  descrip; // cadena de caracteres al estilo Leng. C
+    str20  descrip;
     float  preUni;
 };
 
 int main() {
     cout << fixed << setprecision(2);
-    double a = 1.2;
+    int a = 1;
     cout << a << endl;
     cout << setfill('0') << setw(8) << a << endl;
     return 0;
