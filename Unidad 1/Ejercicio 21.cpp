@@ -3,11 +3,9 @@
 
 using namespace std;
 
-bool divisible(int dividendo, int divisor){
-    return !(dividendo % divisor);
-}
+bool Divisible(int dividendo, int divisor) { return !(dividendo % divisor); }
 
 int main() {
-    cout << "100 es divisible por 10: " << divisible(100, 10) << endl;
-    return 0;
+  cout << "100 es divisible por 10: " << Divisible(100, 10) << endl;
+  return 0;
 }

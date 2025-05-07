@@ -3,13 +3,12 @@
 
 using namespace std;
 
-int iif(bool condicion, int a, int b){
-    if (condicion)
-        return a;
-    return b;
+int Iif(bool condicion, int a, int b) {
+  if (condicion) return a;
+  return b;
 }
 
-int main() {//iif(a, b, c) == a ? b : c
-    cout << iif(1 > 2, 1, 2) << endl;
-    return 0;
+int main() {  // iif(a, b, c) == a ? b : c
+  cout << Iif(1 > 2, 1, 2) << endl;
+  return 0;
 }
