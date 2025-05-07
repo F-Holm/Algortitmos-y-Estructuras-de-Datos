@@ -3,6 +3,10 @@
 !/**/
 !*.*
 
+# Archivos de tecto de ejercicios
+RegistroVentas.txt
+Salida.txt
+
 # Archivos de compilación
 *.o
 *.obj
