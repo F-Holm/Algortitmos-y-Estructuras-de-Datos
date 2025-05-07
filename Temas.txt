@@ -5,8 +5,21 @@ Cosas fundamentales:
 - Variables primitivas y su tamaño
 - void
 - punteros
+- operador ternario -> condición ? true : false
+- memoria dinámicas
+- arreglos dinámicos
+- string
 
 Librerías y Funciones:
+
+#include <string>
+- string -> 16B (en 32bits) -> ptr inicio, ptr final, size reservado, size libre
+- str.clear()
+- empty
+- size
+- length
+- erase
+- insert
 
 #include <iostream>
 - cin
@@ -45,8 +58,24 @@ Librerías y Funciones:
 #include <ctime>
 - time(*p) -> retorna N° sw s desde 1-1-1970 -> Se recomienda nullptr para c++11 o más moderno, NULL para Borland (no existe nullptr)
 
+#include <cctype>
+- tolwr(char) -> TO_LOWER
+- toupper(char) -> TO_UPPER
+
 #include <cstring>
-- strcmp(c_str, c_str)
+- strcmp(c_str, c_str) == 0 -> iguales
+- strcpy(c_str destino, c_str src)
+- strcat(c_str, c_str)
+- strlen(c_str)
+- strstr(c_str, c_str) -> se fija si existe la cadena 2 en la cadena 1 -> devuelve puntero al inicio de la cadena 2 contenida en la uno. retorna NULL en c++ (seguramente retorne nullptr en c++11 en adelante)
+- strchr(c_str, chr) igual a strstr pero con char
+- strrchr(c_str, chr) igual a strchr pero de derecha a izquierda
+- strncpy(c_str destino, c_str src, n) copia n caracteres
+- strncat(c_str, c_str, n) concatena n caracteres
+- strncmp(c_str, c_str, n) copia n caracteres
+- strlwr(c_str) -> TO_LOWER -> borland
+- strupt(c_str) -> TO UPPER -> Borland
+- strrev(c_str) -> invierte cadena -> Borland
 
 #include <iomanip>
 - setprecision()
@@ -68,3 +97,5 @@ Palabras reservadas/operaciones:
 - typedef (typedef char str20[21];)
 - static (en funciones)
 - struct
+- new
+- delete
