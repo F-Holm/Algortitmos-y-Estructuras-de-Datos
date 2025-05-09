@@ -9,7 +9,8 @@ int main() {
   long double fact = 1, e = 1;
 
   cout << "Ingrese un numero natural (incluido el 0) y se calculará esa "
-          "cantidad de términos del numero irracional e." << endl;
+          "cantidad de términos del numero irracional e."
+       << endl;
 
   do {
     cin >> n;

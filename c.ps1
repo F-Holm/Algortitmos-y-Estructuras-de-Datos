@@ -1,6 +1,9 @@
 # Detener ejecución en caso de error
 $ErrorActionPreference = "Stop"
 
+# Formatear todos los archivos
+& "./f.ps1"
+
 # 🔧 Configuración
 $compilador = "clang++"       # También podés usar g++
 $optimizaciones = "-O3"       # -O0 para desactivar optimización

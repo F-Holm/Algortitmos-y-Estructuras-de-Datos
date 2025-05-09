@@ -2,6 +2,9 @@
 
 set -e
 
+# Formatear todos los archivos
+./f.sh
+
 # 🔧 Variables configurables
 compilador="clang++"         # Podés usar g++ si preferís
 optimizaciones="-O3"         # Sin optimización: -O0

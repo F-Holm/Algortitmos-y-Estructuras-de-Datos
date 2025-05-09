@@ -37,10 +37,14 @@ if (Test-Path $archivo) {
 using namespace std;
 
 int main() {
-    
+    ;
     return 0;
 }
 "@
     Set-Content -Path $archivo -Value $contenido
     Write-Host "Archivo '$archivo' creado con éxito."
 }
+
+
+# Formatear todos los archivos
+& "./f.ps1"

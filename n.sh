@@ -33,8 +33,11 @@ else
     echo "using namespace std;" >> "$archivo"
     echo "" >> "$archivo"
     echo "int main() {" >> "$archivo"
-    echo "    " >> "$archivo"
+    echo "    ;" >> "$archivo"
     echo "    return 0;" >> "$archivo"
     echo "}" >> "$archivo"
     echo "Archivo '$archivo' creado con éxito."
 fi
+
+# Formatear todos los archivos
+./f.sh
