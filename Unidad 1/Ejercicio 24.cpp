@@ -6,18 +6,19 @@
 #include <string>
 
 typedef char str20[21];
+typedef unsigned short ushort;
 
 using namespace std;
 
 struct Venta {
-  unsigned short cod_ven, cant;
+  ushort cod_ven, cant;
   str20 descrip;
   float precio_uni;
 };
 
 string DivisorHorizontal() {
   string str = "";
-  for (unsigned short i = 0; i < 65; i++) str += '-';
+  for (ushort i = 0; i < 65; i++) str += '-';
   return str;
 }
 
@@ -57,14 +58,19 @@ float GetPrecioTotalVenta(string venta) {
 
 int GetCodVen(string venta) { return stoi(venta.substr(0, 3)); }
 
-void LeerRegistroVentas(string* str, unsigned short size, ifstream& ventas) {
-  for (unsigned short i = 0; i < size && getline(ventas, str[i]); i++);
+void LeerRegistroVentas(string* str, ushort size, ifstream& ventas) {
+  for (ushort i = 0; i < size && getline(ventas, str[i]); i++);
 }
 
-void Reordenar(string* str_ventas, unsigned short size) {}
+// Sorting functions
+void Reordenar(string* str_ventas, ushort size);
+int CalcRun(ushort n);
+bool EsMayoQue(const string& a, const string& b);
+void InsertionSort(string* arr, ushort left, ushort right);
+void MergeSort(string arr[], ushort left, ushort mid, ushort right);
 
-void GuardarSalida(string* str_ventas, unsigned short size, ofstream& salida) {
-  unsigned short mejor_vendedor = 0, vendedor = 0;
+void GuardarSalida(string* str_ventas, ushort size, ofstream& salida) {
+  ushort mejor_vendedor = 0, vendedor = 0;
   float mas_vendido = 0.0f, total_vendedor = 0.0f, total = 0.0f;
 
   salida
@@ -74,7 +80,7 @@ void GuardarSalida(string* str_ventas, unsigned short size, ofstream& salida) {
       << '\n'
       << DivisorHorizontal() << "\n\n";
 
-  for (unsigned short i = 0; i < size; i++) {
+  for (ushort i = 0; i < size; i++) {
     int cod_ven = GetCodVen(str_ventas[i]);
     float precio_total_venta = GetPrecioTotalVenta(str_ventas[i]);
 
@@ -109,7 +115,7 @@ void GuardarSalida(string* str_ventas, unsigned short size, ofstream& salida) {
 
 int main() {
   bool condicion = true;
-  unsigned short codAnterior, contador = 0;
+  ushort codAnterior, contador = 0;
   Venta venta;
 
   ofstream ventas("RegistroVentas.txt");
@@ -138,4 +144,82 @@ int main() {
   lector_ventas.close();
   salida.close();
   return 0;
+}
+
+// TimSort
+void Reordenar(string* str_ventas, ushort size) {
+  if (size <= 1) return;
+
+  ushort RUN = CalcRun(size);
+
+  // Ordenar por insertion sort en bloques de tamaño RUN
+  for (ushort i = 0; i < size; i += RUN) {
+    ushort right = i + RUN - 1;
+    if (right >= size) right = size - 1;
+    InsertionSort(str_ventas, i, right);
+  }
+
+  // Combinar subarrays ordenados de tamaño RUN
+  for (int run_size = RUN; run_size < size; run_size *= 2) {
+    for (int left = 0; left < size; left += 2 * run_size) {
+      int mid = left + run_size - 1;
+      int right = left + 2 * run_size - 1;
+
+      if (mid >= size) continue;
+      if (right >= size) right = size - 1;
+
+      MergeSort(str_ventas, left, mid, right);
+    }
+  }
+}
+
+int CalcRun(ushort size) {
+  int r = 0;
+  while (size >= 32) {
+    r |= size & 1;
+    size >>= 1;
+  }
+  return size + r;
+}
+
+bool EsMayoQue(const std::string& a, const std::string& b) {
+  return a.substr(0, 3) > b.substr(0, 3);
+}
+
+void InsertionSort(string* arr, ushort left, ushort right) {
+  for (ushort i = left + 1; i <= right; i++) {
+    string temp = arr[i];
+    int j = i - 1;
+    while (j >= left && EsMayoQue(arr[j], temp)) {
+      arr[j + 1] = arr[j];
+      j--;
+    }
+    arr[j + 1] = temp;
+  }
+}
+
+void MergeSort(string arr[], ushort left, ushort mid, ushort right) {
+  ushort len1 = mid - left + 1;
+  ushort len2 = right - mid;
+
+  string* leftArr = new string[len1];
+  string* rightArr = new string[len2];
+
+  for (ushort i = 0; i < len1; i++) leftArr[i] = arr[left + i];
+  for (ushort i = 0; i < len2; i++) rightArr[i] = arr[mid + 1 + i];
+
+  ushort i = 0, j = 0, k = left;
+
+  while (i < len1 && j < len2) {
+    if (EsMayoQue(rightArr[j], leftArr[i]))
+      arr[k++] = leftArr[i++];
+    else
+      arr[k++] = rightArr[j++];
+  }
+
+  while (i < len1) arr[k++] = leftArr[i++];
+  while (j < len2) arr[k++] = rightArr[j++];
+
+  delete[] leftArr;
+  delete[] rightArr;
 }
