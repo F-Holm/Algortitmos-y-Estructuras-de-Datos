@@ -4,6 +4,7 @@
 
 - Linux (Ubuntu) | Windows
 - clang++ (pueden usarse otros compiladores pero se debe cambiar la variable "compilador" en los scripts)
+- clang-format
 - Bash | Powershell 7.0.0+
 ---
 ## Scripts
@@ -142,5 +143,5 @@ winget install --id BrechtSanders.WinLibs.POSIX.UCRT.LLVM --source winget
 sudo apt update
 ```
 ```bash
-sudo apt install clang
+sudo apt install clang clang-format
 ```
