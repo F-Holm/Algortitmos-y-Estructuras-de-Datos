@@ -16,6 +16,55 @@ struct Venta {
   float precio_uni;
 };
 
+string DivisorHorizontal();
+Venta CrearVenta();
+void EmitirVenta(Venta v, ofstream& ventas);
+int GetCodVen(string venta);
+float GetPrecioTotalVenta(string venta);
+void LeerRegistroVentas(string* str, ushort size, ifstream& ventas);
+
+// Sorting functions
+void Ordenar(string* str_ventas, ushort size);
+int CalcRun(ushort n);
+bool EsMayoQue(const string& a, const string& b);
+void InsertionSort(string* arr, ushort left, ushort right);
+void MergeSort(string* arr, ushort left, ushort mid, ushort right);
+
+void GuardarSalida(string* str_ventas, ushort size, ofstream& salida);
+
+int main() {
+  bool condicion = true;
+  ushort codAnterior, contador = 0;
+  Venta venta;
+
+  ofstream ventas("RegistroVentas.txt");
+
+  cout << "Ingrese las ventas:" << DivisorHorizontal() << "\n\n\n";
+
+  venta = CrearVenta();
+  ventas << fixed << setprecision(2);
+  while (venta.cod_ven != 0) {
+    EmitirVenta(venta, ventas);
+    contador++;
+    venta = CrearVenta();
+  }
+  ventas.close();
+
+  ifstream lector_ventas("RegistroVentas.txt");
+  ofstream salida("Salida.txt");
+
+  string* rv = new string[contador];
+
+  LeerRegistroVentas(rv, contador, lector_ventas);
+  Ordenar(rv, contador);
+  GuardarSalida(rv, contador, salida);
+
+  delete[] rv;
+  lector_ventas.close();
+  salida.close();
+  return 0;
+}
+
 string DivisorHorizontal() {
   string str = "";
   for (ushort i = 0; i < 65; i++) str += '-';
@@ -52,102 +101,18 @@ void EmitirVenta(Venta v, ofstream& ventas) {
          << v.precio_uni << '\n';
 }
 
-float GetPrecioTotalVenta(string venta) {
-  return stof(venta.substr(8, 4)) * stof(venta.substr(42, 8));
-}
-
-int GetCodVen(string venta) { return stoi(venta.substr(0, 3)); }
-
 void LeerRegistroVentas(string* str, ushort size, ifstream& ventas) {
   for (ushort i = 0; i < size && getline(ventas, str[i]); i++);
 }
 
-// Sorting functions
-void Reordenar(string* str_ventas, ushort size);
-int CalcRun(ushort n);
-bool EsMayoQue(const string& a, const string& b);
-void InsertionSort(string* arr, ushort left, ushort right);
-void MergeSort(string arr[], ushort left, ushort mid, ushort right);
+int GetCodVen(string venta) { return stoi(venta.substr(0, 3)); }
 
-void GuardarSalida(string* str_ventas, ushort size, ofstream& salida) {
-  ushort mejor_vendedor = 0, vendedor = 0;
-  float mas_vendido = 0.0f, total_vendedor = 0.0f, total = 0.0f;
-
-  salida
-      << "Registro de ventas\n\n"
-      << DivisorHorizontal()
-      << "\nVen  |  Cant  |      Descripción       |  Pre Unit  |  Prec Total"
-      << '\n'
-      << DivisorHorizontal() << "\n\n";
-
-  for (ushort i = 0; i < size; i++) {
-    int cod_ven = GetCodVen(str_ventas[i]);
-    float precio_total_venta = GetPrecioTotalVenta(str_ventas[i]);
-
-    if (vendedor == 0)
-      vendedor = cod_ven;
-    else if (cod_ven != vendedor) {
-      if (mas_vendido < total_vendedor) {
-        mas_vendido = total_vendedor;
-        mejor_vendedor = vendedor;
-      }
-      salida << DivisorHorizontal() << "\n\n";
-      total += total_vendedor;
-      total_vendedor = 0.0f;
-      vendedor = cod_ven;
-    }
-
-    total_vendedor += precio_total_venta;
-    salida << str_ventas[i] << "  |  " << fixed << setprecision(2)
-           << setfill('0') << setw(10) << precio_total_venta << endl;
-
-    if (i == size - 1)
-      if (mas_vendido < total_vendedor) {
-        mas_vendido = total_vendedor;
-        mejor_vendedor = vendedor;
-      }
-  }
-
-  salida << DivisorHorizontal() << "\n\n\nEl mayor vendedor es "
-         << mejor_vendedor << endl
-         << "Consiguió un total de " << mas_vendido;
-}
-
-int main() {
-  bool condicion = true;
-  ushort codAnterior, contador = 0;
-  Venta venta;
-
-  ofstream ventas("RegistroVentas.txt");
-
-  cout << "Ingrese las ventas:" << DivisorHorizontal() << "\n\n\n";
-
-  venta = CrearVenta();
-  ventas << fixed << setprecision(2);
-  while (venta.cod_ven != 0) {
-    EmitirVenta(venta, ventas);
-    contador++;
-    venta = CrearVenta();
-  }
-  ventas.close();
-
-  ifstream lector_ventas("RegistroVentas.txt");
-  ofstream salida("Salida.txt");
-
-  string* rv = new string[contador];
-
-  LeerRegistroVentas(rv, contador, lector_ventas);
-  Reordenar(rv, contador);
-  GuardarSalida(rv, contador, salida);
-
-  delete[] rv;
-  lector_ventas.close();
-  salida.close();
-  return 0;
+float GetPrecioTotalVenta(string venta) {
+  return stof(venta.substr(8, 4)) * stof(venta.substr(42, 8));
 }
 
 // TimSort
-void Reordenar(string* str_ventas, ushort size) {
+void Ordenar(string* str_ventas, ushort size) {
   if (size <= 1) return;
 
   ushort RUN = CalcRun(size);
@@ -198,7 +163,7 @@ void InsertionSort(string* arr, ushort left, ushort right) {
   }
 }
 
-void MergeSort(string arr[], ushort left, ushort mid, ushort right) {
+void MergeSort(string* arr, ushort left, ushort mid, ushort right) {
   ushort len1 = mid - left + 1;
   ushort len2 = right - mid;
 
@@ -222,4 +187,48 @@ void MergeSort(string arr[], ushort left, ushort mid, ushort right) {
 
   delete[] leftArr;
   delete[] rightArr;
+}
+
+void GuardarSalida(string* str_ventas, ushort size, ofstream& salida) {
+  ushort mejor_vendedor = 0, vendedor = 0;
+  float mas_vendido = 0.0f, total_vendedor = 0.0f, total = 0.0f;
+
+  salida
+      << "Registro de ventas\n\n"
+      << DivisorHorizontal()
+      << "\nVen  |  Cant  |      Descripción       |  Pre Unit  |  Prec Total"
+      << '\n'
+      << DivisorHorizontal() << "\n\n";
+
+  for (ushort i = 0; i < size; i++) {
+    int cod_ven = GetCodVen(str_ventas[i]);
+    float precio_total_venta = GetPrecioTotalVenta(str_ventas[i]);
+
+    if (vendedor == 0)
+      vendedor = cod_ven;
+    else if (cod_ven != vendedor) {
+      if (mas_vendido < total_vendedor) {
+        mas_vendido = total_vendedor;
+        mejor_vendedor = vendedor;
+      }
+      salida << DivisorHorizontal() << "\n\n";
+      total += total_vendedor;
+      total_vendedor = 0.0f;
+      vendedor = cod_ven;
+    }
+
+    total_vendedor += precio_total_venta;
+    salida << str_ventas[i] << "  |  " << fixed << setprecision(2)
+           << setfill('0') << setw(10) << precio_total_venta << endl;
+
+    if (i == size - 1)
+      if (mas_vendido < total_vendedor) {
+        mas_vendido = total_vendedor;
+        mejor_vendedor = vendedor;
+      }
+  }
+
+  salida << DivisorHorizontal() << "\n\n\nEl mayor vendedor es "
+         << mejor_vendedor << endl
+         << "Consiguió un total de " << mas_vendido;
 }
