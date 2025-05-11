@@ -26,7 +26,7 @@ else
   echo "Advertencia: f.sh no encontrado, se omite." >&2
 fi
 
-mkdir -p "$output_dir"
+#mkdir -p "$output_dir"
 
 # Buscar archivos .cpp
 mapfile -t cpp_files < <(find "$root_dir" -type f -name "*.cpp")
