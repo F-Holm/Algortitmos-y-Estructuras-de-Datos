@@ -13,11 +13,11 @@ using namespace std;
 typedef char str20[21];
 
 void GenerarTriangulo(unsigned short &a, unsigned short &b, unsigned short &c) {
-  const unsigned short MIN = 6, MAX = 10;
-  a = rand() % (MAX - MIN) + MIN;
-  b = rand() % (MAX - MIN) + MIN;
+  const unsigned short kMin = 6, kMax = 10;
+  a = rand() % (kMax - kMin) + kMin;
+  b = rand() % (kMax - kMin) + kMin;
   do {
-    c = rand() % (MAX - MIN) + MIN;
+    c = rand() % (kMax - kMin) + kMin;
   } while (c > a + b && b > a + c && a > b + c);
 
   cout << "Lados: a = " << a << "; b = " << b << "; c = " << c << endl;

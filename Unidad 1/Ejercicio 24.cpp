@@ -34,7 +34,7 @@ void GuardarSalida(string* str_ventas, ushort size, ofstream& salida);
 
 int main() {
   bool condicion = true;
-  ushort codAnterior, contador = 0;
+  ushort contador = 0;
   Venta venta;
 
   ofstream ventas("RegistroVentas.txt");
