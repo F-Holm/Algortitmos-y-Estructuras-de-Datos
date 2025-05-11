@@ -1,52 +1,112 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e
+# Valores por defecto
+root_dir="."                  # Directorio raíz de búsqueda
+output_dir="./build"          # Directorio de salida (no usado actualmente)
+compiler="clang++"            # Compilador por defecto
+flags="-Wextra"               # Flags de compilación por defecto
 
-# 🔧 Variables configurables
-compilador="clang++"         # Podés cambiar a g++ u otro
-optimizaciones="-O3"         # Para sin optimización: usar "-O0"
-debug=false                  # true para debug, false para release
-estandar="c++23"             # Si no se especifica, clang++ usa c++98 como default
+# Parseo de argumentos
+while getopts ":r:o:c:f:" opt; do
+  case $opt in
+    r) root_dir="$OPTARG" ;;
+    o) output_dir="$OPTARG" ;;
+    c) compiler="$OPTARG" ;;
+    f) flags="$OPTARG" ;;
+    \?) echo "Opcion invalida: -$OPTARG" >&2; exit 1 ;;
+    :) echo "La opcion -$OPTARG requiere un argumento." >&2; exit 1 ;;
+  esac
+done
+shift $((OPTIND -1))
 
-# 🧠 Ajustes según debug
-extra_flags=""
-if [ "$debug" = true ]; then
-    extra_flags="-g"  # Genera información de depuración
-    optimizaciones="-O0"  # Generalmente se combina -g con -O0
+# Ejecutar script auxiliar f.sh
+if [[ -f "./f.sh" ]]; then
+  source ./f.sh
+else
+  echo "Advertencia: f.sh no encontrado, se omite." >&2
 fi
 
-ROOT_DIR=$(pwd)
-FAILED=()
+mkdir -p "$output_dir"
 
-echo "🔍 Buscando archivos .cpp..."
-mapfile -t CPP_FILES < <(find "$ROOT_DIR" -type f -name "*.cpp")
+# Buscar archivos .cpp
+mapfile -t cpp_files < <(find "$root_dir" -type f -name "*.cpp")
+total=${#cpp_files[@]}
+count=0
 
-echo "🛠 Compilando con $compilador, estándar $estandar, optimización $optimizaciones..."
+# Resultados
+count_success=0
+count_warning=0
+count_error=0
 
-for SRC_FILE in "${CPP_FILES[@]}"; do
-    REL_DIR=$(dirname "$SRC_FILE")
-    EXEC_NAME=$(basename "$SRC_FILE" .cpp)
-    OUT_PATH="$REL_DIR/$EXEC_NAME"
+# Archivos temporales para almacenar salida
+tmp_dir=$(mktemp -d)
+trap 'rm -rf "$tmp_dir"' EXIT
 
-    echo "🔧 Compilando $SRC_FILE..."
-    if "$compilador" -std="$estandar" $optimizaciones $extra_flags "$SRC_FILE" -o "$OUT_PATH"; then
-        echo "✅ Compilado: $OUT_PATH"
-    else
-        echo "❌ Error al compilar: $SRC_FILE"
-        FAILED+=("$SRC_FILE")
-    fi
+# Compilar archivos en paralelo sin "parallel"
+max_jobs=4  # Cambiar esto para ajustar el número de procesos simultáneos
+running_jobs=0
+
+compile() {
+  local file="$1"
+  local exe_name="${file%.cpp}"
+  local log_file="$tmp_dir/$(basename "$file").log"
+
+  "$compiler" $flags -o "$exe_name" "$file" &> "$log_file"
+  local code=$?
+
+  if (( code != 0 )); then
+    echo "error;$file" >> "$tmp_dir/resultados"
+  elif grep -qi "warning:" "$log_file"; then
+    echo "warning;$file" >> "$tmp_dir/resultados"
+  else
+    echo "success;$file" >> "$tmp_dir/resultados"
+  fi
+}
+
+for file in "${cpp_files[@]}"; do
+  compile "$file" &
+  ((running_jobs+=1))
+
+  if (( running_jobs >= max_jobs )); then
+    wait -n
+    ((running_jobs-=1))
+  fi
+
+  ((count++))
+  percent=$(( count * 100 / total ))
+  echo -ne "Compilando... $count/$total ($percent%)\r"
 done
 
-echo ""
-if [ ${#FAILED[@]} -ne 0 ]; then
-    echo "⚠️ Fallaron los siguientes archivos:"
-    for F in "${FAILED[@]}"; do
-        echo "   - $F"
-    done
-else
-    echo "🎉 Todos los archivos se compilaron correctamente."
+wait
+
+echo -e "\n\nResultados de compilación:"
+
+# Analizar resultados
+if [[ -f "$tmp_dir/resultados" ]]; then
+  while IFS=';' read -r status file; do
+    log_file="$tmp_dir/$(basename "$file").log"
+    case $status in
+      success)
+        ((count_success++))
+        ;;
+      warning)
+        ((count_warning++))
+        echo "Advertencias en $file:"
+        cat "$log_file"
+        echo "-----"
+        ;;
+      error)
+        ((count_error++))
+        echo "Errores en $file:"
+        cat "$log_file"
+        echo "-----"
+        ;;
+    esac
+  done < "$tmp_dir/resultados"
 fi
 
-echo "🧹 Limpiando archivos intermedios..."
-find "$ROOT_DIR" -type f -name "*.o" -delete
-echo "✅ Limpieza completada."
+# Mostrar resumen
+echo "Resumen final:"
+echo "  Compilaciones exitosas (sin advertencias): $count_success"
+echo "  Compilaciones con advertencias           : $count_warning"
+echo "  Compilaciones fallidas (errores)         : $count_error"

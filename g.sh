@@ -1,2 +1,2 @@
 git clean -Xfd
-./g.sh
+./f.sh
