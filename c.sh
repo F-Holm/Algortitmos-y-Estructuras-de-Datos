@@ -39,6 +39,7 @@ fi
 
 # 🛠 Compilar
 echo "🔧 Compilando con $compilador -std=$estandar $optimizaciones $extra_flags..."
+# "-finput-charset=utf-8" "-DUNICODE" "-fexec-charset=utf-8"
 if "$compilador" -std="$estandar" $optimizaciones $extra_flags "$archivo" -o "$salida"; then
     echo "✅ Compilación exitosa. Ejecutable: $salida"
 

@@ -1,65 +1,88 @@
-$compilador = "clang++"
-$optimizaciones = "-O3"
-$debug = $false
-$estandar = "c++23"
+param (
+    [string]$DirectorioRaiz  = (Get-Location),
+    [string]$DirectorioSalida = (Get-Location),
+    [string]$Compilador      = "clang++",
+    [string]$Flags           = "-Wextra"# "-Wall -Wextra"
+)
 
-$extra_flags = ""
-if ($debug) {
-    $extra_flags = "-g"
-    $optimizaciones = "-O0"
-}
+# Llamar al script f.ps1 después de los parámetros iniciales
+. ./f.ps1
 
-$ROOT_DIR = Get-Location
-$FAILED = @()
-$JOBS = @()
+# Obtener la lista de archivos .cpp
+$archivos = Get-ChildItem -Path $DirectorioRaiz -Recurse -Filter *.cpp
 
-Write-Host "🔍 Buscando archivos .cpp..."
-$CPP_FILES = Get-ChildItem -Path $ROOT_DIR -Recurse -Filter "*.cpp" | Select-Object -ExpandProperty FullName
+# Crear un job para compilar cada archivo
+$jobs = @()
+foreach ($archivo in $archivos) {
+    $rutaCpp = $archivo.FullName
 
-Write-Host "🛠 Compilando con $compilador, estándar $estandar, optimización $optimizaciones..."
+    $jobs += Start-Job -ScriptBlock {
+        param ($ruta, $comp, $flags)
+        # Construir la ruta de salida .exe en la misma carpeta que el .cpp
+        $exeSalida = [System.IO.Path]::ChangeExtension($ruta, ".exe")
 
-foreach ($SRC_FILE in $CPP_FILES) {
-    $JOBS += Start-Job -ScriptBlock {
-        param($SRC_FILE, $compilador, $estandar, $optimizaciones, $extra_flags)
+        # Ejecutar clang++ y capturar salida y código de error
+        $salida = & $comp $flags "-o" $exeSalida $ruta 2>&1
+        $codigo = $LASTEXITCODE
 
-        $REL_DIR = [System.IO.Path]::GetDirectoryName($SRC_FILE)
-        $EXEC_NAME = [System.IO.Path]::GetFileNameWithoutExtension($SRC_FILE)
-        $OUT_PATH = "$REL_DIR\$EXEC_NAME.exe"
-
-        try {
-            & $compilador "-std=$estandar" $optimizaciones $extra_flags $SRC_FILE "-o" $OUT_PATH
-            return "OK: $OUT_PATH"
-        } catch {
-            return "FAIL: $SRC_FILE"
+        # Devolver un objeto con la información
+        [PSCustomObject]@{
+            Archivo   = $ruta
+            Salida    = $salida -join "`n"
+            ExitCode  = $codigo
         }
-    } -ArgumentList $SRC_FILE, $compilador, $estandar, $optimizaciones, $extra_flags
+    } -ArgumentList $rutaCpp, $Compilador, $Flags
 }
 
-# Esperar a que todos los trabajos terminen
-$JOBS | ForEach-Object { $_ | Wait-Job }
+# Barra de progreso global mientras los jobs están en ejecución
+$total = $jobs.Count
+while ($true) {
+    $hechos = ($jobs | Where-Object { $_.State -eq 'Completed' -or $_.State -eq 'Failed' }).Count
+    $porcentaje = [int]($hechos * 100 / $total)
+    Write-Progress -Activity "Compilando archivos C++" `
+                   -Status "Procesados $hechos de $total archivos" `
+                   -PercentComplete $porcentaje
 
-# Recolectar resultados
-foreach ($job in $JOBS) {
-    $result = Receive-Job $job
-    if ($result -like "FAIL:*") {
-        $FAILED += $result.Substring(6)
-        Write-Host "❌ Error al compilar: $($result.Substring(6))"
+    if ($hechos -ge $total) { break }
+    Start-Sleep -Milliseconds 200
+}
+
+# Recibir salida de cada job y eliminar el job
+$results = foreach ($job in $jobs) {
+    $res = Receive-Job $job
+    Remove-Job $job -Force
+    $res
+}
+
+# Procesar cada resultado
+$sinAdvertencias = 0
+$conAdvertencias = 0
+$conErrores     = 0
+
+foreach ($res in $results) {
+    $ruta   = $res.Archivo
+    $salida = $res.Salida
+    $exit   = $res.ExitCode
+
+    if ($salida) {
+        Write-Host "Archivo: $ruta"
+        Write-Host $salida
+        Write-Host "-----"
     } else {
-        Write-Host "✅ Compilado: $($result.Substring(4))"
+        # Write-Host "Compilado exitosamente sin advertencias."
     }
-    Remove-Job $job
+
+    if ($exit -ne 0) {
+        $conErrores++
+    } elseif ($salida -match "(?i)warning") {
+        $conAdvertencias++
+    } else {
+        $sinAdvertencias++
+    }
 }
 
-Write-Host ""
-if ($FAILED.Count -ne 0) {
-    Write-Host "⚠️ Fallaron los siguientes archivos:"
-    foreach ($F in $FAILED) {
-        Write-Host "   - $F"
-    }
-} else {
-    Write-Host "🎉 Todos los archivos se compilaron correctamente."
-}
-
-Write-Host "🧹 Limpiando archivos intermedios..."
-Get-ChildItem -Path $ROOT_DIR -Recurse -Filter "*.o" | Remove-Item
-Write-Host "✅ Limpieza completada."
+# Resumen final
+Write-Host "Resumen:"
+Write-Host "  Exitosos (sin advertencias): $sinAdvertencias"
+Write-Host "  Con advertencias           : $conAdvertencias"
+Write-Host "  Fallidos (con errores)     : $conErrores"

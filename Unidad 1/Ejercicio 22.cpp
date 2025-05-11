@@ -46,7 +46,7 @@ void Responder(unsigned short &perimetro, char &tipo) {
 
 void Verificar(str20 alumno, unsigned short perimetro, char tipo,
                unsigned short perimetroAlumno, char tipoAlumno,
-               unsigned short rCorrectas, unsigned short rIncorrectas) {
+               unsigned short &rCorrectas, unsigned short &rIncorrectas) {
   if (tipo != tipoAlumno || perimetro != perimetroAlumno) {
     cout << "RESPUESTA INCORRECTA\n";
     cout << "La respuesta correcta es:\n\tperimetro = " << perimetro
@@ -63,7 +63,7 @@ void Verificar(str20 alumno, unsigned short perimetro, char tipo,
 int main() {
   srand(time(NULL));
   str20 alumno;
-  unsigned short rCorrectas = 0, rIncorrectas = 0;
+  unsigned short respuestas_correctas = 0, respuestas_incorrectas = 0;
   cout << "Ingrese su nombre (" << CENTINELA << " = SALIR)" << endl;
   cin.get(alumno, 21);
 
@@ -73,15 +73,15 @@ int main() {
     GenerarTriangulo(a, b, c);
     Calcular(a, b, c, perimetro, tipo);
     Responder(perimetroAlumno, tipoAlumno);
-    Verificar(alumno, perimetro, tipo, perimetroAlumno, tipoAlumno, rCorrectas,
-              rIncorrectas);
+    Verificar(alumno, perimetro, tipo, perimetroAlumno, tipoAlumno,
+              respuestas_correctas, respuestas_incorrectas);
 
     cout << "Ingrese su nombre (" << CENTINELA << " = SALIR)" << endl;
     cin.ignore();
     cin.get(alumno, 21);
   }
 
-  cout << "Respuestas correctas: " << rCorrectas << endl;
-  cout << "Respuestas incorrectas: " << rIncorrectas << endl;
+  cout << "Respuestas correctas: " << respuestas_correctas << endl;
+  cout << "Respuestas incorrectas: " << respuestas_incorrectas << endl;
   return 0;
 }

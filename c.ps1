@@ -11,7 +11,7 @@ $debug = $true                # $true para debug, $false para release
 $estandar = "c++23"           # Clang++ defaulta a C++98 si no se especifica
 
 # ⚙️ Ajustes según modo debug
-$extra_flags = ""
+$extra_flags = "-Wextra"
 if ($debug) {
     $extra_flags = "-g"
     $optimizaciones = "-O0"
@@ -45,7 +45,8 @@ if (-not (Test-Path $archivo)) {
 
 # 🛠 Compilar
 Write-Host "🔧 Compilando con $compilador -std=$estandar $optimizaciones $extra_flags..."
-& $compilador "-std=$estandar" "-finput-charset=utf-8" "-DUNICODE" "-fexec-charset=utf-8" $optimizaciones $extra_flags "$archivo" -o "$salida"
+# "-finput-charset=utf-8" "-DUNICODE" "-fexec-charset=utf-8"
+& $compilador "-std=$estandar" $optimizaciones $extra_flags "$archivo" -o "$salida"
 
 # ✅ Verificar si la compilación fue exitosa
 if ($LASTEXITCODE -eq 0) {

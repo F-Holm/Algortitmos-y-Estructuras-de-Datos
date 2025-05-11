@@ -28,7 +28,7 @@ void Ingresar(int &a, int &b, int &c) {
   cin >> c;
 }
 
-void ActualizarMinMax(int a, int b, int c, int &min, int &max) {
+void ActualizarMinMax(int a, int c, int &min, int &max) {
   if (max < a) max = a;
   if (min > c) min = c;
 }
@@ -44,7 +44,7 @@ int main() {
     Ingresar(a, b, c);
     Ordenar(a, b, c);
     Mostrar(a, b, c);
-    ActualizarMinMax(a, b, c, min, max);
+    ActualizarMinMax(a, c, min, max);
     cout << endl;
   }
 
