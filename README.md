@@ -1,158 +1,146 @@
 # Algoritmos y Estructuras de Datos
+
+Repositorio para practicar y automatizar tareas relacionadas con algoritmos y estructuras de datos en C++, utilizando scripts compatibles con Linux y Windows.
+
 ---
+
 ## Requisitos
 
-- Linux (Ubuntu) | Windows
-- clang++ (pueden usarse otros compiladores pero se debe cambiar la variable "compilador" en los scripts)
-- clang-format
-- Bash | Powershell 7.0.0+
----
-## Scripts
-
-### Crear archivo C++
-
-#### Windows
-```bash
-./n.ps1
-```
-#### Linux
-```bash
-./n.sh
-```
-
-### Compilar archivo C++
-
-#### Windows
-```bash
-./c.ps1
-```
-#### Linux
-```bash
-./c.sh
-```
-
-### Ejecutar
-
-#### Windows
-```bash
-./r.ps1
-```
-#### Linux
-```bash
-./r.sh
-```
-
-### Borrar ejecutables y otros archivos del .gitignore
-
-#### Windows
-```bash
-./g.ps1
-```
-#### Linux
-```bash
-./g.sh
-```
-
-### Compilar todos los archivos ".cpp"
-
-#### Windows
-```bash
-./build.ps1
-```
-#### Linux
-```bash
-./build.sh
-```
-
-### Formatear todos los archivos (no incluye subdirectorios)
-
-#### Windows
-```bash
-./f.ps1
-```
-#### Linux
-```bash
-./f.sh
-```
----
-## Más Scripts
-
-### Tanto en la creación, compilación y ejecución de archivos se puede usar el siguiente script:
-
-#### Windows
-```bash
-./c.ps1 ${unidad} ${ejercicio}
-```
-#### Linux
-```bash
-./c.sh ${unidad} ${ejercicio}
-```
-
-#### Por ejemplo, para crear el ejercicio 1 de la unidad 1 hacés lo siguiente:
-
-#### Windows
-```bash
-./n.ps1 1 1
-```
-#### Linux
-```bash
-./n.sh 1 1
-```
-
-### Cuando compilás, se ejecuta automáticamente. Si no querés esto le tenés que pasar cualquier valor extra sin espacios:
-
-#### Windows
-```bash
-./n.ps1 k
-```
-#### Linux
-```bash
-./n.sh k
-```
-
-#### También se puede hacer así:
-
-#### Windows
-```bash
-./n.ps1 1 1 k
-```
-#### Linux
-```bash
-./n.sh 1 1 k
-```
+- Linux (Ubuntu) o Windows
+- `clang++` (puede usarse otro compilador cambiando la variable `compilador` en los scripts)
+- `clang-format`
+- Bash o PowerShell 7.0.0+
 
 ---
 
-## Leer PDFs
+## Instalación
 
-### Se puede utilizar la extensión de VS Code:
-#### Windows
-```bash
-bashtomoki1207.pdf
-```
-#### Linux
-```bash
-tomoki1207.pdf
-```
-
----
-
-# Instalación
-
-## Windows
+### Windows
 
 ```bash
 winget install --id Microsoft.PowerShell --source winget
-```
-```bash
 winget install --id BrechtSanders.WinLibs.POSIX.UCRT.LLVM --source winget
 ```
 
-## Linux (Ubuntu)
+### Linux (Ubuntu)
 
 ```bash
 sudo apt update
-```
-```bash
 sudo apt install clang clang-format
 ```
+
+---
+
+## Uso de Scripts
+
+### Crear archivo C++
+
+Crea un archivo `.cpp` en una carpeta correspondiente a una unidad y ejercicio.
+
+```bash
+./n.ps1 <unidad> <ejercicio> [k]
+./n.sh  <unidad> <ejercicio> [k]
+```
+
+Parámetros:
+- `<unidad>`: número de unidad (ej. 1)
+- `<ejercicio>`: número de ejercicio (ej. 2)
+- `[k]`: valor opcional para evitar la ejecución automática luego de compilar
+
+| Sistema | Script |
+|--------|--------|
+| Windows | `./n.ps1` |
+| Linux   | `./n.sh`  |
+
+---
+
+### Compilar archivo C++
+
+Compila el archivo `.cpp` del ejercicio seleccionado.
+
+```bash
+./c.ps1 <unidad> <ejercicio> [k]
+./c.sh  <unidad> <ejercicio> [k]
+```
+
+> Si se omiten los parámetros, se compila el archivo actual.
+
+---
+
+### Ejecutar programa compilado
+
+```bash
+./r.ps1
+./r.sh
+```
+
+---
+
+### Borrar archivos del `.gitignore`
+
+Elimina ejecutables y archivos temporales listados en `.gitignore`.
+
+```bash
+./g.ps1
+./g.sh
+```
+
+---
+
+### Compilar todos los archivos `.cpp`
+
+Compila todos los archivos `.cpp` del proyecto.
+
+```bash
+./build.ps1
+./build.sh
+```
+
+---
+
+### Formatear archivos `.cpp`
+
+Formatea todos los archivos `.cpp` del directorio actual (no incluye subdirectorios).
+
+```bash
+./f.ps1
+./f.sh
+```
+
+---
+
+## Visualizar PDFs de apoyo
+
+Este proyecto utiliza archivos PDF accesibles desde el explorador de archivos o el editor de texto.
+
+| Sistema | Archivo sugerido |
+|--------|-------------------|
+| Windows | `bashtomoki1207.pdf` |
+| Linux   | `tomoki1207.pdf`     |
+
+---
+
+## Ejemplos de uso
+
+Crear el ejercicio 1 de la unidad 1:
+
+```bash
+./n.ps1 1 1      # Windows
+./n.sh 1 1       # Linux
+```
+
+Compilar y ejecutar automáticamente:
+
+```bash
+./c.ps1 1 1      # Windows
+./c.sh 1 1       # Linux
+```
+
+Evitar la ejecución automática:
+
+```bash
+./n.ps1 1 1 k    # Windows
+./n.sh 1 1 k     # Linux
+```
+
+---
