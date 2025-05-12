@@ -9,8 +9,6 @@
 
 ---
 
----
-
 ## Instalación
 
 ### Windows
@@ -30,6 +28,8 @@ sudo apt update
 ```bash
 sudo apt install clang clang-format
 ```
+
+---
 
 ## Scripts
 
