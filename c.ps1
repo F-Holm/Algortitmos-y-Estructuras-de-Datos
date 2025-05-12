@@ -1,3 +1,5 @@
+#!/usr/bin/env pwsh
+
 # Detener ejecución en caso de error
 $ErrorActionPreference = "Stop"
 

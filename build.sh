@@ -2,10 +2,14 @@
 
 # Configuración
 compiler="clang++"
-build_type="release" # Tipo de build: debug/release
 cpp_standard="-std=c++23"
 optimization="-O3"
-extra_flags="-Wextra"  # Flags de compilación
+extra_info="-Wextra"
+
+# debug flags:
+#mode="-g -O0 -DDEBUG"
+# release flags:
+mode="-DNDEBUG"
 
 # Ejecutar script de formateo f.sh
 source ./f.sh
@@ -33,7 +37,7 @@ compile() {
   local exe_name="${file%.cpp}"
   local log_file="$tmp_dir/$(basename "$file").log"
 
-  "$compiler" $cpp_standard $optimization $extra_flags -o "$exe_name" "$file" &> "$log_file"
+  "$compiler" $cpp_standard $optimization $extra_info $mode -o "$exe_name" "$file" &> "$log_file"
   local code=$?
 
   if (( code != 0 )); then
@@ -75,13 +79,13 @@ if [[ -f "$tmp_dir/resultados" ]]; then
         ((count_warning++))
         echo "Advertencias en $file:"
         cat "$log_file"
-        echo "-----"
+        echo "---------------"
         ;;
       error)
         ((count_error++))
         echo "Errores en $file:"
         cat "$log_file"
-        echo "-----"
+        echo "---------------"
         ;;
     esac
   done < "$tmp_dir/resultados"

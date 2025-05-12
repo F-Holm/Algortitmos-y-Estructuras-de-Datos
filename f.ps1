@@ -1,3 +1,5 @@
+#!/usr/bin/env pwsh
+
 foreach ($n in 1..5) {
     $dir = ".\Unidad $n"
 

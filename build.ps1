@@ -1,15 +1,20 @@
-param (
-    [string]$DirectorioRaiz  = (Get-Location),
-    [string]$DirectorioSalida = (Get-Location),
-    [string]$Compilador      = "clang++",
-    [string]$Flags           = "-Wextra"# "-Wall -Wextra"
-)
+#!/usr/bin/env pwsh
+
+$Compilador       = "clang++"
+$Flags            = "-Wextra"# "-Wall -Wextra"
+$CppStandard      = "-std=c++23"
+$Optimization     = "-O3"
+
+# debug flags:
+#$Mode = @("-g", "-O0", "-DDEBUG")
+# release flags:
+$Mode = "-DNDEBUG"
 
 # Llamar al script f.ps1 después de los parámetros iniciales
 . ./f.ps1
 
 # Obtener la lista de archivos .cpp
-$archivos = Get-ChildItem -Path $DirectorioRaiz -Recurse -Filter *.cpp
+$archivos = Get-ChildItem -Path "." -Recurse -Filter *.cpp
 
 # Crear un job para compilar cada archivo
 $jobs = @()
@@ -17,12 +22,12 @@ foreach ($archivo in $archivos) {
     $rutaCpp = $archivo.FullName
 
     $jobs += Start-Job -ScriptBlock {
-        param ($ruta, $comp, $flags)
+        param ($ruta, $comp, $flags, $std, $opt, $modo)
         # Construir la ruta de salida .exe en la misma carpeta que el .cpp
         $exeSalida = [System.IO.Path]::ChangeExtension($ruta, ".exe")
 
         # Ejecutar clang++ y capturar salida y código de error
-        $salida = & $comp $flags "-o" $exeSalida $ruta 2>&1
+        $salida = & $comp $std $opt $flags $modo  "-o" $exeSalida $ruta 2>&1
         $codigo = $LASTEXITCODE
 
         # Devolver un objeto con la información
@@ -31,7 +36,7 @@ foreach ($archivo in $archivos) {
             Salida    = $salida -join "`n"
             ExitCode  = $codigo
         }
-    } -ArgumentList $rutaCpp, $Compilador, $Flags
+    } -ArgumentList $rutaCpp, $Compilador, $Flags, $CppStandard, $Optimization, $Modo
 }
 
 # Barra de progreso global mientras los jobs están en ejecución
@@ -67,7 +72,7 @@ foreach ($res in $results) {
     if ($salida) {
         Write-Host "Archivo: $ruta"
         Write-Host $salida
-        Write-Host "-----"
+        Write-Host "---------------"
     } else {
         # Write-Host "Compilado exitosamente sin advertencias."
     }
@@ -83,6 +88,6 @@ foreach ($res in $results) {
 
 # Resumen final
 Write-Host "Resumen:"
-Write-Host "  Exitosos (sin advertencias): $sinAdvertencias"
-Write-Host "  Con advertencias           : $conAdvertencias"
-Write-Host "  Fallidos (con errores)     : $conErrores"
+Write-Host "  Exitosos         : $sinAdvertencias"
+Write-Host "  Con advertencias : $conAdvertencias"
+Write-Host "  Fallidos         : $conErrores"

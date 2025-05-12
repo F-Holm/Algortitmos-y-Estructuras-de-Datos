@@ -1,3 +1,5 @@
+#!/usr/bin/env pwsh
+
 # Leer unidad y ejercicio desde los argumentos si están presentes
 param (
     [string]$unidad,
