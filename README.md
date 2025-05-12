@@ -63,6 +63,17 @@
 ```bash
 ./build.sh
 ```
+
+### Formatear todos los archivos (no incluye subdirectorios)
+
+#### Windows
+```bash
+./f.ps1
+```
+#### Linux
+```bash
+./f.sh
+```
 ---
 ## Más Scripts
 
