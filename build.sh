@@ -1,35 +1,17 @@
 #!/usr/bin/env bash
 
-# Valores por defecto
-root_dir="."                  # Directorio raíz de búsqueda
-output_dir="./build"          # Directorio de salida (no usado actualmente)
-compiler="clang++"            # Compilador por defecto
-flags="-Wextra"               # Flags de compilación por defecto
+# Configuración
+compiler="clang++"
+build_type="release" # Tipo de build: debug/release
+cpp_standard="-std=c++23"
+optimization="-O3"
+extra_flags="-Wextra"  # Flags de compilación
 
-# Parseo de argumentos
-while getopts ":r:o:c:f:" opt; do
-  case $opt in
-    r) root_dir="$OPTARG" ;;
-    o) output_dir="$OPTARG" ;;
-    c) compiler="$OPTARG" ;;
-    f) flags="$OPTARG" ;;
-    \?) echo "Opcion invalida: -$OPTARG" >&2; exit 1 ;;
-    :) echo "La opcion -$OPTARG requiere un argumento." >&2; exit 1 ;;
-  esac
-done
-shift $((OPTIND -1))
-
-# Ejecutar script auxiliar f.sh
-if [[ -f "./f.sh" ]]; then
-  source ./f.sh
-else
-  echo "Advertencia: f.sh no encontrado, se omite." >&2
-fi
-
-#mkdir -p "$output_dir"
+# Ejecutar script de formateo f.sh
+source ./f.sh
 
 # Buscar archivos .cpp
-mapfile -t cpp_files < <(find "$root_dir" -type f -name "*.cpp")
+mapfile -t cpp_files < <(find "." -type f -name "*.cpp")
 total=${#cpp_files[@]}
 count=0
 
@@ -43,7 +25,7 @@ tmp_dir=$(mktemp -d)
 trap 'rm -rf "$tmp_dir"' EXIT
 
 # Compilar archivos en paralelo sin "parallel"
-max_jobs=4  # Cambiar esto para ajustar el número de procesos simultáneos
+max_jobs=100000
 running_jobs=0
 
 compile() {
@@ -51,7 +33,7 @@ compile() {
   local exe_name="${file%.cpp}"
   local log_file="$tmp_dir/$(basename "$file").log"
 
-  "$compiler" $flags -o "$exe_name" "$file" &> "$log_file"
+  "$compiler" $cpp_standard $optimization $extra_flags -o "$exe_name" "$file" &> "$log_file"
   local code=$?
 
   if (( code != 0 )); then
@@ -107,6 +89,6 @@ fi
 
 # Mostrar resumen
 echo "Resumen final:"
-echo "  Compilaciones exitosas (sin advertencias): $count_success"
-echo "  Compilaciones con advertencias           : $count_warning"
-echo "  Compilaciones fallidas (errores)         : $count_error"
+echo "  Compilaciones exitosas         : $count_success"
+echo "  Compilaciones con advertencias : $count_warning"
+echo "  Compilaciones fallidas         : $count_error"
