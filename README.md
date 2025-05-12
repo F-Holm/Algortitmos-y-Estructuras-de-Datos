@@ -2,11 +2,35 @@
 ---
 ## Requisitos
 
-- Linux (Ubuntu) | Windows
+- Linux (Ubuntu) o Windows
 - clang++ (pueden usarse otros compiladores pero se debe cambiar la variable "compilador" en los scripts)
 - clang-format
-- Bash | Powershell 7.0.0+
+- Bash o Powershell 7.0.0+
+
 ---
+
+---
+
+## Instalación
+
+### Windows
+
+```bash
+winget install --id Microsoft.PowerShell --source winget
+```
+```bash
+winget install --id BrechtSanders.WinLibs.POSIX.UCRT.LLVM --source winget
+```
+
+### Linux (Ubuntu)
+
+```bash
+sudo apt update
+```
+```bash
+sudo apt install clang clang-format
+```
+
 ## Scripts
 
 ### Crear archivo C++
@@ -133,26 +157,4 @@ bashtomoki1207.pdf
 #### Linux
 ```bash
 tomoki1207.pdf
-```
-
----
-
-# Instalación
-
-## Windows
-
-```bash
-winget install --id Microsoft.PowerShell --source winget
-```
-```bash
-winget install --id BrechtSanders.WinLibs.POSIX.UCRT.LLVM --source winget
-```
-
-## Linux (Ubuntu)
-
-```bash
-sudo apt update
-```
-```bash
-sudo apt install clang clang-format
 ```
