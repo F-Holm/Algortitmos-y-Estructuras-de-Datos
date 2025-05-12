@@ -1,146 +1,158 @@
 # Algoritmos y Estructuras de Datos
-
-Repositorio para practicar y automatizar tareas relacionadas con algoritmos y estructuras de datos en C++, utilizando scripts compatibles con Linux y Windows.
-
 ---
-
 ## Requisitos
 
-- Linux (Ubuntu) o Windows
-- `clang++` (puede usarse otro compilador cambiando la variable `compilador` en los scripts)
-- `clang-format`
-- Bash o PowerShell 7.0.0+
-
+- Linux (Ubuntu) | Windows
+- clang++ (pueden usarse otros compiladores pero se debe cambiar la variable "compilador" en los scripts)
+- clang-format
+- Bash | Powershell 7.0.0+
 ---
-
-## Instalación
-
-### Windows
-
-```bash
-winget install --id Microsoft.PowerShell --source winget
-winget install --id BrechtSanders.WinLibs.POSIX.UCRT.LLVM --source winget
-```
-
-### Linux (Ubuntu)
-
-```bash
-sudo apt update
-sudo apt install clang clang-format
-```
-
----
-
-## Uso de Scripts
+## Scripts
 
 ### Crear archivo C++
 
-Crea un archivo `.cpp` en una carpeta correspondiente a una unidad y ejercicio.
-
+#### Windows
 ```bash
-./n.ps1 <unidad> <ejercicio> [k]
-./n.sh  <unidad> <ejercicio> [k]
+./n.ps1
 ```
-
-Parámetros:
-- `<unidad>`: número de unidad (ej. 1)
-- `<ejercicio>`: número de ejercicio (ej. 2)
-- `[k]`: valor opcional para evitar la ejecución automática luego de compilar
-
-| Sistema | Script |
-|--------|--------|
-| Windows | `./n.ps1` |
-| Linux   | `./n.sh`  |
-
----
+#### Linux
+```bash
+./n.sh
+```
 
 ### Compilar archivo C++
 
-Compila el archivo `.cpp` del ejercicio seleccionado.
-
+#### Windows
 ```bash
-./c.ps1 <unidad> <ejercicio> [k]
-./c.sh  <unidad> <ejercicio> [k]
+./c.ps1
+```
+#### Linux
+```bash
+./c.sh
 ```
 
-> Si se omiten los parámetros, se compila el archivo actual.
+### Ejecutar
 
----
-
-### Ejecutar programa compilado
-
+#### Windows
 ```bash
 ./r.ps1
+```
+#### Linux
+```bash
 ./r.sh
 ```
 
----
+### Borrar ejecutables y otros archivos del .gitignore
 
-### Borrar archivos del `.gitignore`
-
-Elimina ejecutables y archivos temporales listados en `.gitignore`.
-
+#### Windows
 ```bash
 ./g.ps1
+```
+#### Linux
+```bash
 ./g.sh
 ```
 
----
+### Compilar todos los archivos ".cpp"
 
-### Compilar todos los archivos `.cpp`
-
-Compila todos los archivos `.cpp` del proyecto.
-
+#### Windows
 ```bash
 ./build.ps1
+```
+#### Linux
+```bash
 ./build.sh
 ```
 
----
+### Formatear todos los archivos (no incluye subdirectorios)
 
-### Formatear archivos `.cpp`
-
-Formatea todos los archivos `.cpp` del directorio actual (no incluye subdirectorios).
-
+#### Windows
 ```bash
 ./f.ps1
+```
+#### Linux
+```bash
 ./f.sh
 ```
+---
+## Más Scripts
+
+### Tanto en la creación, compilación y ejecución de archivos se puede usar el siguiente script:
+
+#### Windows
+```bash
+./c.ps1 ${unidad} ${ejercicio}
+```
+#### Linux
+```bash
+./c.sh ${unidad} ${ejercicio}
+```
+
+#### Por ejemplo, para crear el ejercicio 1 de la unidad 1 hacés lo siguiente:
+
+#### Windows
+```bash
+./n.ps1 1 1
+```
+#### Linux
+```bash
+./n.sh 1 1
+```
+
+### Cuando compilás, se ejecuta automáticamente. Si no querés esto le tenés que pasar cualquier valor extra sin espacios:
+
+#### Windows
+```bash
+./n.ps1 k
+```
+#### Linux
+```bash
+./n.sh k
+```
+
+#### También se puede hacer así:
+
+#### Windows
+```bash
+./n.ps1 1 1 k
+```
+#### Linux
+```bash
+./n.sh 1 1 k
+```
 
 ---
 
-## Visualizar PDFs de apoyo
+## Leer PDFs
 
-Este proyecto utiliza archivos PDF accesibles desde el explorador de archivos o el editor de texto.
-
-| Sistema | Archivo sugerido |
-|--------|-------------------|
-| Windows | `bashtomoki1207.pdf` |
-| Linux   | `tomoki1207.pdf`     |
-
----
-
-## Ejemplos de uso
-
-Crear el ejercicio 1 de la unidad 1:
-
+### Se puede utilizar la extensión de VS Code:
+#### Windows
 ```bash
-./n.ps1 1 1      # Windows
-./n.sh 1 1       # Linux
+bashtomoki1207.pdf
 ```
-
-Compilar y ejecutar automáticamente:
-
+#### Linux
 ```bash
-./c.ps1 1 1      # Windows
-./c.sh 1 1       # Linux
-```
-
-Evitar la ejecución automática:
-
-```bash
-./n.ps1 1 1 k    # Windows
-./n.sh 1 1 k     # Linux
+tomoki1207.pdf
 ```
 
 ---
+
+# Instalación
+
+## Windows
+
+```bash
+winget install --id Microsoft.PowerShell --source winget
+```
+```bash
+winget install --id BrechtSanders.WinLibs.POSIX.UCRT.LLVM --source winget
+```
+
+## Linux (Ubuntu)
+
+```bash
+sudo apt update
+```
+```bash
+sudo apt install clang clang-format
+```
