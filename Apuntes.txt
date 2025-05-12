@@ -5,7 +5,7 @@ Entrega TPs:
 
 Diccionario:
 
-Nibble = 4B
+Nibble = 4b
 Registro = Estructura heterogenea = struct
 Estructura homogenea = Arreglo
 
