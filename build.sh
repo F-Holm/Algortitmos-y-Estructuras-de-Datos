@@ -3,13 +3,12 @@
 # Configuración
 compiler="clang++"
 cpp_standard="-std=c++23"
-optimization="-O3"
 extra_info="-Wextra"
 
 # debug flags:
-#mode="-g -O0 -DDEBUG"
+#mode_flags="-g -O0 -DDEBUG"
 # release flags:
-mode="-DNDEBUG"
+mode_flags="-O3 -DNDEBUG"
 
 # Ejecutar script de formateo f.sh
 source ./f.sh
@@ -37,7 +36,7 @@ compile() {
   local exe_name="${file%.cpp}"
   local log_file="$tmp_dir/$(basename "$file").log"
 
-  "$compiler" $cpp_standard $optimization $extra_info $mode -o "$exe_name" "$file" &> "$log_file"
+  "$compiler" $cpp_standard $extra_info $mode_flags -o "$exe_name" "$file" &> "$log_file"
   local code=$?
 
   if (( code != 0 )); then

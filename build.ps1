@@ -3,12 +3,11 @@
 $Compilador       = "clang++"
 $Flags            = "-Wextra"# "-Wall -Wextra"
 $CppStandard      = "-std=c++23"
-$Optimization     = "-O3"
 
 # debug flags:
-#$Mode = @("-g", "-O0", "-DDEBUG")
+#$ModeFlags = @("-g", "-O0", "-DDEBUG")
 # release flags:
-$Mode = "-DNDEBUG"
+$ModeFlags = @("-O3", "-DNDEBUG")
 
 # Llamar al script f.ps1 después de los parámetros iniciales
 . ./f.ps1
@@ -22,7 +21,7 @@ foreach ($archivo in $archivos) {
     $rutaCpp = $archivo.FullName
 
     $jobs += Start-Job -ScriptBlock {
-        param ($ruta, $comp, $flags, $std, $opt, $modo)
+        param ($ruta, $comp, $flags, $std, $modo)
         # Construir la ruta de salida .exe en la misma carpeta que el .cpp
         #$exeSalida = [System.IO.Path]::ChangeExtension($ruta, ".exe")
 
@@ -44,7 +43,7 @@ foreach ($archivo in $archivos) {
             Salida    = $salida -join "`n"
             ExitCode  = $codigo
         }
-    } -ArgumentList $rutaCpp, $Compilador, $Flags, $CppStandard, $Optimization, $Modo
+    } -ArgumentList $rutaCpp, $Compilador, $Flags, $CppStandard, $ModeFlags
 }
 
 # Barra de progreso global mientras los jobs están en ejecución
