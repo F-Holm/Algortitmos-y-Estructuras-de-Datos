@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 
 # 🔧 Configuración
 $compilador = "clang++"       # También podés usar g++
-$optimizaciones = "-O3"       # -O0 para desactivar optimización
+$optimizaciones = "-O0"       # -O0 para desactivar optimización
 $debug = $true                # $true para debug, $false para release
 $estandar = "c++23"           # Clang++ defaulta a C++98 si no se especifica
 

@@ -7,7 +7,7 @@ set -e
 
 # 🔧 Variables configurables
 compilador="clang++"         # Podés usar g++ si preferís
-optimizaciones="-O3"         # Sin optimización: -O0
+optimizaciones="-O0"         # Sin optimización: -O0
 debug=true                   # true para debug (símbolos de depuración), false para release
 estandar="c++23"             # Clang++ defaulta a c++98 si no se especifica
 
