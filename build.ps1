@@ -24,7 +24,15 @@ foreach ($archivo in $archivos) {
     $jobs += Start-Job -ScriptBlock {
         param ($ruta, $comp, $flags, $std, $opt, $modo)
         # Construir la ruta de salida .exe en la misma carpeta que el .cpp
-        $exeSalida = [System.IO.Path]::ChangeExtension($ruta, ".exe")
+        #$exeSalida = [System.IO.Path]::ChangeExtension($ruta, ".exe")
+
+        if ($IsWindows) {
+            $exeSalida = [System.IO.Path]::ChangeExtension($ruta, ".exe")
+        } else {
+            $nombreSinExtension = [System.IO.Path]::GetFileNameWithoutExtension($ruta)
+            $directorio = [System.IO.Path]::GetDirectoryName($ruta)
+            $exeSalida = Join-Path $directorio $nombreSinExtension
+        }
 
         # Ejecutar clang++ y capturar salida y código de error
         $salida = & $comp $std $opt $flags $modo  "-o" $exeSalida $ruta 2>&1
