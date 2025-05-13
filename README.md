@@ -46,7 +46,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 ```bash
 ./n.ps1
 ```
-#### Linux
+#### Bash
 ```bash
 ./n.sh
 ```
@@ -57,7 +57,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 ```bash
 ./c.ps1
 ```
-#### Linux
+#### Bash
 ```bash
 ./c.sh
 ```
@@ -68,7 +68,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 ```bash
 ./r.ps1
 ```
-#### Linux
+#### Bash
 ```bash
 ./r.sh
 ```
@@ -79,7 +79,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 ```bash
 ./g.ps1
 ```
-#### Linux
+#### Bash
 ```bash
 ./g.sh
 ```
@@ -90,7 +90,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 ```bash
 ./build.ps1
 ```
-#### Linux
+#### Bash
 ```bash
 ./build.sh
 ```
@@ -102,7 +102,7 @@ Este script se ejecuta automáticamente cada vez que utilizas otro script
 ```bash
 ./f.ps1
 ```
-#### Linux
+#### Bash
 ```bash
 ./f.sh
 ```
@@ -115,7 +115,7 @@ Tanto en la creación, compilación y ejecución de archivos se puede usar el si
 ```bash
 ./${archivo_script} ${unidad} ${ejercicio}
 ```
-#### Linux
+#### Bash
 ```bash
 ./${archivo_script} ${unidad} ${ejercicio}
 ```
@@ -126,7 +126,7 @@ Por ejemplo, para crear el ejercicio 1 de la unidad 1 podés hacer lo siguiente:
 ```bash
 ./n.ps1 1 1
 ```
-#### Linux
+#### Bash
 ```bash
 ./n.sh 1 1
 ```
@@ -137,7 +137,7 @@ Cuando se utiliza el script de compilación, se ejecuta automáticamente. Si no 
 ```bash
 ./c.ps1 k
 ```
-#### Linux
+#### Bash
 ```bash
 ./c.sh k
 ```
@@ -149,7 +149,7 @@ También se puede hacer así:
 ```bash
 ./c.ps1 1 1 k
 ```
-#### Linux
+#### Bash
 ```bash
 ./c.sh 1 1 k
 ```
