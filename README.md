@@ -142,7 +142,8 @@ Cuando se utiliza el script de compilación, se ejecuta automáticamente. Si no 
 ./c.sh k
 ```
 
-#### También se puede hacer así:
+También se puede hacer así:
+(En este caso compilaría el ejercico 1 de la unidad 1)
 
 #### Windows
 ```bash
