@@ -120,7 +120,7 @@ Tanto en la creación, compilación y ejecución de archivos se puede usar el si
 ./${archivo_script} ${unidad} ${ejercicio}
 ```
 
-#### Por ejemplo, para crear el ejercicio 1 de la unidad 1 podés hacer lo siguiente:
+Por ejemplo, para crear el ejercicio 1 de la unidad 1 podés hacer lo siguiente:
 
 #### Windows
 ```bash
