@@ -81,7 +81,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
     </tr>
     <tr>
       <td>Crear/compilar/ejecutar con parámetros</td>
-      <td colspan="2"><code>./${archivo_script} ${unidad} ${ejercicio}</code></td>
+      <td colspan="2" style="text-align:center;"><code>./${archivo_script} ${unidad} ${ejercicio}</code></td>
     </tr>
     <tr>
       <td>Compilar con ejecución deshabilitada</td>
