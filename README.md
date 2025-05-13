@@ -109,18 +109,18 @@ Este script se ejecuta automáticamente cada vez que utilizas otro script
 ---
 ## Más Scripts
 
-### Tanto en la creación, compilación y ejecución de archivos se puede usar el siguiente script:
+Tanto en la creación, compilación y ejecución de archivos se puede usar el siguiente script:
 
 #### Windows
 ```bash
-./c.ps1 ${unidad} ${ejercicio}
+./${archivo_script} ${unidad} ${ejercicio}
 ```
 #### Linux
 ```bash
-./c.sh ${unidad} ${ejercicio}
+./${archivo_script} ${unidad} ${ejercicio}
 ```
 
-#### Por ejemplo, para crear el ejercicio 1 de la unidad 1 hacés lo siguiente:
+#### Por ejemplo, para crear el ejercicio 1 de la unidad 1 podés hacer lo siguiente:
 
 #### Windows
 ```bash
