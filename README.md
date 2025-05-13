@@ -5,7 +5,7 @@
 - Linux (Ubuntu) o Windows
 - clang++ (pueden usarse otros compiladores pero se debe cambiar la variable "compilador" en los scripts)
 - clang-format
-- Bash o Powershell 7.0.0+
+- Bash o PowerShell 7.0.0+
 
 ---
 
@@ -42,7 +42,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 
 ### Crear archivo C++
 
-#### Windows
+#### PowerShell
 ```bash
 ./n.ps1
 ```
@@ -53,7 +53,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 
 ### Compilar archivo C++
 
-#### Windows
+#### PowerShell
 ```bash
 ./c.ps1
 ```
@@ -64,7 +64,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 
 ### Ejecutar
 
-#### Windows
+#### PowerShell
 ```bash
 ./r.ps1
 ```
@@ -75,7 +75,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 
 ### Borrar ejecutables y otros archivos nombrados en .gitignore
 
-#### Windows
+#### PowerShell
 ```bash
 ./g.ps1
 ```
@@ -86,7 +86,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 
 ### Compilar todos los archivos ".cpp"
 
-#### Windows
+#### PowerShell
 ```bash
 ./build.ps1
 ```
@@ -98,7 +98,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 ### Formatear todos los archivos (no incluye subdirectorios)
 Este script se ejecuta automáticamente cada vez que utilizas otro script
 
-#### Windows
+#### PowerShell
 ```bash
 ./f.ps1
 ```
@@ -111,7 +111,7 @@ Este script se ejecuta automáticamente cada vez que utilizas otro script
 
 Tanto en la creación, compilación y ejecución de archivos se puede usar el siguiente script:
 
-#### Windows
+#### PowerShell
 ```bash
 ./${archivo_script} ${unidad} ${ejercicio}
 ```
@@ -122,7 +122,7 @@ Tanto en la creación, compilación y ejecución de archivos se puede usar el si
 
 Por ejemplo, para crear el ejercicio 1 de la unidad 1 podés hacer lo siguiente:
 
-#### Windows
+#### PowerShell
 ```bash
 ./n.ps1 1 1
 ```
@@ -133,7 +133,7 @@ Por ejemplo, para crear el ejercicio 1 de la unidad 1 podés hacer lo siguiente:
 
 Cuando se utiliza el script de compilación, se ejecuta automáticamente. Si no querés que esto suceda, se debe pasar cualquier valor extra sin espacios:
 
-#### Windows
+#### PowerShell
 ```bash
 ./c.ps1 k
 ```
@@ -145,7 +145,7 @@ Cuando se utiliza el script de compilación, se ejecuta automáticamente. Si no 
 También se puede hacer así:
 (En este caso compilaría el ejercico 1 de la unidad 1)
 
-#### Windows
+#### PowerShell
 ```bash
 ./c.ps1 1 1 k
 ```
