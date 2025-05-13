@@ -40,125 +40,71 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 
 ## Scripts
 
-### Crear archivo C++
+<table style="width:100%; text-align:center;">
+  <thead>
+    <tr>
+      <th style="text-align:center;">Acción</th>
+      <th style="text-align:center;">PowerShell</th>
+      <th style="text-align:center;">Bash</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Crear archivo C++</td>
+      <td><code>./n.ps1</code></td>
+      <td><code>./n.sh</code></td>
+    </tr>
+    <tr>
+      <td>Compilar archivo C++</td>
+      <td><code>./c.ps1</code></td>
+      <td><code>./c.sh</code></td>
+    </tr>
+    <tr>
+      <td>Ejecutar archivo</td>
+      <td><code>./r.ps1</code></td>
+      <td><code>./r.sh</code></td>
+    </tr>
+    <tr>
+      <td>Eliminar archivos temporales</td>
+      <td><code>./g.ps1</code></td>
+      <td><code>./g.sh</code></td>
+    </tr>
+    <tr>
+      <td>Compilar todos los .cpp</td>
+      <td><code>./build.ps1</code></td>
+      <td><code>./build.sh</code></td>
+    </tr>
+    <tr>
+      <td>Formatear archivos</td>
+      <td><code>./f.ps1</code></td>
+      <td><code>./f.sh</code></td>
+    </tr>
+    <tr>
+      <td>Crear/compilar/ejecutar con parámetros</td>
+      <td colspan="2"><code>./${archivo_script} ${unidad} ${ejercicio}</code></td>
+    </tr>
+    <tr>
+      <td>Compilar con ejecución deshabilitada</td>
+      <td><code>./c.ps1 k</code></td>
+      <td><code>./c.sh k</code></td>
+    </tr>
+    <tr>
+      <td>Compilar con parámetros y ejecución deshabilitada</td>
+      <td><code>./c.ps1 ${unidad} ${ejercicio} k</code></td>
+      <td><code>./c.sh ${unidad} ${ejercicio} k</code></td>
+    </tr>
+  </tbody>
+</table>
 
-#### PowerShell
-```bash
-./n.ps1
-```
-#### Bash
-```bash
-./n.sh
-```
-
-### Compilar archivo C++
-
-#### PowerShell
-```bash
-./c.ps1
-```
-#### Bash
-```bash
-./c.sh
-```
-
-### Ejecutar
-
-#### PowerShell
-```bash
-./r.ps1
-```
-#### Bash
-```bash
-./r.sh
-```
-
-### Borrar ejecutables y otros archivos nombrados en .gitignore
-
-#### PowerShell
-```bash
-./g.ps1
-```
-#### Bash
-```bash
-./g.sh
-```
-
-### Compilar todos los archivos ".cpp"
-
-#### PowerShell
-```bash
-./build.ps1
-```
-#### Bash
-```bash
-./build.sh
-```
-
-### Formatear todos los archivos (no incluye subdirectorios)
-Este script se ejecuta automáticamente cada vez que se utiliza otro script
-
-#### PowerShell
-```bash
-./f.ps1
-```
-#### Bash
-```bash
-./f.sh
-```
----
-## Más Scripts
-
-Tanto en la creación, compilación y ejecución de archivos se puede usar el siguiente script:
-
-#### PowerShell
-```bash
-./${archivo_script} ${unidad} ${ejercicio}
-```
-#### Bash
-```bash
-./${archivo_script} ${unidad} ${ejercicio}
-```
-
-Por ejemplo, para crear el ejercicio 1 de la unidad 1 podés hacer lo siguiente:
-
-#### PowerShell
-```bash
-./n.ps1 1 1
-```
-#### Bash
-```bash
-./n.sh 1 1
-```
-
-Cuando se utiliza el script de compilación, se ejecuta automáticamente. Si no querés que esto suceda, se debe pasar cualquier valor extra sin espacios:
-
-#### PowerShell
-```bash
-./c.ps1 k
-```
-#### Bash
-```bash
-./c.sh k
-```
-
-También se puede hacer así:
-(En este caso compilaría el ejercico 1 de la unidad 1)
-
-#### PowerShell
-```bash
-./c.ps1 1 1 k
-```
-#### Bash
-```bash
-./c.sh 1 1 k
-```
+- k puede ser cualquier cosa que no tenga espacios
+- El script para dar formato a todos los archivos se ejecuta automáticamente cada vez que se utiliza otro script
+- El script de formateo no afecta subdirectorios para evitar alterar las respuestas
 
 ---
 
 ## Leer PDFs
 
-Se puede utilizar la siguiente extensión de VS Code ára ver PDFs:
+Se puede utilizar la siguiente extensión de VS Code para ver PDFs:
 
 #### Windows
 ```bash
