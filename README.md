@@ -73,7 +73,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 ./r.sh
 ```
 
-### Borrar ejecutables y otros archivos del .gitignore
+### Borrar ejecutables y otros archivos nombrados en .gitignore
 
 #### Windows
 ```bash
@@ -96,6 +96,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 ```
 
 ### Formatear todos los archivos (no incluye subdirectorios)
+##### Este script se ejecuta automáticamente cada vez que utilizas otro script
 
 #### Windows
 ```bash
@@ -130,7 +131,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 ./n.sh 1 1
 ```
 
-### Cuando compilás, se ejecuta automáticamente. Si no querés esto le tenés que pasar cualquier valor extra sin espacios:
+### Cuando utiliza el script de compilación, se ejecuta automáticamente. Si no querés que esto suceda, se debe pasar cualquier valor extra sin espacios:
 
 #### Windows
 ```bash
