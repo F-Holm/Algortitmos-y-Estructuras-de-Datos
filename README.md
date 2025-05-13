@@ -131,33 +131,34 @@ Por ejemplo, para crear el ejercicio 1 de la unidad 1 podés hacer lo siguiente:
 ./n.sh 1 1
 ```
 
-### Cuando utiliza el script de compilación, se ejecuta automáticamente. Si no querés que esto suceda, se debe pasar cualquier valor extra sin espacios:
+Cuando se utiliza el script de compilación, se ejecuta automáticamente. Si no querés que esto suceda, se debe pasar cualquier valor extra sin espacios:
 
 #### Windows
 ```bash
-./n.ps1 k
+./c.ps1 k
 ```
 #### Linux
 ```bash
-./n.sh k
+./c.sh k
 ```
 
 #### También se puede hacer así:
 
 #### Windows
 ```bash
-./n.ps1 1 1 k
+./c.ps1 1 1 k
 ```
 #### Linux
 ```bash
-./n.sh 1 1 k
+./c.sh 1 1 k
 ```
 
 ---
 
 ## Leer PDFs
 
-### Se puede utilizar la extensión de VS Code:
+Se puede utilizar la siguiente extensión de VS Code ára ver PDFs:
+
 #### Windows
 ```bash
 bashtomoki1207.pdf
