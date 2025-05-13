@@ -96,7 +96,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
 ```
 
 ### Formatear todos los archivos (no incluye subdirectorios)
-Este script se ejecuta automáticamente cada vez que utilizas otro script
+Este script se ejecuta automáticamente cada vez que se utiliza otro script
 
 #### PowerShell
 ```bash
