@@ -95,3 +95,4 @@ operadores logicos:
 
 letra griega = sentencia
 
+pseudocódigo -> i = 1
