@@ -99,3 +99,10 @@ Palabras reservadas/operaciones:
 - struct
 - new
 - delete
+- arreglos
+- matrices
+- tensores?
+- enums
+- break (solo switch)
+- continue (no usar)
+- return -> solo 1 por función
