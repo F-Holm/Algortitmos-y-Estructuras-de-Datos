@@ -24,7 +24,7 @@ float GetPrecioTotalVenta(string venta);
 void LeerRegistroVentas(string* str, ushort size, ifstream& ventas);
 
 // Sorting functions
-void Ordenar(string* str_ventas, ushort size);
+void Ordenar(string* str_ventas, ushort size);//TimSort
 int CalcRun(ushort n);
 bool EsMayoQue(const string& a, const string& b);
 void InsertionSort(string* arr, ushort left, ushort right);
