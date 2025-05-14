@@ -18,7 +18,7 @@ if (-not $ejercicio) {
 }
 
 # Construir path del ejecutable
-$ejecutable = "Unidad $unidad\Ejercicio $ejercicio.exe"
+$ejecutable = "./Unidad $unidad/Ejercicio $ejercicio.exe"
 
 # Verificar si el ejecutable existe
 if (-not (Test-Path $ejecutable)) {

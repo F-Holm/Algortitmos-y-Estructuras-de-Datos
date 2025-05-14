@@ -4,27 +4,19 @@
 $ErrorActionPreference = "Stop"
 
 # Formatear todos los archivos
-& "./f.ps1"
+#& "./f.ps1"
 
 # 🔧 Configuración
 $compilador = "clang++"       # También podés usar g++
-$optimizaciones = "-O0"       # -O0 para desactivar optimización
-$debug = $true                # $true para debug, $false para release
-$estandar = "c++23"           # Clang++ defaulta a C++98 si no se especifica
+$estandar = "-std=c++23"           # Clang++ defaulta a C++98 si no se especifica
+$extra_info="-Wextra"
 
 # ⚙️ Ajustes según modo debug
-$extra_flags = "-Wextra"
-if ($debug) {
-    $extra_flags = "-g"
-    $optimizaciones = "-O0"
-}
+# debug flags:
+$ModeFlags = @("-g", "-O0", "-DDEBUG")
+# release flags:
+#$ModeFlags = @("-O3", "-DNDEBUG")
 
-# 📥 Leer argumentos
-#param (
-#    [string]$unidad,
-#    [string]$ejercicio
-#)
-# En vez de usar 'param', usa $args directamente
 $unidad = $args[0]
 $ejercicio = $args[1]
 
@@ -36,8 +28,8 @@ if (-not $ejercicio) {
 }
 
 # Construir paths
-$archivo = "Unidad $unidad\Ejercicio $ejercicio.cpp"
-$salida = "Unidad $unidad\Ejercicio $ejercicio.exe"
+$archivo = "./Unidad $unidad/Ejercicio $ejercicio.cpp"
+$salida = "./Unidad $unidad/Ejercicio $ejercicio.exe"
 
 # 📁 Verificar existencia del archivo
 if (-not (Test-Path $archivo)) {
@@ -46,9 +38,9 @@ if (-not (Test-Path $archivo)) {
 }
 
 # 🛠 Compilar
-Write-Host "🔧 Compilando con $compilador -std=$estandar $optimizaciones $extra_flags..."
+Write-Host "🔧 Compilando con $compilador -std=$estandar $optimizaciones..."
 # "-finput-charset=utf-8" "-DUNICODE" "-fexec-charset=utf-8"
-& $compilador "-std=$estandar" $optimizaciones $extra_flags "$archivo" -o "$salida"
+& $compilador $estandar $extra_info $ModeFlags "$archivo" -o "$salida"
 
 # ✅ Verificar si la compilación fue exitosa
 if ($LASTEXITCODE -eq 0) {

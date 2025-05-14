@@ -62,3 +62,36 @@ Partes RAM:
 - heap -> variables dinámicas
 - code
 - stack
+
+No usar continue
+No tener multiples returns ni breaks
+
+Palabras reservadas:
+- son alrededor de 50
+- lenguajes como pascal no distingue minusculas de mayuscula
+
+Identificador = nombre de variable
+
+Apostrofo: '
+
+\0 == 0x00
+
+"" = nulo
+'' = ERROR
+
+orden de operaciones artimeticas:
+
+1- suma y resta como operadores unarios (-a)
+2- multiplicacion, división y resultado
+3- sume y resta como operador binario (a + b)
+
+operadores relacionales:
+1- operadores relacionales (==, <, >, etc,)
+
+operadores logicos:
+1- !
+2- &&
+3- ||
+
+letra griega = sentencia
+

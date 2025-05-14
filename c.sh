@@ -1,22 +1,19 @@
 #!/bin/bash
 
+# Formatear todos los archivos
+source ./f.sh
+
 set -e
 
-# Formatear todos los archivos
-./f.sh
+# Configuración
+compilador="clang++"
+estandar="-std=c++23"
+extra_info="-Wextra"
 
-# 🔧 Variables configurables
-compilador="clang++"         # Podés usar g++ si preferís
-optimizaciones="-O0"         # Sin optimización: -O0
-debug=true                   # true para debug (símbolos de depuración), false para release
-estandar="c++23"             # Clang++ defaulta a c++98 si no se especifica
-
-# ⚙️ Configuración según modo debug
-extra_flags=""
-if [ "$debug" = true ]; then
-    extra_flags="-g"
-    optimizaciones="-O0"
-fi
+# debug flags:
+mode_flags="-g -O0 -DDEBUG"
+# release flags:
+#mode_flags="-O3 -DNDEBUG"
 
 # 📥 Leer argumentos si están presentes
 unidad="$1"
@@ -28,8 +25,8 @@ if [ -z "$ejercicio" ]; then
     echo ""
 fi
 
-archivo="Unidad ${unidad}/Ejercicio ${ejercicio}.cpp"
-salida="Unidad ${unidad}/Ejercicio ${ejercicio}"
+archivo="./Unidad ${unidad}/Ejercicio ${ejercicio}.cpp"
+salida="./Unidad ${unidad}/Ejercicio ${ejercicio}"
 
 # 📁 Verificar existencia del archivo fuente
 if [ ! -f "$archivo" ]; then
@@ -38,9 +35,9 @@ if [ ! -f "$archivo" ]; then
 fi
 
 # 🛠 Compilar
-echo "🔧 Compilando con $compilador -std=$estandar $optimizaciones $extra_flags..."
+echo "🔧 Compilando con $compilador $estandar $mode_flags $extra_info..."
 # "-finput-charset=utf-8" "-DUNICODE" "-fexec-charset=utf-8"
-if "$compilador" -std="$estandar" $optimizaciones $extra_flags "$archivo" -o "$salida"; then
+if "$compilador" $estandar $mode_flags $extra_info "$archivo" -o "$salida"; then
     echo "✅ Compilación exitosa. Ejecutable: $salida"
 
     # ▶️ Ejecutar si no se pasó ningún argumento o ambos
