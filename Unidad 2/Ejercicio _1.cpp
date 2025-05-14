@@ -3,7 +3,7 @@
 
 using namespace std;
 
-char* FillBlank(char car, short n) {
+char* Replicate(char car, short n) {
   char* str = new char[n + 1];
   str[n] = '\0';
   for (n -= 1; n >= 0; n--) str[n] = car;
@@ -11,7 +11,7 @@ char* FillBlank(char car, short n) {
 }
 
 int main() {
-  char* str = FillBlank('-', 100);
+  char* str = Replicate('-', 100);
   cout << str << endl;
   delete[] str;
   return 0;
