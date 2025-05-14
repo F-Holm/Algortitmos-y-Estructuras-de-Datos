@@ -29,7 +29,11 @@ if (-not $ejercicio) {
 
 # Construir paths
 $archivo = "./Unidad $unidad/Ejercicio $ejercicio.cpp"
-$salida = "./Unidad $unidad/Ejercicio $ejercicio.exe"
+if ($IsWindows) {
+    $salida = "./Unidad $unidad/Ejercicio $ejercicio.exe"
+} else {
+    $salida = "./Unidad $unidad/Ejercicio $ejercicio"
+}
 
 # 📁 Verificar existencia del archivo
 if (-not (Test-Path $archivo)) {

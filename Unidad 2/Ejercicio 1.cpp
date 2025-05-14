@@ -3,7 +3,7 @@
 
 using namespace std;
 
-struct Ingresante{
+struct Ingresante {
   char legajo[6];
   char apellido_nombre[31];
   unsigned short division;
