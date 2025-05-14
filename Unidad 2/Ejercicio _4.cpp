@@ -1,4 +1,4 @@
-// Unidad 2 - Ejercicio 4
+// Unidad 2 - Ejercicio _4
 #include <cstring>
 #include <iostream>
 
