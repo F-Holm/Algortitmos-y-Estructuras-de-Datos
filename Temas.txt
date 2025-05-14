@@ -16,8 +16,8 @@ Librerías y Funciones:
 - string -> 16B (en 32bits) -> ptr inicio, ptr final, size reservado, size libre
 - str.clear()
 - empty
-- size
-- length
+- size()
+- length() -> idem arriba
 - erase
 - insert
 
