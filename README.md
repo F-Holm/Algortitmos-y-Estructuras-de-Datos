@@ -2,10 +2,9 @@
 ---
 ## Requisitos
 
-- Linux (Ubuntu) o Windows
-- clang++ (pueden usarse otros compiladores pero se debe cambiar la variable "compilador" en los scripts)
+- clang++
 - clang-format
-- Bash o PowerShell 7.0.0+
+- python3
 
 ---
 
@@ -19,6 +18,9 @@ winget install --id Microsoft.PowerShell --source winget
 ```bash
 winget install --id BrechtSanders.WinLibs.POSIX.UCRT.LLVM --source winget
 ```
+```bash
+winget install --id Python.Python.3.13 --source winget
+```
 
 ### Linux (Ubuntu)
 
@@ -26,7 +28,7 @@ winget install --id BrechtSanders.WinLibs.POSIX.UCRT.LLVM --source winget
 sudo apt update
 ```
 ```bash
-sudo apt install clang clang-format
+sudo apt install clang clang-format python3 python3-pip python3-venv
 ```
 
 ---
