@@ -4,8 +4,11 @@
 !*.*
 
 # Archivos de tecto de ejercicios
-RegistroVentas.txt
-Salida.txt
+*.txt
+!Temas.txt
+!Apuntes.txt
+# RegistroVentas.txt
+# Salida.txt
 
 # Archivos de compilación
 *.o
