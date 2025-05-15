@@ -44,60 +44,50 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
   <thead>
     <tr>
       <th style="text-align:center;">Acción</th>
-      <th style="text-align:center;">PowerShell</th>
-      <th style="text-align:center;">Bash</th>
+      <th style="text-align:center;">Script</th>
+      <th style="text-align:center;">Flags</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Crear archivo C++</td>
-      <td><code>./n.ps1</code></td>
-      <td><code>./n.sh</code></td>
+      <td><code>./n.py</code></td>
+      <td>-</td>
     </tr>
     <tr>
       <td>Compilar archivo C++</td>
-      <td><code>./c.ps1</code></td>
-      <td><code>./c.sh</code></td>
+      <td><code>./c.py</code></td>
+      <td><code>-r</code>  No ejecutar</td>
     </tr>
     <tr>
       <td>Ejecutar archivo</td>
-      <td><code>./r.ps1</code></td>
-      <td><code>./r.sh</code></td>
+      <td><code>./r.py</code></td>
+      <td>-</td>
     </tr>
     <tr>
       <td>Eliminar archivos temporales</td>
-      <td><code>./g.ps1</code></td>
-      <td><code>./g.sh</code></td>
+      <td><code>./g.py</code></td>
+      <td>-</td>
     </tr>
     <tr>
       <td>Compilar todos los .cpp</td>
-      <td><code>./build.ps1</code></td>
-      <td><code>./build.sh</code></td>
+      <td><code>./build.py</code></td>
+      <td><code>-e</code> Excluye los archivos de las respuestas</td>
     </tr>
     <tr>
       <td>Formatear archivos</td>
-      <td><code>./f.ps1</code></td>
-      <td><code>./f.sh</code></td>
+      <td><code>./f.py</code></td>
+      <td>-</td>
     </tr>
     <tr>
       <td>Crear/compilar/ejecutar con parámetros</td>
-      <td style="text-align:center;" colspan="2"><code>./${archivo_script} ${unidad} ${ejercicio}</code></td>
-    </tr>
-    <tr>
-      <td>Compilar con ejecución deshabilitada</td>
-      <td><code>./c.ps1 -r</code></td>
-      <td><code>./c.sh -r</code></td>
-    </tr>
-    <tr>
-      <td>Compilar con parámetros y ejecución deshabilitada</td>
-      <td><code>./c.ps1 ${unidad} ${ejercicio} -r</code></td>
-      <td><code>./c.sh ${unidad} ${ejercicio} -r</code></td>
+      <td style="text-align:center;" colspan="2"><code>./${archivo_script} ${unidad} ${ejercicio} ${flags}</code></td>
     </tr>
   </tbody>
 </table>
 
 - El script para dar formato a todos los archivos se ejecuta automáticamente cada vez que se utiliza otro script
-- El script de formateo no afecta subdirectorios para evitar alterar las respuestas
+- El script de formateo no afecta los directorios de 'RESPUESTAS' del archivo config.env
 
 ---
 
