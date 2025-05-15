@@ -21,6 +21,9 @@ winget install --id BrechtSanders.WinLibs.POSIX.UCRT.LLVM --source winget
 ```bash
 winget install --id Python.Python.3.13 --source winget
 ```
+```bash
+pip install dotenv
+```
 
 ### Linux (Ubuntu)
 
@@ -28,7 +31,7 @@ winget install --id Python.Python.3.13 --source winget
 sudo apt update
 ```
 ```bash
-sudo apt install clang clang-format python3 python3-pip python3-venv
+sudo apt install clang clang-format python3 python3-pip python3-venv python3-dotenv
 ```
 
 ---
