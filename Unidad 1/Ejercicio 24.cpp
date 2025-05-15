@@ -33,7 +33,6 @@ void MergeSort(string* arr, ushort left, ushort mid, ushort right);
 void GuardarSalida(string* str_ventas, ushort size, ofstream& salida);
 
 int main() {
-  bool condicion = true;
   ushort contador = 0;
   Venta venta;
 
@@ -230,5 +229,6 @@ void GuardarSalida(string* str_ventas, ushort size, ofstream& salida) {
 
   salida << DivisorHorizontal() << "\n\n\nEl mayor vendedor es "
          << mejor_vendedor << endl
-         << "Consiguió un total de " << mas_vendido;
+         << "Consiguió un total de " << mas_vendido << " ventas"
+         << "\n\nTotal vendido: " << total;
 }
