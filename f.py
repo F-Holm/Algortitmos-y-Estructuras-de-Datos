@@ -3,7 +3,7 @@
 import os
 import subprocess
 from pathlib import Path
-from dotenv import load_dotenv
+from dotenv import load_dotenv # type: ignore
 
 def cargar_exclusiones(env_path="config.env"):
     load_dotenv(env_path)
