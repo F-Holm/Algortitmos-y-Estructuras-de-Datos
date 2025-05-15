@@ -3,7 +3,7 @@
 # Configuración
 compiler="clang++"
 cpp_standard="-std=c++23"
-extra_info="-Wextra"
+extra_info="-Wall -Wextra"
 
 # debug flags:
 #mode_flags="-g -O0 -DDEBUG"

@@ -9,7 +9,7 @@ $ErrorActionPreference = "Stop"
 # 🔧 Configuración
 $compilador = "clang++"       # También podés usar g++
 $estandar = "-std=c++23"           # Clang++ defaulta a C++98 si no se especifica
-$extra_info="-Wextra"
+$extra_info=@("-Wall", "-Wextra")
 
 # ⚙️ Ajustes según modo debug
 # debug flags:

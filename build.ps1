@@ -1,7 +1,7 @@
 #!/usr/bin/env pwsh
 
 $Compilador       = "clang++"
-$Flags            = "-Wextra"# "-Wall -Wextra"
+$ExtraInfo        = @("-Wall", "-Wextra")
 $CppStandard      = "-std=c++23"
 
 # debug flags:
@@ -21,7 +21,7 @@ foreach ($archivo in $archivos) {
     $rutaCpp = $archivo.FullName
 
     $jobs += Start-Job -ScriptBlock {
-        param ($ruta, $comp, $flags, $std, $modo)
+        param ($ruta, $comp, $extraInfo, $std, $modo)
         # Construir la ruta de salida .exe en la misma carpeta que el .cpp
         #$exeSalida = [System.IO.Path]::ChangeExtension($ruta, ".exe")
 
@@ -34,7 +34,7 @@ foreach ($archivo in $archivos) {
         }
 
         # Ejecutar clang++ y capturar salida y código de error
-        $salida = & $comp $std $opt $flags $modo  "-o" $exeSalida $ruta 2>&1
+        $salida = & $comp $std $opt $extraInfo $modo  "-o" $exeSalida $ruta 2>&1
         $codigo = $LASTEXITCODE
 
         # Devolver un objeto con la información
@@ -43,7 +43,7 @@ foreach ($archivo in $archivos) {
             Salida    = $salida -join "`n"
             ExitCode  = $codigo
         }
-    } -ArgumentList $rutaCpp, $Compilador, $Flags, $CppStandard, $ModeFlags
+    } -ArgumentList $rutaCpp, $Compilador, $ExtraInfo, $CppStandard, $ModeFlags
 }
 
 # Barra de progreso global mientras los jobs están en ejecución
