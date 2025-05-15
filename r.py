@@ -55,5 +55,5 @@ def ejecutar():
         sys.exit(e.returncode)
 
 if __name__ == "__main__":
-    ejecutar()
     formatear()
+    ejecutar()
