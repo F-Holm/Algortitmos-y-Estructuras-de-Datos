@@ -74,7 +74,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
     <tr>
       <td>Compilar todos los .cpp</td>
       <td><code>./build.py</code></td>
-      <td><code>-e</code> Excluye los archivos de las respuestas</td>
+      <td><code>-e</code> Excluye las respuestas</td>
     </tr>
     <tr>
       <td>Formatear archivos</td>
