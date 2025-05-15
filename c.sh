@@ -15,9 +15,21 @@ mode_flags="-g -O0 -DDEBUG"
 # release flags:
 #mode_flags="-O3 -DNDEBUG"
 
-# 📥 Leer argumentos si están presentes
-unidad="$1"
-ejercicio="$2"
+# Detectar si se pasó la flag -r
+no_ejecutar=false
+args_filtrados=()
+
+for arg in "$@"; do
+    if [ "$arg" = "-r" ]; then
+        no_ejecutar=true
+    else
+        args_filtrados+=("$arg")
+    fi
+done
+
+# 📥 Leer unidad y ejercicio
+unidad="${args_filtrados[0]}"
+ejercicio="${args_filtrados[1]}"
 
 if [ -z "$ejercicio" ]; then
     read -p "Ingresá el número de la unidad: " unidad
@@ -40,9 +52,11 @@ echo "🔧 Compilando con $compilador $estandar $mode_flags $extra_info..."
 if "$compilador" $estandar $mode_flags $extra_info "$archivo" -o "$salida"; then
     echo "✅ Compilación exitosa. Ejecutable: $salida"
 
-    # ▶️ Ejecutar si no se pasó ningún argumento o ambos
-    if [ $# -eq 0 ] || [ $# -eq 2 ]; then
+    # ▶️ Ejecutar solo si no se pasó la flag -r
+    if [ "$no_ejecutar" = false ]; then
         ./r.sh "${unidad}" "${ejercicio}"
+    else
+        echo "⏩ Ejecución omitida por flag -r."
     fi
 else
     echo "❌ Error al compilar el archivo."

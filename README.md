@@ -85,18 +85,17 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
     </tr>
     <tr>
       <td>Compilar con ejecución deshabilitada</td>
-      <td><code>./c.ps1 k</code></td>
-      <td><code>./c.sh k</code></td>
+      <td><code>./c.ps1 -r</code></td>
+      <td><code>./c.sh -r</code></td>
     </tr>
     <tr>
       <td>Compilar con parámetros y ejecución deshabilitada</td>
-      <td><code>./c.ps1 ${unidad} ${ejercicio} k</code></td>
-      <td><code>./c.sh ${unidad} ${ejercicio} k</code></td>
+      <td><code>./c.ps1 ${unidad} ${ejercicio} -r</code></td>
+      <td><code>./c.sh ${unidad} ${ejercicio} -r</code></td>
     </tr>
   </tbody>
 </table>
 
-- k puede ser cualquier cosa que no tenga espacios
 - El script para dar formato a todos los archivos se ejecuta automáticamente cada vez que se utiliza otro script
 - El script de formateo no afecta subdirectorios para evitar alterar las respuestas
 
