@@ -77,7 +77,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
     <tr>
       <td>Compilar todos los .cpp</td>
       <td><code>./build.py</code></td>
-      <td><code>-e</code> Excluye las respuestas</td>
+      <td><code>-e</code> Excluye <code>RESPUESTAS</code></td>
     </tr>
     <tr>
       <td>Formatear archivos</td>
@@ -91,8 +91,9 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
   </tbody>
 </table>
 
+- `RESPUESTAS` en una variable del archivo config.env que contiene la lista de directorios con las respuestas subidas al aula virtual
 - El script para dar formato a todos los archivos se ejecuta automáticamente cada vez que se utiliza otro script
-- El script de formateo no afecta los directorios de 'RESPUESTAS' del archivo config.env
+- El script de formateo no afecta las `RESPUESTAS`
 
 ---
 
