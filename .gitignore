@@ -23,6 +23,8 @@
 *.exe
 *.out
 *.app
+*.out
+*.run
 
 # Archivos de dependencias
 *.d
@@ -48,6 +50,8 @@ __pycache__/
 *.class
 *.ilk
 *.tlog
+*.gch
+*.dSYM/
 
 # Archivos de IDEs (Visual Studio, CLion, etc.)
 .vscode/
@@ -73,27 +77,6 @@ build/
 bin/
 dist/
 
-# Ejecutables comunes (sin extensión)
-HelloWorld
-*.out
-*.run
-
-# Ejecutables de Windows
-*.exe
-*.dll
-
-# Archivos de objeto intermedios
-*.o
-*.obj
-
 # Archivos de enlace intermedios
 *.so
 *.a
-*.lib
-*.dll
-
-# Binarios de depuración o profiling
-*.gch
-*.pch
-*.pdb
-*.dSYM/
