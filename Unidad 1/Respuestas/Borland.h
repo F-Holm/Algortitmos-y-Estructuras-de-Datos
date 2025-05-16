@@ -1,5 +1,9 @@
 /*
-    Este archivo contiene funciones específicas de borland que no se encuentran en los compiladores modernos
+    Este archivo contiene funciones específicas de borland
+    que no se encuentran en los compiladores modernos.
+    
+    El #pragma once solo se encuentra implementado
+    en compiladores modernos como gcc o clang++.
 */
 
 #pragma once
