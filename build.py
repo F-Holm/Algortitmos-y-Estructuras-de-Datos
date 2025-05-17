@@ -12,6 +12,8 @@ from f import formatear
 
 # Para imprimir el progreso sin que se interrumpa con los hilos
 print_lock = threading.Lock()
+file_lock = threading.Lock()
+
 
 def cargar_config(env_path="config.env"):
     config = dotenv_values(env_path)
@@ -150,8 +152,9 @@ def build():
                 print(f"Compilando... {count}/{total} ({percent}%)\r", end="", flush=True)
 
             # Guardar resultado
-            with resultados_path.open("a") as resf:
-                resf.write(f"{estado};{str(f)}\n")
+            with file_lock:
+                with resultados_path.open("a") as resf:
+                    resf.write(f"{estado};{str(f)}\n")
 
             return estado, f, log
 
@@ -189,6 +192,14 @@ def build():
         print(f"  Compilaciones con advertencias : {count_warning}")
         print(f"  Compilaciones fallidas         : {count_error}")
 
+def eliminar_pycache(directorio="."):
+    for root, dirs, _ in os.walk(directorio):
+        if "__pycache__" in dirs:
+            path = os.path.join(root, "__pycache__")
+            os.system(f'rmdir /S /Q "{path}"' if os.name == "nt" else f'rm -rf "{path}"')
+            print(f"🗑️  Eliminado: {path}")
+
 if __name__ == "__main__":
     formatear()
     build()
+    eliminar_pycache()

@@ -39,6 +39,14 @@ def nuevo_archivo():
     unidad, ejercicio = pedir_input_si_falta(unidad, ejercicio)
     crear_archivo(unidad, ejercicio)
 
+def eliminar_pycache(directorio="."):
+    for root, dirs, _ in os.walk(directorio):
+        if "__pycache__" in dirs:
+            path = os.path.join(root, "__pycache__")
+            os.system(f'rmdir /S /Q "{path}"' if os.name == "nt" else f'rm -rf "{path}"')
+            print(f"🗑️  Eliminado: {path}")
+
 if __name__ == "__main__":
     nuevo_archivo()
     formatear()
+    eliminar_pycache()
