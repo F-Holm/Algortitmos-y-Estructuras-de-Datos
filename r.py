@@ -5,7 +5,7 @@ import sys
 import subprocess
 from pathlib import Path
 import platform
-from f import formatear
+from f import formatear, eliminar_pycache
 
 def pedir_entrada_si_falta(unidad, ejercicio):
     if not unidad:
@@ -53,13 +53,6 @@ def ejecutar():
     except subprocess.CalledProcessError as e:
         print(f"Error ejecutando el archivo: {e}")
         sys.exit(e.returncode)
-
-def eliminar_pycache(directorio="."):
-    for root, dirs, _ in os.walk(directorio):
-        if "__pycache__" in dirs:
-            path = os.path.join(root, "__pycache__")
-            os.system(f'rmdir /S /Q "{path}"' if os.name == "nt" else f'rm -rf "{path}"')
-            print(f"🗑️  Eliminado: {path}")
 
 if __name__ == "__main__":
     formatear()

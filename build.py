@@ -8,7 +8,7 @@ from pathlib import Path
 from dotenv import dotenv_values # type: ignore
 import concurrent.futures
 import threading
-from f import formatear
+from f import formatear, eliminar_pycache
 
 # Para imprimir el progreso sin que se interrumpa con los hilos
 print_lock = threading.Lock()
@@ -191,13 +191,6 @@ def build():
         print(f"  Compilaciones exitosas         : {count_success}")
         print(f"  Compilaciones con advertencias : {count_warning}")
         print(f"  Compilaciones fallidas         : {count_error}")
-
-def eliminar_pycache(directorio="."):
-    for root, dirs, _ in os.walk(directorio):
-        if "__pycache__" in dirs:
-            path = os.path.join(root, "__pycache__")
-            os.system(f'rmdir /S /Q "{path}"' if os.name == "nt" else f'rm -rf "{path}"')
-            print(f"🗑️  Eliminado: {path}")
 
 if __name__ == "__main__":
     formatear()

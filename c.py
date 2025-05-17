@@ -5,7 +5,7 @@ import sys
 import subprocess
 from pathlib import Path
 from dotenv import dotenv_values # type: ignore
-from f import formatear
+from f import formatear, eliminar_pycache
 from r import ejecutar
 
 def cargar_config(env_path="config.env"):
@@ -95,13 +95,6 @@ def comp():
         ejecutar()
     elif no_ejecutar:
         print("⏩ Ejecución omitida por flag -r.")
-
-def eliminar_pycache(directorio="."):
-    for root, dirs, _ in os.walk(directorio):
-        if "__pycache__" in dirs:
-            path = os.path.join(root, "__pycache__")
-            os.system(f'rmdir /S /Q "{path}"' if os.name == "nt" else f'rm -rf "{path}"')
-            print(f"🗑️  Eliminado: {path}")
 
 if __name__ == "__main__":
     formatear()
