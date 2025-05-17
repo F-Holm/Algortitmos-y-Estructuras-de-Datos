@@ -15,15 +15,41 @@ print_lock = threading.Lock()
 
 def cargar_config(env_path="config.env"):
     config = dotenv_values(env_path)
-    # Valores esperados
+    
+    modo_build = config.get("MODO_BUILD", "").strip('"')
+    if modo_build == "R":
+        mode_flags = config.get("RELEASE_FLAGS", "")
+    elif modo_build == "D":
+        mode_flags = config.get("DEBUG_FLAGS", "")
+    else:
+        raise ValueError(f'MODO_BUILD inválido: "{modo_build}"')
+    
     return {
-        "COMPILADOR": config.get("COMPILADOR", "clang++"),
-        "ESTANDAR": config.get("ESTANDAR", "-std=c++23"),
-        "EXTRA_INFO": config.get("EXTRA_INFO", "-Wall -Wextra"),
-        "DEBUG_FLAGS": config.get("DEBUG_FLAGS", "-g -O0 -DDEBUG"),
-        "RELEASE_FLAGS": config.get("RELEASE_FLAGS", "-O3 -DNDEBUG"),
+        "COMPILADOR": config.get("COMPILADOR", ""),
+        "ESTANDAR": config.get("ESTANDAR", ""),
+        "EXTRA_INFO": config.get("EXTRA_INFO", ""),
+        "MODE_FLAGS": mode_flags,
         "RESPUESTAS": config.get("RESPUESTAS", ""),
     }
+
+def cargar_configuracion(path="config.env"):
+    config = dotenv_values(path)
+
+    modo_build = config.get("MODO_BUILD", "").strip('"')
+
+    resultado = {
+        k: v for k, v in config.items()
+        if k not in ("MODO_BUILD", "MODO_COMPILACION", "DEBUG_FLAGS", "RELEASE_FLAGS")
+    }
+
+    if modo_build == "R":
+        resultado["MODO"] = config.get("RELEASE_FLAGS", "")
+    elif modo_build == "D":
+        resultado["FLAGS"] = config.get("DEBUG_FLAGS", "")
+    else:
+        raise ValueError(f'MODO_BUILD inválido: "{modo_build}"')
+
+    return resultado
 
 def parsear_respuestas(resp_str):
     # Separa por | y limpia espacios
@@ -52,7 +78,7 @@ def buscar_cpp_files(root_dir=".", carpetas_excluidas=None):
 def compilar(file: Path, compiler, cpp_standard, extra_info, mode_flags, tmp_dir: Path):
     exe_name = file.with_suffix("")  # sin .cpp
     log_file = tmp_dir / f"{file.name}.log"
-
+    
     # Construir comando
     cmd = [
         compiler,
@@ -91,11 +117,12 @@ def build():
     compiler = config["COMPILADOR"]
     cpp_standard = config["ESTANDAR"]
     extra_info = config["EXTRA_INFO"]
-    # Para este ejemplo usamos RELEASE_FLAGS (podés cambiar a DEBUG_FLAGS si querés)
-    mode_flags = config["RELEASE_FLAGS"]
+    mode_flags = config["MODE_FLAGS"]
     respuestas_raw = config["RESPUESTAS"]
     carpetas_excluidas = parsear_respuestas(respuestas_raw) if excluir else []
 
+    print(f"🔧 Compilando con {compiler} {cpp_standard} {mode_flags} {extra_info}...")
+    
     # Buscar archivos
     cpp_files = buscar_cpp_files(".", carpetas_excluidas)
     total = len(cpp_files)

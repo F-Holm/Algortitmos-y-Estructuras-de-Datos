@@ -4,21 +4,28 @@ import os
 import sys
 import subprocess
 from pathlib import Path
-from dotenv import load_dotenv # type: ignore
+from dotenv import dotenv_values # type: ignore
 from f import formatear
 from r import ejecutar
 
 def cargar_config(env_path="config.env"):
-    load_dotenv(env_path)
-    config = {
-        "COMPILADOR": os.getenv("COMPILADOR", ""),
-        "ESTANDAR": os.getenv("ESTANDAR", ""),
-        "EXTRA_INFO": os.getenv("EXTRA_INFO", ""),
-        "DEBUG_FLAGS": os.getenv("DEBUG_FLAGS", ""),
-        "RELEASE_FLAGS": os.getenv("RELEASE_FLAGS", ""),
-        "RESPUESTAS": os.getenv("RESPUESTAS", ""),
+    config = dotenv_values(env_path)
+    
+    modo_build = config.get("MODO_COMPILACION", "").strip('"')
+    if modo_build == "R":
+        mode_flags = config.get("RELEASE_FLAGS", "")
+    elif modo_build == "D":
+        mode_flags = config.get("DEBUG_FLAGS", "")
+    else:
+        raise ValueError(f'MODO_COMPILACION inválido: "{modo_build}"')
+    
+    return {
+        "COMPILADOR": config.get("COMPILADOR", ""),
+        "ESTANDAR": config.get("ESTANDAR", ""),
+        "EXTRA_INFO": config.get("EXTRA_INFO", ""),
+        "MODE_FLAGS": mode_flags,
+        "RESPUESTAS": config.get("RESPUESTAS", ""),
     }
-    return config
 
 def parsear_args(args):
     no_ejecutar = False
@@ -53,8 +60,7 @@ def compilar(config, unidad, ejercicio):
     compilador = config["COMPILADOR"]
     estandar = config["ESTANDAR"]
     extra_info = config["EXTRA_INFO"]
-    mode_flags = config["DEBUG_FLAGS"]
-    #mode_flags = config["RELEASE_FLAGS"]
+    mode_flags = config["MODE_FLAGS"]
 
     print(f"🔧 Compilando con {compilador} {estandar} {mode_flags} {extra_info}...")
 
