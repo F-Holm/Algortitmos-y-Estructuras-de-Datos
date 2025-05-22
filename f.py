@@ -1,5 +1,24 @@
 #!/usr/bin/env python3
 
+# Descripción:
+#   Este script aplica automáticamente el formateador `clang-format` a archivos fuente de C/C++
+#   dentro del directorio actual y sus subdirectorios, excluyendo aquellos que se especifiquen
+#   en un archivo de entorno `.env` (por defecto, `config.env`). Además, elimina carpetas
+#   `__pycache__` encontradas durante el recorrido del árbol de directorios.
+#
+#   El archivo `.env` debe contener una variable `RESPUESTAS` con una lista de carpetas a excluir,
+#   separadas por el carácter "|", por ejemplo:
+#       RESPUESTAS=build|third_party|external
+#
+# Uso:
+#   ./f.py
+#   python3 f.py
+#
+# Comportamiento:
+#   1. Lee las carpetas a excluir desde `config.env`.
+#   2. Aplica `clang-format` a todos los archivos con extensiones fuente C/C++ (.cpp, .hpp, .c, .h, etc.).
+#   3. Elimina todas las carpetas `__pycache__` encontradas.
+
 import os
 import subprocess
 from pathlib import Path

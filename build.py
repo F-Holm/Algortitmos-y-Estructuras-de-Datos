@@ -1,5 +1,28 @@
 #!/usr/bin/env python3
 
+# Descripción:
+#	Este script busca y compila todos los archivos `.cpp` del proyecto, aplicando
+#	los flags definidos en el archivo `config.env`. La compilación se realiza en paralelo
+#	y se detectan advertencias y errores de compilación.
+#
+#	Antes de compilar, se aplica `clang-format` a los archivos fuente.
+#	Después de compilar, se eliminan carpetas `__pycache__`.
+#
+# Funcionalidades:
+#	- Lectura de configuración desde `config.env`:
+#		- COMPILADOR, ESTANDAR, EXTRA_INFO, MODO_BUILD (R/D), RELEASE_FLAGS/DEBUG_FLAGS, RESPUESTAS
+#	- Compilación concurrente de archivos `.cpp`.
+#	- Detección de errores y advertencias por archivo.
+#	- Reporte de progreso en tiempo real.
+#	- Resultados detallados y resumen final de compilación.
+#
+# Flags (opcionales):
+#	-e          Excluye las carpetas listadas en RESPUESTAS del archivo `config.env`.
+#
+# Uso:
+#	python3 build.py [-e]
+#	./build.py [-e]
+
 import subprocess
 import tempfile
 import sys

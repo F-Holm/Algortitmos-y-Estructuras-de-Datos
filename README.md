@@ -86,7 +86,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
     </tr>
     <tr>
       <td>Crear/compilar/ejecutar con parámetros</td>
-      <td style="text-align:center;" colspan="2"><code>./${archivo_script} ${unidad} ${ejercicio} ${flags}</code></td>
+      <td style="text-align:center;" colspan="2"><code>./{archivo_script} {unidad} {ejercicio} {flag1}...</code></td>
     </tr>
   </tbody>
 </table>

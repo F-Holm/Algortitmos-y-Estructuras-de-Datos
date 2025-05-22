@@ -1,5 +1,29 @@
 #!/usr/bin/env python3
 
+# Descripción:
+#	Este script compila automáticamente un archivo fuente C++ ubicado en la carpeta
+#	"Unidad {número}/Ejercicio {nombre}.cpp", utilizando los parámetros definidos en un
+#	archivo `config.env`. Luego de compilar, puede ejecutar el binario resultante, a menos
+#	que se especifique lo contrario con una flag.
+#
+#	Antes y después de compilar:
+#	1. Aplica `clang-format` a los archivos fuente del proyecto, excluyendo carpetas definidas en `config.env`.
+#	2. Elimina todas las carpetas `__pycache__` encontradas.
+#
+# Argumentos:
+#	[unidad]        Número de la unidad (por ejemplo, 2)
+#	[ejercicio]     Nombre o número del ejercicio (por ejemplo, 5 o "Listas")
+#
+# Flags (opcionales):
+#	-r              Solo compila, omite la ejecución del binario resultante.
+#
+#	Si no se pasan unidad y ejercicio como argumentos, se solicitarán por consola.
+#
+# Uso:
+#	python3 c.py [unidad] [ejercicio] [-r]
+#	./c.py [unidad] [ejercicio] [-r]
+
+
 import sys
 import subprocess
 from pathlib import Path

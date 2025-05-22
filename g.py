@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
 
+# Descripción:
+#	Este script limpia el repositorio eliminando todos los archivos ignorados por Git
+#	(usando `git clean -Xfd`) y luego aplica `clang-format` a los archivos fuente del proyecto,
+#	excluyendo las carpetas definidas en `config.env`.
+#
+# Uso:
+#	python3 g.py
+#	./g.py
+
 import subprocess
 from f import formatear
 

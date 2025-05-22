@@ -1,5 +1,23 @@
 #!/usr/bin/env python3
 
+# Descripción:
+#	Este script crea automáticamente un archivo C++ llamado "Ejercicio {nombre}.cpp"
+#	dentro de una carpeta "Unidad {número}". Si el archivo ya existe, lo notifica y no lo sobrescribe.
+#
+#	Antes de finalizar, también:
+#	1. Aplica `clang-format` a los archivos fuente del proyecto, excluyendo los definidos en `config.env`.
+#	2. Elimina las carpetas `__pycache__`.
+#
+# Argumentos:
+#	[unidad]     Número de la unidad (por ejemplo, 4)
+#	[ejercicio]  Nombre o número del ejercicio (por ejemplo, 2 o "Matrices")
+#
+#	Si no se pasan argumentos, se solicitarán por consola.
+#
+# Uso:
+#	python3 n.py [unidad] [ejercicio]
+#	./n.py [unidad] [ejercicio]
+
 import sys
 from pathlib import Path
 from f import formatear, eliminar_pycache

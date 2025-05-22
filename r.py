@@ -1,5 +1,26 @@
 #!/usr/bin/env python3
 
+# Descripción:
+#	Este script ejecuta automáticamente un binario de C++ ubicado en una carpeta con formato
+#	"Unidad {número}/Ejercicio {nombre}", donde `{número}` y `{nombre}` pueden ser pasados como
+#	argumentos o ingresados manualmente por consola si no se especifican.
+#
+#	Antes de ejecutar el binario:
+#	1. Aplica `clang-format` a los archivos fuente del proyecto, excluyendo los definidos en `config.env`.
+#	2. Elimina las carpetas `__pycache__`.
+#	3. Quita el atributo de solo lectura del ejecutable si es necesario (solo en Windows).
+#
+# Argumentos:
+#	[unidad]     Número de la unidad (por ejemplo, 3)
+#	[ejercicio]  Nombre o número del ejercicio (por ejemplo, 1 o "Vectores")
+#
+# Si no se pasan argumentos, se solicitarán por consola.
+#
+# Uso:
+#	python3 r.py [unidad] [ejercicio]
+#	./r.py [unidad] [ejercicio]
+
+
 import os
 import sys
 import subprocess
