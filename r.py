@@ -68,7 +68,6 @@ def ejecutar():
     quitar_solo_lectura(ejecutable)
 
     print(f"Ejecutando: {ejecutable}\n")
-    # Ejecutar el binario
     try:
         subprocess.run([str(ejecutable)], check=True)
     except subprocess.CalledProcessError as e:

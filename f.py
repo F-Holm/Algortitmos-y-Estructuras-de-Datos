@@ -36,7 +36,7 @@ def es_excluido(archivo, carpetas_excluidas):
             if carpeta.resolve() in archivo.resolve().parents:
                 return True
         except FileNotFoundError:
-            continue  # Por si el archivo es un symlink roto
+            continue
     return False
 
 def aplicar_clang_format(root_dir=".", carpetas_excluidas=None):
@@ -47,7 +47,6 @@ def aplicar_clang_format(root_dir=".", carpetas_excluidas=None):
         if archivo.suffix.lower() in extensiones and archivo.is_file():
             if not es_excluido(archivo, carpetas_excluidas):
                 subprocess.run(["clang-format", "-i", str(archivo)], check=False)
-                #print(f"Formateado: {archivo}")
 
 def formatear():
     carpetas_excluidas = cargar_exclusiones()

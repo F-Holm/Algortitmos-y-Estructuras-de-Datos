@@ -76,9 +76,7 @@ def cargar_configuracion(path="config.env"):
     return resultado
 
 def parsear_respuestas(resp_str):
-    # Separa por | y limpia espacios
     paths = [p.strip() for p in resp_str.split("|") if p.strip()]
-    # Pasar a Path absolutos para comparar
     return [Path(p).resolve() for p in paths]
 
 def es_excluido(archivo: Path, carpetas_excluidas):
@@ -100,10 +98,9 @@ def buscar_cpp_files(root_dir=".", carpetas_excluidas=None):
     return archivos
 
 def compilar(file: Path, compiler, cpp_standard, extra_info, mode_flags, tmp_dir: Path):
-    exe_name = file.with_suffix("")  # sin .cpp
+    exe_name = file.with_suffix("")
     log_file = tmp_dir / f"{file.name}.log"
     
-    # Construir comando
     cmd = [
         compiler,
         cpp_standard,
@@ -118,7 +115,6 @@ def compilar(file: Path, compiler, cpp_standard, extra_info, mode_flags, tmp_dir
         proceso = subprocess.run(cmd, stdout=logf, stderr=subprocess.STDOUT)
         code = proceso.returncode
 
-    # Analizar log para warnings
     with open(log_file, "r") as logf:
         contenido = logf.read()
 
@@ -147,7 +143,6 @@ def build():
 
     print(f"🔧 Compilando con {compiler} {cpp_standard} {mode_flags} {extra_info}...")
     
-    # Buscar archivos
     cpp_files = buscar_cpp_files(".", carpetas_excluidas)
     total = len(cpp_files)
 
@@ -160,9 +155,9 @@ def build():
         tmp_dir = Path(tmpdirname)
 
         resultados_path = tmp_dir / "resultados"
-        resultados_path.write_text("")  # archivo vacío
+        resultados_path.write_text("")
 
-        max_workers = 8  # limitamos la concurrencia para no saturar CPU/disk
+        max_workers = 8
 
         def tarea(file):
             nonlocal count
@@ -173,7 +168,6 @@ def build():
                 percent = int(count * 100 / total) if total > 0 else 100
                 print(f"Compilando... {count}/{total} ({percent}%)\r", end="", flush=True)
 
-            # Guardar resultado
             with file_lock:
                 with resultados_path.open("a") as resf:
                     resf.write(f"{estado};{str(f)}\n")
@@ -186,7 +180,6 @@ def build():
 
         print("\n\nResultados de compilación:\n")
 
-        # Leer y analizar resultados
         if resultados_path.exists():
             with resultados_path.open() as resf:
                 for linea in resf:
