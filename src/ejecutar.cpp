@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
 inline bool EsValido(string dir) {
   if (dir.empty() || dir.length() > 200) return false;
 
-  constexpr string_view caracteres_invalidos = R"(\/:*?"<>| .,)";
+  constexpr string_view caracteres_invalidos = R"(\/:*?"<>| .;'",)";
 
   for (char c : dir) {
     if (std::isupper(static_cast<unsigned char>(c)) ||
