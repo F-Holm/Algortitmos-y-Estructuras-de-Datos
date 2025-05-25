@@ -24,8 +24,12 @@ inline const uint8_t kCantRespuestas = sizeof(kRespuestas) / sizeof(fs::path);
 };  // namespace Configuracion
 
 namespace Flags {
-constexpr char kExcluir = 'e';
-constexpr char kDebug = 'd';
-constexpr char kRelease = 'r';
-constexpr char kNoEjecutar = 'n';
+constexpr char kExcluir[2] = {'-', 'e'};
+constexpr char kDebug[2] = {'-', 'd'};
+constexpr char kRelease[2] = {'-', 'r'};
+constexpr char kNoEjecutar[2] = {'-', 'n'};
+
+inline bool CmpFlags(const char f1[2], const char f2[2]) {
+  return f1[0] == f2[0] && f1[1] == f2[1];
+}
 }  // namespace Flags

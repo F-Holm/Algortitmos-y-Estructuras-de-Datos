@@ -29,10 +29,18 @@ std::atomic<int> cant_error = 0;
 
 std::mutex mutex_compilar;
 
+bool kExcluir = false;
+bool kDebug = false;
+// bool kRelease = false;
+
 int main(int argc, char* argv[]) {
   Formatear(true, false);
 
-  const bool kExcluir = argc > 1 && std::string(argv[1]) == "-e";
+  for (int i = 1; i < argc; i++) {
+    if (Flags::CmpFlags(argv[i], Flags::kExcluir)) kExcluir = true;
+    if (Flags::CmpFlags(argv[i], Flags::kDebug)) kDebug = true;
+    // if (Flags::CmpFlags(argv[i], Flags::kRelease)) kRelease = true;
+  }
 
   vector<fs::path> archivos = BuscarCpps(".", kExcluir, true, {".cpp"});
   vector<std::future<void>> tareas;
@@ -57,7 +65,8 @@ inline string ComandoCompilar(const fs::path& src) {
 
   return string(kCompilador) + " " + string(kEstandar) + " " +
          string(kExtraInfo) + " " +
-         string(kModoBuild == Modo::RELEASE_ ? kReleaseFlags : kDebugFlags) +
+         string(kModoBuild == Modo::RELEASE_ && kDebug == false ? kReleaseFlags
+                                                                : kDebugFlags) +
          " \"" + src.string() + "\" -o \"" + exe.string() + "\" 2>&1";
 }
 
