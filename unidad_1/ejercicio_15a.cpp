@@ -1,4 +1,4 @@
-// Unidad 1 - Ejercicio 15A
+// Unidad 1 - Ejercicio 15a
 #include <iostream>
 
 using namespace std;

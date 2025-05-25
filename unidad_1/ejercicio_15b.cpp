@@ -1,10 +1,9 @@
-// Unidad 1 - Ejercicio 15C
-#include <cmath>
+// Unidad 1 - Ejercicio 15b
 #include <iostream>
 
 using namespace std;
 // num perfecto = suma de sus partes alicuotas excepto el propio número es el
-// número dado 2^(n-1) * (2^n -1)
+// número dado
 
 bool EsPrimo(unsigned int num) {
   if (num < 2) return false;
@@ -16,13 +15,13 @@ bool EsPrimo(unsigned int num) {
 int main() {
   unsigned int k = 0, num = 1;
   while (k < 3) {  // puede llegar hasta 8
-    num++;
-    unsigned int der = pow(2, num) - 1;
+    unsigned int sum = 2 * num + 1;
 
-    if (EsPrimo(num) && EsPrimo(der)) {
+    if (EsPrimo(sum)) {
       k++;
-      cout << k << ") " << pow(2, num - 1) * der << " es un número perfecto\n";
+      cout << k << ") " << sum * (num + 1) << " es un número perfecto\n";
     }
+    num = sum;
   }
   return 0;
 }
