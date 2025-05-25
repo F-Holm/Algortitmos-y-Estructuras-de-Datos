@@ -12,18 +12,18 @@ using std::vector;
 
 inline void Formatear(const bool& excluir, const bool& excluir_src);
 inline bool EstaExcluido(const fs::path& archivo, const bool& excluir_src);
-inline vector<fs::path> BuscarCpps(
-    const fs::path& root, const bool& excluir,
-    const bool& excluir_src, const vector<string>& extensiones);
-inline bool EstaExtension(
-    const string& extension, const vector<string>& extensiones);
+inline vector<fs::path> BuscarCpps(const fs::path& root, const bool& excluir,
+                                   const bool& excluir_src,
+                                   const vector<string>& extensiones);
+inline bool EstaExtension(const string& extension,
+                          const vector<string>& extensiones);
 
 inline void Formatear(const bool& excluir, const bool& excluir_src) {
   vector<string> extensiones = {".cpp", ".h", ".hpp"};
   vector<fs::path> archivos =
       BuscarCpps(".", excluir, excluir_src, extensiones);
   for (auto& dir : archivos)
-    system((string("clang-format -i ") + dir.string()).c_str());
+    system((string("clang-format -i \"") + dir.string() + "\"").c_str());
 }
 
 inline bool EstaExcluido(const fs::path& archivo, const bool& excluir_src) {
@@ -45,9 +45,9 @@ inline bool EstaExcluido(const fs::path& archivo, const bool& excluir_src) {
   return false;
 }
 
-inline vector<fs::path> BuscarCpps(
-    const fs::path& root, const bool& excluir,
-    const bool& excluir_src, const vector<string>& extensiones) {
+inline vector<fs::path> BuscarCpps(const fs::path& root, const bool& excluir,
+                                   const bool& excluir_src,
+                                   const vector<string>& extensiones) {
   vector<fs::path> archivos;
   for (auto& p : fs::recursive_directory_iterator(root))
     if (EstaExtension(p.path().extension().string(), extensiones) &&
@@ -56,8 +56,8 @@ inline vector<fs::path> BuscarCpps(
   return archivos;
 }
 
-inline bool EstaExtension(
-    const string& extension, const vector<string>& extensiones) {
+inline bool EstaExtension(const string& extension,
+                          const vector<string>& extensiones) {
   for (const string& e : extensiones)
     if (e == extension) return true;
   return false;
