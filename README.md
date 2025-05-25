@@ -13,10 +13,7 @@
 ### Windows
 
 ```bash
-winget install --id Microsoft.PowerShell --source winget
-```
-```bash
-winget install --id BrechtSanders.WinLibs.POSIX.UCRT.LLVM --source winget
+winget install --id LLVM.LLVM --source winget
 ```
 ```bash
 winget install --id Python.Python.3.13 --source winget
