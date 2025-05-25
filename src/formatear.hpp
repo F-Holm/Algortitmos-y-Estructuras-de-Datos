@@ -4,17 +4,24 @@
 #include <string>
 #include <vector>
 
+#include "configuracion.h"
+
 namespace fs = std::filesystem;
 using std::string;
 using std::vector;
 
 inline void Formatear(const bool& excluir, const bool& excluir_src);
 inline bool EstaExcluido(const fs::path& archivo, const bool& excluir_src);
-inline vector<fs::path> BuscarCpps(const fs::path& root, const bool& excluir);
+inline vector<fs::path> BuscarCpps(
+    const fs::path& root, const bool& excluir,
+    const bool& excluir_src, const vector<string>& extensiones);
+inline bool EstaExtension(
+    const string& extension, const vector<string>& extensiones);
 
 inline void Formatear(const bool& excluir, const bool& excluir_src) {
   vector<string> extensiones = {".cpp", ".h", ".hpp"};
-  vector<fs::path> archivos = BuscarCpps(".", excluir, extensiones);
+  vector<fs::path> archivos =
+      BuscarCpps(".", excluir, excluir_src, extensiones);
   for (auto& dir : archivos)
     system((string("clang-format -i ") + dir.string()).c_str());
 }
@@ -40,10 +47,18 @@ inline bool EstaExcluido(const fs::path& archivo, const bool& excluir_src) {
 
 inline vector<fs::path> BuscarCpps(
     const fs::path& root, const bool& excluir,
-    const bool& excluir_src const vector<string> extensiones) {
+    const bool& excluir_src, const vector<string>& extensiones) {
   vector<fs::path> archivos;
   for (auto& p : fs::recursive_directory_iterator(root))
-    if (p.path().extension() == ".cpp" && (!excluir || !EstaExcluido(p.path())))
+    if (EstaExtension(p.path().extension().string(), extensiones) &&
+        (!excluir || !EstaExcluido(p.path(), excluir_src)))
       archivos.push_back(p.path());
   return archivos;
+}
+
+inline bool EstaExtension(
+    const string& extension, const vector<string>& extensiones) {
+  for (const string& e : extensiones)
+    if (e == extension) return true;
+  return false;
 }
