@@ -32,7 +32,7 @@ std::mutex mutex_compilar;
 
 int main(int argc, char* argv[]) {
   const bool kExcluir = argc > 1 && std::string(argv[1]) == "-e";
-  Configuracion::modo = Modo::RELEASE_;
+  std::cout << kExcluir << std::endl;
 
   vector<fs::path> archivos = BuscarCpps(".", kExcluir);
   vector<std::future<void>> tareas;
@@ -57,15 +57,24 @@ inline string ComandoCompilar(const fs::path& src) {
 
   return string(kCompilador) + " " + string(kEstandar) + " " +
          string(kExtraInfo) + " " +
-         string(modo == Modo::RELEASE_ ? kReleaseFlags : kDebugFlags) + " \"" +
-         src.string() + "\" -o \"" + exe.string() + "\" 2>&1";
+         string(kModoBuild == Modo::RELEASE_ ? kReleaseFlags : kDebugFlags) +
+         " \"" + src.string() + "\" -o \"" + exe.string() + "\" 2>&1";
 }
 
 inline bool EstaExcluido(const fs::path& archivo) {
-  for (size_t i = 0; i < Configuracion::kCantRespuestas; i++)
-    if (archivo.string().find(Configuracion::kRespuestas[i].string()) !=
-        string::npos)
+  fs::path archivo_abs = fs::absolute(archivo);
+  for (size_t i = 0; i < Configuracion::kCantRespuestas; i++) {
+    fs::path excluido_abs = fs::absolute(Configuracion::kRespuestas[i]);
+    fs::path relative = archivo_abs.lexically_relative(excluido_abs);
+    if (!relative.empty() && !(relative.string().compare(0, 2, "..") == 0)) {
       return true;
+    }
+  }
+  fs::path excluido_abs = fs::absolute(fs::path("./src/"));
+  fs::path relative = archivo_abs.lexically_relative(excluido_abs);
+  if (!relative.empty() && !(relative.string().compare(0, 2, "..") == 0)) {
+    return true;
+  }
   return false;
 }
 
@@ -123,10 +132,10 @@ inline string EjecutarComando(const string& cmd) {
 }
 
 inline Estado AnalizarSalida(const std::string& salida) {
-  string s = salida;
-  // std::transform(s.begin(), s.end(), s.begin(), ::tolower);
-  if (s.find("error") != std::string::npos) return Estado::ERROR;
-  if (s.find("warning") != std::string::npos) return Estado::WARNING;
+  // string s = salida;
+  //  std::transform(s.begin(), s.end(), s.begin(), ::tolower);
+  if (salida.find("error") != std::string::npos) return Estado::ERROR;
+  if (salida.find("warning") != std::string::npos) return Estado::WARNING;
   return Estado::SUCCESS;
 }
 

@@ -9,7 +9,8 @@ namespace fs = std::filesystem;
 enum class Modo : bool { RELEASE_ = true, DEBUG_ = false };
 
 namespace Configuracion {
-Modo modo;
+inline constexpr Modo kModoBuild = Modo::RELEASE_;
+inline constexpr Modo kModoCompilar = Modo::DEBUG_;
 inline constexpr str kCompilador = "clang++";
 inline constexpr str kEstandar = "-std=c++23";
 inline constexpr str kExtraInfo = "-Wall -Wextra -Wpedantic";
