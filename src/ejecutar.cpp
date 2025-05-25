@@ -1,13 +1,11 @@
-#include <cstring>
+#include "ejecutar.hpp"
+
 #include <iostream>
 #include <string>
 
 #include "formatear.hpp"
 
 using std::string;
-using std::string_view;
-
-inline bool EsValido(string dir);
 
 int main(int argc, char* argv[]) {
   string unidad = argc >= 3 ? argv[1] : "";
@@ -21,28 +19,8 @@ int main(int argc, char* argv[]) {
     std::cout << std::endl;
   }
 
-#ifdef _WIN32
-  string cmd = "unidad_" + unidad + "\\ejercicio_" + ejercicio + ".exe";
-#else
-  string cmd = "./unidad_" + unidad + "/ejercicio_" + ejercicio;
-#endif
-
-  system(cmd.c_str());
+  Ejecutar(unidad, ejercicio);
 
   Formatear(true, false);
   return 0;
-}
-
-inline bool EsValido(string dir) {
-  if (dir.empty() || dir.length() > 200) return false;
-
-  constexpr string_view caracteres_invalidos = R"(\/:*?"<>| .;'",)";
-
-  for (char c : dir) {
-    if (std::isupper(static_cast<unsigned char>(c)) ||
-        caracteres_invalidos.find(c) != std::string::npos)
-      return false;
-  }
-
-  return true;
 }
