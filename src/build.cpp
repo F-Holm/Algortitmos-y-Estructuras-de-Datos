@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "configuracion.h"
+#include "formatear.hpp"
 
 using std::string;
 using std::vector;
@@ -14,8 +15,6 @@ using std::vector;
 enum class Estado : char { ERROR = 'E', WARNING = 'W', SUCCESS = 'S' };
 
 inline string ComandoCompilar(const fs::path& src);
-inline bool EstaExcluido(const fs::path& archivo);
-inline vector<fs::path> BuscarCpps(const fs::path& root, const bool& excluir);
 inline void Compilar(const fs::path& archivo);
 inline string EjecutarComando(const string& cmd);
 inline Estado AnalizarSalida(const std::string& salida);
@@ -31,10 +30,11 @@ std::atomic<int> cant_error = 0;
 std::mutex mutex_compilar;
 
 int main(int argc, char* argv[]) {
-  const bool kExcluir = argc > 1 && std::string(argv[1]) == "-e";
-  std::cout << kExcluir << std::endl;
+  Formatear(true, false);
 
-  vector<fs::path> archivos = BuscarCpps(".", kExcluir);
+  const bool kExcluir = argc > 1 && std::string(argv[1]) == "-e";
+
+  vector<fs::path> archivos = BuscarCpps(".", kExcluir, true, {".cpp"});
   vector<std::future<void>> tareas;
 
   for (const auto& arch : archivos)
@@ -93,8 +93,7 @@ inline void Compilar(const fs::path& archivo) {
 
   if (estado != Estado::SUCCESS) {
     std::lock_guard<std::mutex> lock(mutex_compilar);
-    std::cout << static_cast<char>(estado) << ") " << salida << '\n'
-              << DivisorHorizontal() << std::flush;
+    std::cout << salida << '\n' << DivisorHorizontal() << std::flush;
   }
 
   switch (estado) {
