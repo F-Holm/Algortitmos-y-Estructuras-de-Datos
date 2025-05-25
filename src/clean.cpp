@@ -1,10 +1,11 @@
+#include "configuracion.h"
 #include "formatear.hpp"
 
 #ifdef _WIN32
 
 #include <windows.h>
 
-inline void Clean() {
+inline void Clean(const bool& todo) {
   STARTUPINFO si{};
   si.cb = sizeof(si);
   PROCESS_INFORMATION pi;
@@ -12,7 +13,7 @@ inline void Clean() {
   si.wShowWindow = SW_HIDE;
 
   const char* command =
-      "cmd /c git clean -Xfd && timeout /t 1 /nobreak >nul && setup.bat";
+      todo ? "cmd /c git clean -Xfd" : "cmd /c git clean -Xfd && setup.bat";
 
   BOOL success = CreateProcessA(NULL, (LPSTR)command, NULL, NULL, FALSE,
                                 CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
@@ -21,7 +22,6 @@ inline void Clean() {
     CloseHandle(pi.hThread);
     CloseHandle(pi.hProcess);
   } else {
-    // Manejo de error opcional
     // DWORD errorCode = GetLastError();
     // printf("Error al ejecutar proceso: %lu\n", errorCode);
   }
@@ -29,14 +29,18 @@ inline void Clean() {
 
 #else
 
-inline void Clean() {
-  system("nohup bash -c 'git clean -Xfd && sleep 5 && ./setup.sh' &");
+inline void Clean(const bool& todo) {
+  if (todo) {
+    system("nohup bash -c 'git clean -Xfd' &");
+  } else {
+    system("nohup bash -c 'git clean -Xfd && ./setup.sh' &");
+  }
 }
 
 #endif
 
-int main() {
+int main(int argc, char* argv[]) {
   Formatear(true, false);
-  Clean();
+  Clean(argc > 1 && argv[1][0] == '-' && argv[1][1] == 't');
   return 0;
 }
