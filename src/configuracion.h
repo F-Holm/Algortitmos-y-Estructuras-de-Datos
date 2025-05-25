@@ -22,3 +22,10 @@ inline const fs::path kRespuestas[] = {"./Unidad 1/Respuestas/",
                                        "./Unidad 1/Diagramas en VISIO/"};
 inline const uint8_t kCantRespuestas = sizeof(kRespuestas) / sizeof(fs::path);
 };  // namespace Configuracion
+
+namespace Flags {
+constexpr char kExcluir = 'e';
+constexpr char kDebug = 'd';
+constexpr char kRelease = 'r';
+constexpr char kNoEjecutar = 'n';
+}  // namespace Flags
