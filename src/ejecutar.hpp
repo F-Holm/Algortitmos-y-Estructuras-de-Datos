@@ -1,10 +1,12 @@
 #pragma once
 
 #include <cstring>
+#include <filesystem>
 #include <string>
 
 using std::string;
 using std::string_view;
+namespace fs = std::filesystem;
 
 inline bool EsValido(const string& dir);
 inline void Ejecutar(const string& unidad, const string& ejercicio);
@@ -24,11 +26,12 @@ inline bool EsValido(const string& dir) {
 }
 
 inline void Ejecutar(const string& unidad, const string& ejercicio) {
+  fs::path cmd("./unidad_" + unidad + "/ejercicio_" + ejercicio);
+  cmd = fs::absolute(cmd);
+
 #ifdef _WIN32
-  string cmd = "unidad_" + unidad + "\\ejercicio_" + ejercicio + ".exe";
-#else
-  string cmd = "./unidad_" + unidad + "/ejercicio_" + ejercicio;
+  cmd.replace_extension(".exe");
 #endif
 
-  system(cmd.c_str());
+  system(cmd.string().c_str());
 }

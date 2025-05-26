@@ -11,6 +11,7 @@
 
 using std::string;
 using std::vector;
+namespace fs = std::filesystem;
 
 enum class Estado : char { ERROR = 'E', WARNING = 'W', SUCCESS = 'S' };
 

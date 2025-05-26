@@ -1,3 +1,4 @@
+#include <filesystem>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,6 +9,7 @@
 
 using std::string;
 using std::vector;
+namespace fs = std::filesystem;
 
 // bool kDebug = false;
 bool kRelease = false;
@@ -45,13 +47,13 @@ int main(int argc, char* argv[]) {
 
 inline string ComandoCompilar(const string& unidad, const string& ejercicio) {
   using namespace Configuracion;
+  fs::path src("./unidad_" + unidad + "/ejercicio_" + ejercicio + ".cpp");
+  fs::path exe = src;
 
 #ifdef _WIN32
-  string src = "unidad_" + unidad + "\\ejercicio_" + ejercicio + ".cpp";
-  string exe = "unidad_" + unidad + "\\ejercicio_" + ejercicio + ".exe";
+  exe.replace_extension(".exe");
 #else
-  string src = "./unidad_" + unidad + "/ejercicio_" + ejercicio + ".cpp";
-  string exe = "./unidad_" + unidad + "/ejercicio_" + ejercicio;
+  exe.replace_extension("");
 #endif
 
   return string(kCompilador) + " " + string(kEstandar) + " " +
@@ -59,7 +61,7 @@ inline string ComandoCompilar(const string& unidad, const string& ejercicio) {
          string(kModoCompilar == Modo::DEBUG_ && kRelease == false
                     ? kDebugFlags
                     : kReleaseFlags) +
-         " \"" + src + "\" -o \"" + exe + "\"";
+         " \"" + src.string() + "\" -o \"" + exe.string() + "\"";
 }
 
 inline void VerificarArgumentos(string& unidad, string& ejercicio,
