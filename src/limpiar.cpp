@@ -31,9 +31,9 @@ inline void Clean(const bool& todo) {
 
 inline void Clean(const bool& todo) {
   if (todo) {
-    system("nohup bash -c 'git clean -Xfd' &");
+    system("nohup bash -c 'git clean -Xfd' > /dev/null 2>&1 &");
   } else {
-    system("nohup bash -c 'git clean -Xfd && ./setup.sh' &");
+    system("nohup bash -c 'git clean -Xfd && ./setup.sh' > /dev/null 2>&1 &");
   }
 }
 
