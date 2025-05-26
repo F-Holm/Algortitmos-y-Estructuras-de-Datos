@@ -103,6 +103,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
   </tbody>
 </table>
 
+- Los ejecutables de `Linux` no tienen extensión. No como los de windows que terminan en `.exe`
 - `RESPUESTAS` en una variable del archivo `src/configuración.h` que contiene la lista de directorios con las respuestas subidas al aula virtual
 - El ejecutable para dar formato a todos los archivos se ejecuta automáticamente cada vez que se utiliza otro ejecutable
 - El ejecutable de formateo no afecta las `RESPUESTAS`
