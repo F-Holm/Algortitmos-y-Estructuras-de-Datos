@@ -15,7 +15,7 @@ bool kNoEjecutar = false;
 
 inline string ComandoCompilar(const string& unidad, const string& ejercicio);
 inline void VerificarArgumentos(string& unidad, string& ejercicio,
-                                vector<string> args);
+                                const vector<string>& args);
 
 int main(int argc, char* argv[]) {
   Formatear(true, false);
@@ -79,6 +79,6 @@ inline void VerificarArgumentos(string& unidad, string& ejercicio,
     else if (ejercicio == "")
       ejercicio = s;
     else
-      break;
+      std::cout << "AFUERA: " << s;
   }
 }
