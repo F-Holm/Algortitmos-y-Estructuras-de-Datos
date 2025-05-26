@@ -41,6 +41,6 @@ inline void Clean(const bool& todo) {
 
 int main(int argc, char* argv[]) {
   Formatear(true, false);
-  Clean(argc > 1 && argv[1][0] == '-' && argv[1][1] == 't');
+  Clean(argc > 1 && Flags::CmpFlags(argv[1], Flags::kEliminarTodo));
   return 0;
 }

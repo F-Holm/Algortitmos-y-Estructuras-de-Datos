@@ -28,6 +28,7 @@ constexpr char kExcluir[2] = {'-', 'e'};
 constexpr char kDebug[2] = {'-', 'd'};
 constexpr char kRelease[2] = {'-', 'r'};
 constexpr char kNoEjecutar[2] = {'-', 'n'};
+constexpr char kEliminarTodo[2] = {'-', 't'};
 
 inline bool CmpFlags(const char f1[2], const char f2[2]) {
   return f1[0] == f2[0] && f1[1] == f2[1];
