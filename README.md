@@ -70,7 +70,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
       <td><code>./c.exe</code></td>
       <td>
         <code>-n</code> No ejecuta<br>
-        <code>-d</code> compila en modo DEBUG</code>
+        <code>-r</code> compila en modo <code>RELEASE</code></code>
       </td>
     </tr>
     <tr>
@@ -88,7 +88,7 @@ Este proyecto sigue la [Guía de Estilo de C++ de Google](https://google.github.
       <td><code>./build.exe</code></td>
       <td>
         <code>-e</code> Excluye <code>RESPUESTAS</code><br>
-        <code>-d</code> compila en modo DEBUG</code>
+        <code>-d</code> compila en modo <code>DEBUG</code></code>
       </td>
     </tr>
     <tr>
