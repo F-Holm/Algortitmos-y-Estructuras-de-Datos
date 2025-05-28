@@ -12,6 +12,13 @@ Cosas fundamentales:
 
 Librerías y Funciones:
 
+#conio.h?
+- getche
+- getch
+- gotoxy -> creo que la creo H.N.
+- Sleep(ms)
+- clrscr()
+
 #include <string>
 - string -> 16B (en 32bits) -> ptr inicio, ptr final, size reservado, size libre
 - str.clear()
@@ -106,3 +113,4 @@ Palabras reservadas/operaciones:
 - break (solo switch)
 - continue (no usar)
 - return -> solo 1 por función
+- system()
