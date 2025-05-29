@@ -6,9 +6,11 @@
 */
 
 #include <fstream>
+#include <iostream>
 #include <iomanip>
+#include "borland.h"
 using namespace std;
-const MAX_ELEM = 1000;
+const int MAX_ELEM = 1000;
 typedef short tVec[MAX_ELEM];
 
 void Emitir(tVec v, short card) {

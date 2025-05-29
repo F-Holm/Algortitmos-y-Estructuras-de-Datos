@@ -14,6 +14,7 @@
 #include<iomanip.h>
 #include<windows>
 #include<fstream>
+#include<iostream>
 using namespace std;
 
 const

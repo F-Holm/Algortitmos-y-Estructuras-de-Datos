@@ -9,9 +9,11 @@
 */
 
 #include <fstream>
+#include <iostream>
 #include <iomanip>
+#include "borland.h"
 using namespace std;
-const MAX_ELEM = 100;
+const int MAX_ELEM = 100;
 
 void IntCmb(short &elem1, short &elem2) {
   short aux = elem1;

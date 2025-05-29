@@ -14,12 +14,15 @@
 #include<conio.h>
 #include<iomanip>
 #include<fstream>
+#include<iostream>
+#include "borland.h"
+#include<windows.h>
 using namespace std;
 
 #define pOperCjto tvEnt vP, tvEnt vQ, tvEnt vR, short cP, short cQ, short &cR
 #define pOperDifer tvEnt v1, tvEnt v2, tvEnt vR, short c1, short c2, short &cR
 
-const
+const int
   MAX_ELEM = 90;
 
 typedef char str20[21];

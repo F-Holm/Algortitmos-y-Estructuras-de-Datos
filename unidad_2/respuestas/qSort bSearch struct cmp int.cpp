@@ -13,9 +13,10 @@
 
 #include <iomanip>
 #include <fstream>
+#include <iostream>
 using namespace std;
 
-const
+const int
   CARD         = 10,
   MAX_SIZE_STR = 20;
 

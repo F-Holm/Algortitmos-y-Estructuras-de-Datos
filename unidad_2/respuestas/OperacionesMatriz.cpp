@@ -2,8 +2,10 @@
 
 #include <fstream>
 #include <iomanip>
+#include <iostream>
+#include "borland.h"
 using namespace std;
-const
+const int
   MAX_FILAS = 5,
   MAX_COLS  = 5;
 

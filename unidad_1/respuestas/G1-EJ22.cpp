@@ -12,7 +12,7 @@
 #include <iostream>
 #include <cstring>
 
-#include "Borland.h"
+#include "borland.h"
 
 using namespace std;
 

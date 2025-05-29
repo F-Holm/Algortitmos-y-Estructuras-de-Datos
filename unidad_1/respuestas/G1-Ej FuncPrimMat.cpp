@@ -11,7 +11,7 @@
 #include <iostream>
 #include <cmath>
 
-#include "Borland.h"
+#include "borland.h"
 
 using namespace std;
 

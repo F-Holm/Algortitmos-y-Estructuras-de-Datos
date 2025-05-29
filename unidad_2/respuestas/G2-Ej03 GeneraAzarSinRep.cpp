@@ -13,9 +13,12 @@
 #include<conio.h>
 #include<iomanip>
 #include<fstream>
+#include<iostream>
+#include "borland.h"
+#include<windows.h>
 using namespace std;
 
-const
+const int
   MAX_ELEM = 90;
 
 typedef unsigned int   word;

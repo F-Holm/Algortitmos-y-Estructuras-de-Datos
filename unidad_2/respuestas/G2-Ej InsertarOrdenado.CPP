@@ -6,7 +6,8 @@
     Lenguaje...: Borland V. 5.5.
 */
 
-#include <fstream.h>
+#include <fstream>
+#include <iostream>
 using namespace std;
 
 const

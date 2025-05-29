@@ -8,6 +8,7 @@
 
 #include <iomanip>
 #include <fstream>
+#include <iostream>
 using namespace std;
 
 typedef short tVec[5];

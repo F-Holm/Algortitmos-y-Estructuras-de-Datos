@@ -9,11 +9,12 @@
 
 #include<iomanip>
 #include<fstream>
+#include<iostream>
 using namespace std;
 
 typedef unsigned short ushort;
 
-const
+const int
   MAX_CAM = 100;
 
 typedef char str5[6];

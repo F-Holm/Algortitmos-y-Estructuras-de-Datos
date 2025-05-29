@@ -1,5 +1,5 @@
 // Unidad 2 - Ejercicio 4
-#include <iostream>
+/*#include <iostream>
 
 using namespace std;
 
@@ -133,4 +133,4 @@ short *ComplementoPuQ(short *p, short *q, short &tamano_c, short &tamano_u) {
   }
 
   return *c;
-}
+}*/

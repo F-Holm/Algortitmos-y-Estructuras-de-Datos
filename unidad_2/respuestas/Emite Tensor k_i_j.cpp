@@ -8,6 +8,8 @@
 
 #include <iomanip>
 #include <fstream>
+#include <iostream>
+#include "borland.h"
 using namespace std;
 
 typedef short tVec[5];

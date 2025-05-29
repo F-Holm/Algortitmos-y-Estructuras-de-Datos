@@ -8,9 +8,10 @@
 
 #include <fstream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
-const MAX_ELEM = 100;
+const int MAX_ELEM = 100;
 
 void IntCmb ( int &elem1, int &elem2) {
     int aux = elem1;

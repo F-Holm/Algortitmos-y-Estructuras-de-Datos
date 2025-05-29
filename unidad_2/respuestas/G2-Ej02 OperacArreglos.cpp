@@ -14,6 +14,7 @@
 #include<iomanip>
 #include<windows>   // funcion Sleep
 #include<fstream>
+#include<iostream>
 using namespace std;
 
 const

@@ -10,16 +10,19 @@
 */
 
 #include <fstream>
+#include <iostream>
 using namespace std;
 #include <iomanip>
-#include <conio>
+#include <conio.h>
+#include "borland.h"
+#include <windows.h>
 #define repeat do
 #define until while
 #define and &&
 #define or ||
 #define not !
 
-const
+const int
   MAX_CF = 16;
 
 typedef short tMat0[MAX_CF][MAX_CF];
