@@ -11,7 +11,7 @@
 #include <fstream>
 #include <iostream>
 #include "borland.h"
-#include <windwos.h>
+#include <windows.h>
 using namespace std;
 
 #define and &&

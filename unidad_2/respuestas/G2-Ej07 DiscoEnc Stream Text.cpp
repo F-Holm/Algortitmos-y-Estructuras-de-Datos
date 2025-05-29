@@ -14,7 +14,7 @@
 #include<iostream>
 using namespace std;
 
-const
+const int
   MAX_TEMAS = 30;
 
 typedef unsigned short ushort;

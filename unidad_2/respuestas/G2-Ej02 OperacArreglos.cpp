@@ -12,12 +12,13 @@
 
 #include<conio.h>
 #include<iomanip>
-#include<windows>   // funcion Sleep
+#include<windows.h>   // funcion Sleep
 #include<fstream>
 #include<iostream>
+#include"borland.h"
 using namespace std;
 
-const
+const int
   MAX_ELEM = 100,
   MIN      = 53,
   MAX      = 391;

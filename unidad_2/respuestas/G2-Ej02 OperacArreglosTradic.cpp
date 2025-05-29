@@ -11,7 +11,7 @@
 */
 
 #include<conio.h>
-#include<iomanip.h>
+#include<iomanip>
 #include<windows>
 #include<fstream>
 #include<iostream>

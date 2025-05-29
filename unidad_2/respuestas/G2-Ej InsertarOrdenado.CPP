@@ -10,18 +10,18 @@
 #include <iostream>
 using namespace std;
 
-const
+const int
   MAX_ELEM = 5;
 
-typedef unsigned char byte;
+typedef unsigned char byte_;
 typedef unsigned short word;
-typedef byte tvEnt[MAX_ELEM];
+typedef byte_ tvEnt[MAX_ELEM];
 
 // Prototipos -------------------------
-void InsertarEnOrden(tvEnt , byte , byte );
+void InsertarEnOrden(tvEnt , byte_ , byte_ );
 // Fin Prototipos ---------------------
 
-void InsertarEnOrden(tvEnt vE, byte elem, byte card) {
+void InsertarEnOrden(tvEnt vE, byte_ elem, byte_ card) {
 
 	while (card > 0 && elem < vE[card - 1]) {
 		vE[card] = vE[card - 1];
@@ -34,12 +34,12 @@ int main() {
 	tvEnt vEnt;
     word valor;
 
-	for(byte i = 0; i < MAX_ELEM; i++) {
+	for(byte_ i = 0; i < MAX_ELEM; i++) {
 		cout << "Ing. valor del elemento: ";
 		cin >> valor;
 		InsertarEnOrden(vEnt,valor,i);
 	}
-	for(byte i = 0; i < MAX_ELEM; i++)
+	for(byte_ i = 0; i < MAX_ELEM; i++)
 		cout << (short) i << ": " << (short) vEnt[i] << endl;
 	return 0;
 } // main

@@ -39,3 +39,16 @@ double poly(double x, int degree, double coef[]) {
 void clreol() {
     std::cout << "\033[K";
 }
+
+#ifdef _WIN32
+#include <windows.h>
+void gotoxy(int x, int y) {
+    HANDLE hCon;
+    hCon = GetStdHandle (STD_OUTPUT_HANDLE);
+
+    COORD dwPos;
+    dwPos.X = x;
+    dwPos.Y = y;
+    SetConsoleCursorPosition (hCon,dwPos);
+  }
+#endif
