@@ -1,0 +1,14 @@
+ 35 10 martillo plano       153.26
+ 35  5 tenaza                85.00
+ 35  3 pinza punta           96.00
+ 35  4 pintura al latex     105.24
+ 35  7 papel de lija fina    32.15
+ 12 10 taladro grande      1325.12
+ 12  2 amoladora           2019.43
+ 12 30 pintura al latex     105.24
+153 12 pinza punta           96.00
+153  5 escalera chica       895.81
+ 86  4 llave francesa        76.84
+ 86  7 llave pico de loro    89.09
+ 86 10 papel de lija fina    32.15
+  0
