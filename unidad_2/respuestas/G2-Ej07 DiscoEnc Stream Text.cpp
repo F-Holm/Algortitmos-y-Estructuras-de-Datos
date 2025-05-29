@@ -142,7 +142,7 @@ void EmitePtoA(tvsRank vrRank) {
   cout <<"Vuelvo a la pantalla";
 } //EmitePtoA
 
-main() {
+int main() {
   ifstream Encuestas("Encuestas.Txt");
   tsEnc   rEncuesta;
   tvsRank vrRanking; //tsRank  vrRanking[MAX_TEMAS+1];

@@ -132,7 +132,7 @@ void Menu(tvEnt vE, short card) {
   } while (!(opc == 'E'));
 } //Menu
 
-main() {
+int main() {
   tvEnt vEnt;
   short cantElem;
 

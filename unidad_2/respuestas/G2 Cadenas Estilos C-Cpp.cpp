@@ -318,7 +318,7 @@ int fatoi(char s[], int &cod) {
 } // fatoi
 
 
-main() {
+int main() {
 
   cout << MesStr(12);
   return 0;

@@ -37,7 +37,7 @@ void OrdxBur (int v [ ], short card) {
 } // OrdxBur
 
 
-main() {
+int main() {
     int vec[MAX_ELEM];
     short n = 7;
     ifstream ValEnt("Enteros.Txt");

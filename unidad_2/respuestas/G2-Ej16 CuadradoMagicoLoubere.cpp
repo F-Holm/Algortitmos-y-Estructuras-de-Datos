@@ -156,7 +156,7 @@ void EmiteSumasCuadradoMagico1(tMat1 mat, short max_cf) {
   cout << endl;
 } // EmiteSumasCuadradoMagico1
 
-main() {
+int main() {
   short n;
   short mat0[MAX_CF][MAX_CF] = {0};
   short mat1[MAX_CF+1][MAX_CF+1] = {0};

@@ -29,7 +29,7 @@ void InsertarEnOrden(tvEnt vE, byte elem, byte card) {
 	vE[card] = elem;
 } // InsertarEnOrden
 
-main() {
+int main() {
 	tvEnt vEnt;
     word valor;
 

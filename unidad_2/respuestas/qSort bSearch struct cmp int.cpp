@@ -37,7 +37,7 @@ void Emite(sArt n[]) {
   cout << endl;
 } // Emite
 
-main() {
+int main() {
   sArt rArt[] = { 315,"HERNANDEZ",259,"ALVAEZ",812,"PEREZ",
                   127,"QUIROZ",402,"MARTINEZ",706,"LOPEZ",
                   387,"PETROCCELLI",102,"RIOS",

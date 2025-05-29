@@ -55,7 +55,7 @@ void InsertarEnOrden(int vE[], short elem, short card) {
 	vE[card] = elem;
 } // InsertarEnOrden
 
-main() {
+int main() {
     int vec[100],
         elem;
     short pos;

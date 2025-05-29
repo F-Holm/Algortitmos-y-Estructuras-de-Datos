@@ -33,7 +33,7 @@ short MinVec(short [] , short );
 char Menu(short [] , short );
 // Fin Prototipos -------------
 
-main() {
+int main() {
   short vEnt[MAX_ELEM];
   short  cantElem;
 

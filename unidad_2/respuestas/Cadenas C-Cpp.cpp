@@ -16,7 +16,7 @@ void SplitFilename(const string& str){
   cout << " file: " << str.substr(found + 1) << endl;
 } // SplitFilename
 
-main() {
+int main() {
   char cad1[51],cad2[51];
   char *pcad1, *pcad2;
   string str1,str2,str3;

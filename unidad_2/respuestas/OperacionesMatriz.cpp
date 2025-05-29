@@ -69,7 +69,7 @@ void EmiteTriangularInf(short m[][MAX_COLS]) {
   }
 } // EmiteTriangularInf
 
-main() {
+int main() {
   short a[MAX_FILAS][MAX_COLS],
         b[MAX_FILAS * MAX_COLS];
 

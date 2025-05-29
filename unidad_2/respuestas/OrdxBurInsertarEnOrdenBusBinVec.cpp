@@ -78,7 +78,7 @@ void InsertarEnOrden(short vE[], short elem, short card) {
   vE[card] = elem;
 } // InsertarEnOrden
 
-main() {
+int main() {
   short vec[MAX_ELEM + 1],
         elem,
         pos;

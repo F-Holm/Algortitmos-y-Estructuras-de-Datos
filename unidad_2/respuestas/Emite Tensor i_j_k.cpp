@@ -14,7 +14,7 @@ typedef short tVec[5];
 typedef tVec tMat[100][10];
 // typedef short tTensor[100][10][5];
 
-main() {
+int main() {
   tMat mat;
 
   for (auto i = 0; i < 100; i++)

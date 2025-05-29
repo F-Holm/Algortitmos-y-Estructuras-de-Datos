@@ -109,7 +109,7 @@ void OrdListado(tvrCam vrCam, short cCam) {
   freopen("CON","w",stdout);
 } // Listado
 
-main() {
+int main() {
   ifstream Viajes("Viajes.Txt");
   trVia  rViaje;
   tvrCam vrCamioneros;

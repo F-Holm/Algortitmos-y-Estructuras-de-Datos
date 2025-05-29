@@ -2,7 +2,7 @@
   Id.Programa: Shell.cpp
   Fecha......: ago-1992
   Autor......: Lic. Hugo Cuello
-  Comentario.: Método logarítmico de ordenamiento interno.
+  Comentario.: Mï¿½todo logarï¿½tmico de ordenamiento interno.
 */
 
 #include <fstream>
@@ -37,7 +37,7 @@ void Shell(tVec v, short card) {
   }
 } //Shell
 
-main() {
+int main() {
   short v[MAX_ELEM];
 
   for(short i = 0; i < MAX_ELEM; i++)

@@ -136,7 +136,7 @@ void EmiteVecInv(tvEnt vE, short card) {
   cout << endl << endl;
 } //EmiteVecInv
 
-main() {
+int main() {
   tvEnt vEnt;
   short  cantElem;
 

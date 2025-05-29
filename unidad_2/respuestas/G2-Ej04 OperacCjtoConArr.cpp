@@ -179,7 +179,7 @@ void EmiteVec(tvEnt vE, short card, str20 titulo) {
   getche();
 } //EmiteVec
 
-main() {
+int main() {
   tvEnt p,
         q,
         r;

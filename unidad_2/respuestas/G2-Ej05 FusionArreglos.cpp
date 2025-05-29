@@ -121,7 +121,7 @@ void EmiteVec(tvEnt vE, byte card, str20 titulo) {
   cin.get();
 } //EmiteVec
 
-main() {
+int main() {
   tvEnt  p,
          q;
   tvEntD r;
