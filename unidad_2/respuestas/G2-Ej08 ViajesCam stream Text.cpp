@@ -10,6 +10,7 @@
 #include<iomanip>
 #include<fstream>
 #include<iostream>
+#include<cstring>
 using namespace std;
 
 typedef unsigned short ushort;
