@@ -114,3 +114,5 @@ Palabras reservadas/operaciones:
 - continue (no usar)
 - return -> solo 1 por función
 - system()
+- binary search (búsqueda binaria)
+- bubble sort (ordenamiento burbuja)

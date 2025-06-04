@@ -97,3 +97,15 @@ letra griega = sentencia
 
 pseudocódigo -> i = 1
 
+Métodos de ordenamientos:
+- cuadráticos:
+ + Ordenamiento Burbuja (bubble sort)
+ + lentos
+ + fáciles para el programador
+- logarítmicos
+ + rápidos
+ + complejos
+
+próx clase:
+ módulo insertar en orden y matrices cuadradas (juego ',:))"
+módulo insertar en orden y matrices cuadradas (juego ',:)
