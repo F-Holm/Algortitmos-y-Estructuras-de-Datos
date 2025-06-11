@@ -113,5 +113,25 @@ módulo insertar en orden y matrices cuadradas (juego ',:)
 matrices cuadradas:
 empiezan en 1 (no en 0)
 
-pilas
-busqueda binaria
+se cuenta con un archivo de gastos anuales de un año calendario
+conteniendo este arhcivo los siguientes datos:
+
+- numero de mes
+- num dia
+- importe
+no se sabe cuantos hay
+desordenado
+
+se pide obtener un listado ordenado por mes y dentro de cada mes,
+ordenado por dia, pero de importes acumulados para elementos del
+mismo mes y dia
+
+usar matriz de float 12x31
+
+hashing = transformar/desmenuzar
+en este caso se transforman las claves en direcciones/indices
+para la matriz
+
+hashing perfecto es aquel que no genera colisiones
+
+método del resto = hashing -> hashing perfecto
