@@ -66,7 +66,8 @@ int main() {
 
 string DivisorHorizontal() {
   string str = "";
-  for (ushort i = 0; i < 65; i++) str += '-';
+  for (ushort i = 0; i < 65; i++)
+    str += '-';
   return str;
 }
 
@@ -76,7 +77,8 @@ Venta CrearVenta() {
 
   cout << "codigo: ";
   cin >> venta.cod_ven;
-  if (venta.cod_ven == 0) return venta;
+  if (venta.cod_ven == 0)
+    return venta;
 
   cout << "cantidad: ";
   cin >> venta.cant;
@@ -101,10 +103,13 @@ void EmitirVenta(Venta v, ofstream& ventas) {
 }
 
 void LeerRegistroVentas(string* str, ushort size, ifstream& ventas) {
-  for (ushort i = 0; i < size && getline(ventas, str[i]); i++);
+  for (ushort i = 0; i < size && getline(ventas, str[i]); i++)
+    ;
 }
 
-int GetCodVen(string venta) { return stoi(venta.substr(0, 3)); }
+int GetCodVen(string venta) {
+  return stoi(venta.substr(0, 3));
+}
 
 float GetPrecioTotalVenta(string venta) {
   return stof(venta.substr(8, 4)) * stof(venta.substr(42, 8));
@@ -112,14 +117,16 @@ float GetPrecioTotalVenta(string venta) {
 
 // TimSort
 void Ordenar(string* str_ventas, ushort size) {
-  if (size <= 1) return;
+  if (size <= 1)
+    return;
 
   ushort RUN = CalcRun(size);
 
   // Ordenar por insertion sort en bloques de tamaño RUN
   for (ushort i = 0; i < size; i += RUN) {
     ushort right = i + RUN - 1;
-    if (right >= size) right = size - 1;
+    if (right >= size)
+      right = size - 1;
     InsertionSort(str_ventas, i, right);
   }
 
@@ -129,8 +136,10 @@ void Ordenar(string* str_ventas, ushort size) {
       int mid = left + run_size - 1;
       int right = left + 2 * run_size - 1;
 
-      if (mid >= size) continue;
-      if (right >= size) right = size - 1;
+      if (mid >= size)
+        continue;
+      if (right >= size)
+        right = size - 1;
 
       MergeSort(str_ventas, left, mid, right);
     }
@@ -169,8 +178,10 @@ void MergeSort(string* arr, ushort left, ushort mid, ushort right) {
   string* leftArr = new string[len1];
   string* rightArr = new string[len2];
 
-  for (ushort i = 0; i < len1; i++) leftArr[i] = arr[left + i];
-  for (ushort i = 0; i < len2; i++) rightArr[i] = arr[mid + 1 + i];
+  for (ushort i = 0; i < len1; i++)
+    leftArr[i] = arr[left + i];
+  for (ushort i = 0; i < len2; i++)
+    rightArr[i] = arr[mid + 1 + i];
 
   ushort i = 0, j = 0, k = left;
 
@@ -181,8 +192,10 @@ void MergeSort(string* arr, ushort left, ushort mid, ushort right) {
       arr[k++] = rightArr[j++];
   }
 
-  while (i < len1) arr[k++] = leftArr[i++];
-  while (j < len2) arr[k++] = rightArr[j++];
+  while (i < len1)
+    arr[k++] = leftArr[i++];
+  while (j < len2)
+    arr[k++] = rightArr[j++];
 
   delete[] leftArr;
   delete[] rightArr;

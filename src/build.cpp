@@ -38,8 +38,10 @@ int main(int argc, char* argv[]) {
   Formatear(true, false);
 
   for (int i = 1; i < argc; i++) {
-    if (Flags::CmpFlags(argv[i], Flags::kExcluir)) kExcluir = true;
-    if (Flags::CmpFlags(argv[i], Flags::kDebug)) kDebug = true;
+    if (Flags::CmpFlags(argv[i], Flags::kExcluir))
+      kExcluir = true;
+    if (Flags::CmpFlags(argv[i], Flags::kDebug))
+      kDebug = true;
     // if (Flags::CmpFlags(argv[i], Flags::kRelease)) kRelease = true;
   }
 
@@ -48,7 +50,8 @@ int main(int argc, char* argv[]) {
 
   for (const auto& arch : archivos)
     tareas.push_back(std::async(std::launch::async, Compilar, arch));
-  for (auto& t : tareas) t.get();
+  for (auto& t : tareas)
+    t.get();
 
   MostrarResultados(archivos.size());
   return 0;
@@ -128,7 +131,8 @@ inline string EjecutarComando(const string& cmd) {
 #else
   FILE* pipe = popen(cmd.c_str(), "r");
 #endif
-  if (!pipe) return "Error al ejecutar";
+  if (!pipe)
+    return "Error al ejecutar";
   while (fgets(buffer, sizeof(buffer), pipe)) {
     salida += buffer;
   }
@@ -143,8 +147,10 @@ inline string EjecutarComando(const string& cmd) {
 inline Estado AnalizarSalida(const std::string& salida) {
   // string s = salida;
   //  std::transform(s.begin(), s.end(), s.begin(), ::tolower);
-  if (salida.find("error") != std::string::npos) return Estado::ERROR;
-  if (salida.find("warning") != std::string::npos) return Estado::WARNING;
+  if (salida.find("error") != std::string::npos)
+    return Estado::ERROR;
+  if (salida.find("warning") != std::string::npos)
+    return Estado::WARNING;
   return Estado::SUCCESS;
 }
 

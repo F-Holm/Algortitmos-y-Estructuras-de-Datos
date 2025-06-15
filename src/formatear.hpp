@@ -63,6 +63,7 @@ inline vector<fs::path> BuscarCpps(const fs::path& root, const bool& excluir,
 inline bool EstaExtension(const string& extension,
                           const vector<string>& extensiones) {
   for (const string& e : extensiones)
-    if (e == extension) return true;
+    if (e == extension)
+      return true;
   return false;
 }

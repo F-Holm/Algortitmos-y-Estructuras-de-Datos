@@ -7,9 +7,11 @@ using namespace std;
 // número dado 2^(n-1) * (2^n -1)
 
 bool EsPrimo(unsigned int num) {
-  if (num < 2) return false;
+  if (num < 2)
+    return false;
   for (unsigned int i = 2; i < num / 2; i++)
-    if (num % i == 0) return false;
+    if (num % i == 0)
+      return false;
   return true;
 }
 

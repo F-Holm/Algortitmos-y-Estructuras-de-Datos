@@ -26,7 +26,8 @@ int main() {
 
 void Generar(short* v) {
   bool repetido[TAMANO];
-  for (short i = 0; i < TAMANO; i++) repetido[i] = false;
+  for (short i = 0; i < TAMANO; i++)
+    repetido[i] = false;
   for (short i = 0; i < TAMANO; i++) {
     short n = rand() % TAMANO;
     if (!repetido[n]) {

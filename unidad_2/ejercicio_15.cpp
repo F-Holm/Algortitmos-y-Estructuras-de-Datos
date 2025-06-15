@@ -19,6 +19,8 @@ int main() {
   return 0;
 }
 
-bool Completar(Matriz5& m, ushort actual, ushort i, ushort j) {}
+bool Completar(Matriz5& m, ushort actual, ushort i, ushort j) {
+}
 
-bool Explorar(Matriz5 m, ushort i, ushort j, ushort& i_ret, ushort& j_ret) {}
+bool Explorar(Matriz5 m, ushort i, ushort j, ushort& i_ret, ushort& j_ret) {
+}

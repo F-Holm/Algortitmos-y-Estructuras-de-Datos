@@ -29,7 +29,8 @@ int main() {
 }
 
 void InicCalen(Calendario& calendario) {
-  for (short i = 0; i < 364; i++) calendario[i] = 0.0f;
+  for (short i = 0; i < 364; i++)
+    calendario[i] = 0.0f;
 }
 short CantDias(short mes) {
   short cant = 0;
@@ -57,6 +58,5 @@ void CargarDatos(Calendario& calendario, ifstream& archivo) {
   } while (archivo.good());
 }
 
-void Mostrar(Calendario& calendario){
-  for (short)
+void Mostrar(Calendario& calendario) {
 }

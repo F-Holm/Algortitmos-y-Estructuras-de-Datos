@@ -7,7 +7,8 @@ using namespace std;
 
 char* FillBlank(char* car, short n) {
   size_t len = strlen(car);
-  for (size_t i = len; i < len + n; i++) car[i] = ' ';
+  for (size_t i = len; i < len + n; i++)
+    car[i] = ' ';
   car[len + n] = '\0';
   return car;
 }

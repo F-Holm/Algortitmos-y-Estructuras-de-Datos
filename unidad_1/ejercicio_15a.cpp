@@ -11,7 +11,8 @@ int main() {
     unsigned int sum_div = 1;
 
     for (unsigned int i = 2; i <= num / 2; i++)
-      if (num % i == 0) sum_div += i;
+      if (num % i == 0)
+        sum_div += i;
 
     if (num == sum_div) {
       k++;

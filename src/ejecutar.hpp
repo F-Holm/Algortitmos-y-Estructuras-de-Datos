@@ -12,7 +12,8 @@ inline bool EsValido(const string& dir);
 inline void Ejecutar(const string& unidad, const string& ejercicio);
 
 inline bool EsValido(const string& dir) {
-  if (dir.empty() || dir.length() > 200) return false;
+  if (dir.empty() || dir.length() > 200)
+    return false;
 
   constexpr string_view caracteres_invalidos = R"(\/:*?"<>| .;'",)";
 

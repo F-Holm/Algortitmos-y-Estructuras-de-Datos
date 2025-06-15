@@ -6,7 +6,8 @@ using namespace std;
 
 void CmbCar(char* cad, char car1, char car2) {
   for (size_t i = 0; i < strlen(cad); i++)
-    if (cad[i] == car1) cad[i] = car2;
+    if (cad[i] == car1)
+      cad[i] = car2;
 }
 
 int main() {

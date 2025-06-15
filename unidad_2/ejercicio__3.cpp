@@ -4,7 +4,8 @@
 using namespace std;
 
 char LowCase(char car) {
-  if (car >= 'A' && car <= 'Z') car += 'a' - 'A';
+  if (car >= 'A' && car <= 'Z')
+    car += 'a' - 'A';
   return car;
 }
 

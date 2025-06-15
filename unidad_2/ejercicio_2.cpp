@@ -10,14 +10,16 @@ using namespace std;
 short Maximo(const short *v) {
   short max = -32768;
   for (int i = 0; i < TAMANO; i++) {
-    if (v[i] > max) max = v[i];
+    if (v[i] > max)
+      max = v[i];
   }
   return max;
 }
 short Minimo(const short *v) {
   short min = 32767;
   for (int i = 0; i < TAMANO; i++) {
-    if (v[i] < min) min = v[i];
+    if (v[i] < min)
+      min = v[i];
   }
   return min;
 }
@@ -28,7 +30,9 @@ int Sumatoria(const short *v) {
   }
   return sum;
 }
-double Promedio(const short *v) { return Sumatoria(v) / (double)TAMANO; }
+double Promedio(const short *v) {
+  return Sumatoria(v) / (double)TAMANO;
+}
 
 char Menu() {
   cout << "\n1 promedio, 2 máximo, 3 mínimo, 4 sumatoria, 5 salir." << endl;
@@ -38,7 +42,8 @@ char Menu() {
 }
 
 void GenerarVector(short *v) {
-  for (int i = 0; i < TAMANO; i++) v[i] = rand() % 32768;
+  for (int i = 0; i < TAMANO; i++)
+    v[i] = rand() % 32768;
 }
 
 int main() {

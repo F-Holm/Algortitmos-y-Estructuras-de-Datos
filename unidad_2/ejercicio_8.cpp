@@ -35,7 +35,8 @@ int main() {
   Camioneros camioneros;
   short cant_cam = 0;
 
-  while (LeeUnaLinea(viajes, viaje)) ProcesarViaje(camioneros, viaje, cant_cam);
+  while (LeeUnaLinea(viajes, viaje))
+    ProcesarViaje(camioneros, viaje, cant_cam);
   Ordenar(camioneros, cant_cam);
   Emitir(camioneros, cant_cam);
   viajes.close();
@@ -54,9 +55,11 @@ void ProcesarViaje(Camioneros& camioneros, Viaje& viaje,
   return;
 }
 
-void Ordenar(Camioneros& camioneros, const short& cant_cam) {}
+void Ordenar(Camioneros& camioneros, const short& cant_cam) {
+}
 
-void Emitir(Camioneros& camioneros, const short& cant_cam) {}
+void Emitir(Camioneros& camioneros, const short& cant_cam) {
+}
 
 short ObtenerIndice(Camioneros& camioneros, str5& nro_leg) {
   for (short i = 0; i < kMaxCamiones; i++) {

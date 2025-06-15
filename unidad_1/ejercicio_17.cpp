@@ -4,7 +4,8 @@
 using namespace std;
 
 int Iif(bool condicion, int a, int b) {
-  if (condicion) return a;
+  if (condicion)
+    return a;
   return b;
 }
 

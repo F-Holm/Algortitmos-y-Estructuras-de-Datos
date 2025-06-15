@@ -18,7 +18,8 @@ int main() {
     double hyp = hypot(a, b);
     sum_hyp += hyp;
     cant_triangulos++;
-    if (hyp > 100) cant_hyp100++;
+    if (hyp > 100)
+      cant_hyp100++;
     cout << "la hipotenusa del triángulo ingresado es: " << hyp << "\n\n";
 
     cout << "Ingrese los catetos de un triángulo rectángulo\n";

@@ -10,9 +10,12 @@ void Swap(int &a, int &b) {
 }
 
 void Ordenar(int &a, int &b, int &c) {
-  if (a < b) swap(a, b);
-  if (a < c) swap(a, c);
-  if (b < c) swap(b, c);
+  if (a < b)
+    swap(a, b);
+  if (a < c)
+    swap(a, c);
+  if (b < c)
+    swap(b, c);
 }
 
 void Mostrar(int a, int b, int c) {
@@ -29,8 +32,10 @@ void Ingresar(int &a, int &b, int &c) {
 }
 
 void ActualizarMinMax(int a, int c, int &min, int &max) {
-  if (max < a) max = a;
-  if (min > c) min = c;
+  if (max < a)
+    max = a;
+  if (min > c)
+    min = c;
 }
 
 int main() {

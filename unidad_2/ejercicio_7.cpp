@@ -46,15 +46,18 @@ int main() {
 }
 
 void InicializarRanking(Rank* ranking) {
-  for (short i = 1; i <= kMaxTemas; i++) ranking[i].tema = i;
+  for (short i = 1; i <= kMaxTemas; i++)
+    ranking[i].tema = i;
 }
 
 void Ordenar(Rank* ranking) {
   for (short i = 1; i <= kMaxTemas; i++) {
     short max = i;
     for (short j = i; j <= kMaxTemas; j++)
-      if (ranking[max].votos < ranking[j].votos) max = j;
-    if (i != max) Swap(ranking[i], ranking[max]);
+      if (ranking[max].votos < ranking[j].votos)
+        max = j;
+    if (i != max)
+      Swap(ranking[i], ranking[max]);
   }
 }
 
@@ -69,7 +72,8 @@ void CargarEncuestas(Encuestado* encuestas) {
   short i = 0;
   do {
     archivo >> encuestas[i].sexo >> encuestas[i].edad;
-    for (short j = 0; j <= 2; j++) archivo >> encuestas[i].temas[j];
+    for (short j = 0; j <= 2; j++)
+      archivo >> encuestas[i].temas[j];
     archivo.ignore();
     i++;
     cout << encuestas[i].sexo << endl;
@@ -93,7 +97,8 @@ void ProcesarEncuestas(Rank* ranking, Encuestado* encuestados) {
 void EmitirTemaMasVotadoH30(Rank* ranking) {
   short max = 1;
   for (short i = 2; i <= kMaxTemas; i++)
-    if (ranking[max].h30 < ranking[i].h30) max = i;
+    if (ranking[max].h30 < ranking[i].h30)
+      max = i;
   cout << "El tema más votado por hombres de 30 años o más es '" << max
        << "' con '" << ranking[max].h30 << "' votos" << endl;
 }
@@ -101,7 +106,8 @@ void EmitirTemaMasVotadoH30(Rank* ranking) {
 void EmitirTemasNoElegidosMujeres(Rank* ranking) {
   cout << "Temas no elegidos por ninguna mujer:\n";
   for (short i = 1; i <= kMaxTemas; i++)
-    if (!ranking[i].mujer) cout << "- " << i << endl;
+    if (!ranking[i].mujer)
+      cout << "- " << i << endl;
   cout << endl;
 }
 

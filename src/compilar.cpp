@@ -24,7 +24,8 @@ int main(int argc, char* argv[]) {
 
   vector<string> args;
 
-  for (int i = 1; i < argc; i++) args.push_back(string(argv[i]));
+  for (int i = 1; i < argc; i++)
+    args.push_back(string(argv[i]));
 
   string unidad = "";
   string ejercicio = "";
@@ -41,7 +42,8 @@ int main(int argc, char* argv[]) {
 
   system(ComandoCompilar(unidad, ejercicio).c_str());
 
-  if (!kNoEjecutar) Ejecutar(unidad, ejercicio);
+  if (!kNoEjecutar)
+    Ejecutar(unidad, ejercicio);
   return 0;
 }
 
