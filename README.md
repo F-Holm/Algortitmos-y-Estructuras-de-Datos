@@ -4,8 +4,6 @@
 
 - `clang++`
 - `clang-format`
-- `mingw-w64` (Linux)
-- `wine` (Linux)
 
 ---
 
@@ -23,9 +21,8 @@ winget install --id LLVM.LLVM --source winget
 sudo apt update
 ```
 ```bash
-sudo apt install clang clang-format mingw-w64
+sudo apt install clang clang-format
 ```
-[Wine](https://gitlab.winehq.org/wine/wine/-/wikis/Debian-Ubuntu)
 
 ---
 
