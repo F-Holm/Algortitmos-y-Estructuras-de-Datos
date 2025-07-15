@@ -1,4 +1,4 @@
-#include "configuracion.h"
+#include "configuracion.hpp"
 #include "formatear.hpp"
 
 #ifdef _WIN32

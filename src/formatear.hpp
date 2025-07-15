@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "configuracion.h"
+#include "configuracion.hpp"
 
 namespace fs = std::filesystem;
 using std::string;

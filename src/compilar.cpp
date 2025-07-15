@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-#include "configuracion.h"
+#include "configuracion.hpp"
 #include "ejecutar.hpp"
 #include "formatear.hpp"
 

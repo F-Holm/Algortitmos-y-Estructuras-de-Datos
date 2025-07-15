@@ -6,7 +6,7 @@
 #include <mutex>
 #include <vector>
 
-#include "configuracion.h"
+#include "configuracion.hpp"
 #include "formatear.hpp"
 
 using std::string;
