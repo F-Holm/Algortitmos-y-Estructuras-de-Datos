@@ -9,6 +9,8 @@ Cosas fundamentales:
 - memoria dinámicas
 - arreglos dinámicos
 - string
+- template
+- operator
 
 Librerías y Funciones:
 
@@ -90,6 +92,26 @@ Librerías y Funciones:
 - setw()
 - setfill()
 
+#include <set>
+- .clear()
+- .empty()
+- .size()
+- .count(volor) -> si existe el elemento
+- .insert(ptr_inicio, ptr_fin) -> .insert(arreglo, arreglo + size-1)
+- .insert(valor)
+- .erase(ptr_inicio, ptr_fin)
+- .erase(valor)
+
+#include <multiset>?
+- .count(valor) -> cuantas veces está ese valor en el multiset
+
+#include <algorithm>
+- set_union
+- set_intersection
+- set_difference
+- set_simetric_difference
+- inserter?
+
 Palabras reservadas/operaciones:
 
 - caracteres de control. En especial '\n'
@@ -117,3 +139,5 @@ Palabras reservadas/operaciones:
 - binary search (búsqueda binaria)
 - bubble sort (ordenamiento burbuja)
 - pilas
+- ! << >> & ^|
+- auto

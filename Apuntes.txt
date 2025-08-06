@@ -1,3 +1,10 @@
+Nomenclatura:
+
+#define ALIAS texto
+struct tsNom;
+#typedef tvs tsNom[size]
+set<tipo> cjtoT (T=1°Letra de tipo)
+
 Entrega TPs:
 
 - IDE: Code::Blocks
@@ -135,3 +142,88 @@ para la matriz
 hashing perfecto es aquel que no genera colisiones
 
 método del resto = hashing -> hashing perfecto
+
+Conjuntos set
+#include <set>
+tiene un tipo base que puede ser de cualquier tipo. Es homogeneo
+Se usa #include <algorithm> para operar sobre los conjuntos/set
+Se manejan con punteros
+
+- set_union
+- set_intersection
+- set_difference
+- set_simetric_difference
+
+Rquieren 5 parámetros:
+- ptr_inicio_1
+- ptr_fin_1
+- ptr_inicio_2
+- ptr_fin_2
+- ptr_inicio_rta
+
+Es conveniente hacer un módulo para cada operacion de conjuntos que reciba 2 conjuntos y retorne 1
+A Está incluido en B
+A está incluido en B y B no está incluido en A
+A = B
+A != B
+x pertenece a A
+#A
+A = cjtoVacio
+
+Los elementos se incorporan ordenados
+Se necesita de un contenedor
+Es reversible
+Único
+Puede estar ordenado de forma ascendente o descendente
+menor-mayor -> less (default, puede no ponerse)
+mayor-menor -> greater
+set<short,greater> cjto;
+métodos
+A.clear()
+A.empty()
+A.size()
+
+Pascal tiene como máximo 256 elementos en setof (conjuntos/sets)
+
+Operaciones binarias:
+!  -> NOT
+<< -> SHR -> desplazamientode a derecha
+>> -> SHL -> desplazamientode a izquierda
+&  -> AND
+^  -> XOR
+|  -> OR
+
+No acepta valores repetidos
+Para valores repetidos: multiset
+
+iteratiors
+
+set<float>::iterator it;
+for (it = A.begin() ; it != A.end() ; it++){
+    cout << *it << endl;
+}
+
+set<float>::reverse_iterator rit;
+for (rit = A.rbegin() ; it != A.rend() ; rit++){
+    cout << *rit << endl;
+}
+
+for (auto const &i: A)
+
+template<typename T>
+set<T> Union(set<T> X, set<T> Y){
+    set<T> Z;
+    set_union(X.begin(), X.end(), Y.begin(), Y.end(), inserter(Z, Z.begin()));
+    return Z;
+} // Union
+
+Definir operators
++ Union
+- Diferencia
+* Intersección
+/ Diferencia simétrica
+
+template<typename T>
+set<T>operato/(const set<T>&X, const set<T>&Y){
+    return DiferenciaSimetrica(X, Y);
+}
