@@ -1,0 +1,53 @@
+Unidad 1:
+
+Metodología:
+
+Resolver problemas de manera sistemática
+A través de caminos y herramientas para obtener un mejor resultado
+
+
+
+Datos primitivos: simples, los da el compilador
+
+ECP - Estructura de Control de Programas:
+Concatenación (agrupar operaciones/sentencias)
+Repetición: Tiene una sola sentencia de alcance, se usa concatenación para concatenar
+Selección: Tiene una sola sentencia de alcance, se usa concatenación para concatenar - Bifurcaciones
+
+Módulos:
+
+2 tipos
+- Retornan: funciones
+- No retornan: procedimientos (funciones void para simularlo en c++)
+Pueden devolver valores (por referencia)
+
+Unidad 2:
+
+El lenguaje C++ maneja 2 tipos de estructuras, arreglos (homogeneas) y registros (heterogeneas)
+
+Arreglos estáticos -> Stack
+Arreglos dinámicos (new, delete) -> Heap (reservar un espacio extra para el delimitador ('\0'))
+C++ Strings: parecida a la dinámica pero de tamaño dinámico (longitud variable)
+
+Compilador: Traductor de lenguaje fuente (texto) a código máquina (binario)
+El compilador está dividido en
+
+Palabra reservada
+Identificador
+
+Registros/Estructuras
+Register/Record/Struct
+Sus componentes se llaman campos
+Se guardan en una variable para acceder a sus datos
+Los campos pueden ser primitivos/simples (int) o estructurados (struct fecha)
+
+Te das cuenta que hay que usar un arreglo cueando te dan la cantidad máxima. Cuando no te lo dicen
+El indice en un numero entero de caráccter ordinal (bool, char, int, etc.)
+ENUMS
+Se puede recorrer un arreglo de forma secuencial o ?
+Está ordenado de forma ascendente
+
+Examen:
+
+VoF sin justificar
+Práctica: desarrollar distontas partes de código de un mismo programa en diagrama o código (te lo va a decir el ejercicio y, en algunos casos, podés elegir)

@@ -7,6 +7,7 @@
 *.txt
 !Temas.txt
 !Apuntes.txt
+!Repaso.txt
 
 # Archivos de compilación
 *.o
