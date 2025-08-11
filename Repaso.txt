@@ -41,7 +41,7 @@ Sus componentes se llaman campos
 Se guardan en una variable para acceder a sus datos
 Los campos pueden ser primitivos/simples (int) o estructurados (struct fecha)
 
-Te das cuenta que hay que usar un arreglo cueando te dan la cantidad máxima. Cuando no te lo dicen
+Te das cuenta que hay que usar un arreglo cueando te dan la cantidad máxima. Cuando no te lo dicen...
 El indice en un numero entero de caráccter ordinal (bool, char, int, etc.)
 ENUMS
 Se puede recorrer un arreglo de forma secuencial o ?

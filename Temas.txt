@@ -124,7 +124,7 @@ Palabras reservadas/operaciones:
 - x % y = resto de x/y
 - define
 - typedef (typedef char str20[21];)
-- static (en funciones)
+- static (en variables dentro de funciones)
 - struct
 - new
 - delete
@@ -139,5 +139,5 @@ Palabras reservadas/operaciones:
 - binary search (búsqueda binaria)
 - bubble sort (ordenamiento burbuja)
 - pilas
-- ! << >> & ^|
+- ! << >> & ^| (operadores binarios)
 - auto

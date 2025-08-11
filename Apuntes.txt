@@ -114,8 +114,8 @@ Métodos de ordenamientos:
  + complejos
 
 próx clase:
- módulo insertar en orden y matrices cuadradas (juego ',:))"
-módulo insertar en orden y matrices cuadradas (juego ',:)
+ módulo insertar en orden y matrices cuadradas - juego ',:)
+módulo insertar en orden y matrices cuadradas  - (juego ',:)
 
 matrices cuadradas:
 empiezan en 1 (no en 0)
