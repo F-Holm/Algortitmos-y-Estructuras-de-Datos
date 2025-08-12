@@ -1,0 +1,93 @@
+unidad 1 - capítulo 1 ==================================================================================================================================================================
+Modificadores de tipo:
+signed
+unsigned
+long
+short
+
+Modificadores de acceso:
+const
+volatile
+const volatile
+
+Especificadores de clase de almacenamiento:
+extern
+static
+register
+auto
+
+unidad 1 - capítulo 2 ==================================================================================================================================================================
+
+Metodología descendente (TOP-DOWN) - de lo general a lo particular
+La estrategia será pues un conjunto de acciones relevantes interrelacionadas, dispuestas en un orden lógico, que tendrá como meta alcanzar un objetivo.
+caja negra - caja transparente
+Un algoritmo es una secuencia de acciones dadas en un orden lógico que conociendo ciertos datos debemos obtener ciertos resultados espera
+Todo algoritmo debe ser:
+- Preciso
+- Definido
+- Finito
+
+El diseño del algoritmo se basa en dos etapas
+- Análisis - ¿Qué?
+- Diseño   - ¿Cómo?
+
+El algoritmo tiene un diseño modular.
+Los módulos son diseñados de modo descendente.
+Cada módulo se codifica utilizando las tres estructuras de control básicas:
+- Concatenación
+- Selección
+- Repetición
+
+- Palabras Reservadas -> lenguaje/compilador
+- Identificadores     -> programador
+
+Una expresión está formada por operandos y operadores
+Los operandos pueden ser, valores constantes, variables, expresiones propiamente dichas o funciones
+Los operadores a su vez pueden ser, según la siguiente clasificación:
+- Aritméticos
+- Relacionales
+- Lógicos
+
+Prioridades generales
+1ro.: +, -, ! (operadores unarios)
+2do.: *, /, %
+3ro.: +, - (operadores binarios)
+4to.: >, <, >=, <=
+5to.: ==, !=
+6to.: && (operador compuesto conjunción)
+7mo.: || (operador compuesto disyunción)
+
+Unidad 1 - Capítulo 3 ==================================================================================================================================================================
+
+Unidad 1 - Capítulo 4 ==================================================================================================================================================================
+
+Las sentencias son acciones algorítmicas que pueden ser ejecutadas. Hay dos tipos principales de sentencias:
+- Sentencias simples: No tiene ninguna otra sentencia, puede ser una sentencia de asignación o procedimiento
+
+ + Asignación interna: x <- sqrt(25)
+ + Asignación externa de entrada: cin
+ + Asignación externa de salida: cout
+
+- Sentencias estructuradas: se compone por otras sentencias (utilizando ECP (Estructuras de Control de Programas))
+
+Diagramas:
+Asignación externa de entrada        = cin
+Asignación externa de salida         = cout
+Selección Simple                     = if
+Selección Múltiple                   = switch
+Repetición Exacta Ascendente  "Para" = for i++
+Repetición Exacta Descendente "Para" = for i--
+Repetición pre-condición "Mientras"  = while
+Repetición post-condición "Hasta|1-X"= do !while
+
+Prueba de escritorio
+
+Unidad 1 - Capítulo 5 ==================================================================================================================================================================
+
+Una función en unn módulo que tiene cabecera/interfaz y cuerpo (y valor que retorna)
+La cabecera tiene tipo_return, nombre y lista de parámetros que puede estar vacía
+
+Unidad 2================================================================================================================================================================================
+
+Estructuras de datos
+Funciones / Módulos comunes/recurrentes

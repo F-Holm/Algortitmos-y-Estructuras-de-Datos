@@ -35,7 +35,9 @@ Metodología para resolver problemas:
 2- Diseñar estrategia
 3- Desarrollar el algoritmo
 4- Codificar el algoritmo
+- Corregir errores
 5- Ejecutar
+- Depurar errores
 
 Problema compuesto = 2+ problemas elementales
 
