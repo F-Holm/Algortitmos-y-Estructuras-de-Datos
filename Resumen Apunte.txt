@@ -84,10 +84,10 @@ Prueba de escritorio
 
 Unidad 1 - Capítulo 5 ==================================================================================================================================================================
 
-Una función en unn módulo que tiene cabecera/interfaz y cuerpo (y valor que retorna)
+Una función en un módulo que tiene cabecera/interfaz y cuerpo (y valor que retorna)
 La cabecera tiene tipo_return, nombre y lista de parámetros que puede estar vacía
 
-Unidad 2================================================================================================================================================================================
+Unidad 2 ===============================================================================================================================================================================
 
 Estructuras de datos
 Funciones / Módulos comunes/recurrentes
