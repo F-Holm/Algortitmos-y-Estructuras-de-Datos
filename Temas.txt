@@ -124,6 +124,7 @@ Librerías y Funciones:
 - .good()
 - rename()
 - remove(nombre físico)
+- .tellp()
 
 Palabras reservadas/operaciones:
 
