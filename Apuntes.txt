@@ -252,20 +252,21 @@ contenido viejo a un backup
 pueden ser: batch o interactivo
 archivos temporales
 pueden ser utilizadios para actualizar un archivo maestro 
-batch=recolectar los datos dentro de un período de tiempo
+batch=recolectar los datos dentro de un período de tiempo y subirlos todos al mismo tiempo
 
 - Históricos: suelen ser usados con fines estadísticos
 
-- Tablas: tienen poco volumen y pueden ser volcados directo en la memoria RAM
+- Tablas: tienen poco volumen y pueden ser volcados directo en la memoria RAM (Ej: archivo de indices)
 
 - Índeces: ordenado - solo contiene el valor de un campo clave, su posición (ubicación)
 y, a veces, estado
+Puede hacer que otro archivo esté ordenado lógicamente (porque se utiliza el archivo de indices)
 
 - Auxiliares: Se crea y Elimina en cada ejecución
 
 - Archivos de informes o reportes: 
 S.P.O.O.L. = (Simultaneus Peripherical Operation On Line)
-S.P.O.O.L. guarda las salidas de programas en wrchivos cuando el proceso que debe recibir
+S.P.O.O.L. guarda las salidas de programas en archivos cuando el proceso que debe recibir
 esa salida está ocupado
 
 - Seguridad: backup
@@ -289,3 +290,22 @@ esa salida está ocupado
 - Miscelánea: 
 
 El archivo binario en más rápido porque no requiere conversión
+
+Minimizar accesos a archivos por el tiempo
+
+Enlazador=Linker
+Enlazar=Link
+
+Archivos binarios:
+Se lee cada elemento de forma completa y se guardan los datos en un registro/struct
+No tiene saltos de línea
+Más rápido porque no hay conversión
+ios::binary (modo de apertura)
+.dat
+i/o/fstream Arch(Nombre, ios::binary | ios::in/ios::out/ambos);
+Los modos de apertura se concatenan con | (OR a nivel de bits)
+Exclusivo para binario:
+arch.read(char* str, sizeof(str)); -> retorna 0 si termina
+arch.write(char* str, sizeof(str));
+
+freopen solo es para archivos de texto, no sirve para archivos binarios
