@@ -112,6 +112,19 @@ Librerías y Funciones:
 - set_simetric_difference
 - inserter?
 
+#include <fstream>
+- .read()
+- .write()
+- .clear()
+- seekp() -> para leer o escribir (no se cual)
+- seekg() -> para leer o escribir (opuesto a seekp())
+- .eof()
+- .fail()
+- .is_open()
+- .good()
+- rename()
+- remove(nombre físico)
+
 Palabras reservadas/operaciones:
 
 - caracteres de control. En especial '\n'
@@ -141,3 +154,11 @@ Palabras reservadas/operaciones:
 - pilas
 - ! << >> & ^| (operadores binarios)
 - auto
+- ios::binary
+- ios::in
+- ios::out
+- ios::trunc
+- ios::app
+- ios::ate (sobreescribe)
+- ios::cur
+- ios::beg
