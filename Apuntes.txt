@@ -309,3 +309,42 @@ arch.read(char* str, sizeof(str)); -> retorna 0 si termina
 arch.write(char* str, sizeof(str));
 
 freopen solo es para archivos de texto, no sirve para archivos binarios
+
+
+
+
+Modo de apertura (ios::*)
+Modo de Acceso (secuencial | random)
+- se utiliza una expresión artimetica para obtener la posición en el hashing
+
+hashing perfect -> direccionamiento directo
+hashing no perfecto -> direccionamiento indirecto
+
+en organizacion de archivos:
+- secuencial
+- relativa: las direcciones de los componentes se encuentran desde el
+  comienzo del archivo y no desde el comienzo del disco
+- indexada (y multiindexada) -> archivo y archivo de indices ordenado
+
+C++ medio nivel
+
+intérpretes vs compiladores
+- ventajas, desventajas y definición
+- interpretes te permiten ejecutar una sentencia inmediatamente sin compilar todo
+- el compilador genera ejecutables más rápidos
+- Python -> intérprete
+- C++ -> compilador
+- El intérprete traduce una sentencia a la vez
+- compilador traduce todo y luego se puede ejecutar cualquier cantidad de veces
+
+Árbol binario:
+- Raiz: primer nodo
+- Hoja: otros nodos
+- ?
+
+orden (Izquierda | Raíz | Derecha)
+- in  orden: I R D
+- pre orden: R I D
+- pos orden: I D R
+
+Balanceado = Árbol simétrico
