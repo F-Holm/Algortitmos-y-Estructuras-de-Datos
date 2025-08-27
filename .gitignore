@@ -5,6 +5,7 @@
 
 # Archivos de tecto de ejercicios
 *.txt
+*.dat
 !Temas.txt
 !Apuntes.txt
 !Repaso.txt
