@@ -1,0 +1,21 @@
+  5 3212 6567 GALLETITAS RICAS     TRIUNVIRATO 2123     URQUIZA              180846547 A
+ 10 1898 2299 TOSTADAS RIERA       MAIPU 2345           VICENTE LOPEZ        109897893 A
+ 12    0    0 *                    *                    *                            0 B
+ 15 4471 8819 MAICEN SA            GUALEGUAYCHU 2890    VILLA CRESPO         278344390 A
+ 17    0    0 *                    OLLEROS 1238         PALERMO                      0 M
+ 20 3789    0 *                    CUBA 2345            BELGRANO                     0 M
+ 23    0    0 *                    *                    *                            0 B
+ 26 2780 9090 MORE SWEET           PEDRO LOZANO 2043    CABA                 289009843 A
+ 27 2898 3988 DULCES CORDOBA       RIVADAVIA 2876       MERLO                287300987 A
+ 65 1221 4334 A-Z SWEET            GARCIA DEL RIO 2345  SAAVEDRA             155543389 A
+ 66 3776 4474 PIRULIN              POSADAS 1234         RETIRO               211233236 A
+ 85    0    0 *                    *                    *                            0 B
+140    0    0 *                    ESTEBAN ECHEVERRIA 4 CABA                         0 M
+170 3448 5577 MAS DULCE            ANCHORENA 2908       SAN MARTIN           289765536 A
+176 2786 8087 ABCD                 ITALIA 435           CASEROS              298870041 A
+183 1992 8822 RSTKDS DFDSF         BELGRANO 239         VILLA SOLDATI        390909338 A
+191 3383 9929 DKDESSMN DFDSFD DFSD GRECIA 2314          VILLA DEL PARQUE     100933487 A
+193    0    0 *                    *                    *                            0 B
+198    0    0 *                    *                    *                            0 B
+214 9911    0 *                    *                    *                    822746463 M
+219 2398 9032 FDSFDEIW SDFSDF WS   FORMOSA 3123         BARRACAS             192385647 A

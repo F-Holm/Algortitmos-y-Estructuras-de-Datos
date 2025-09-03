@@ -348,3 +348,8 @@ orden (Izquierda | Raíz | Derecha)
 - pos orden: I D R
 
 Balanceado = Árbol simétrico
+
+Cortes de control
+n+1 ciclos
+n = nivel de corte de control
+
