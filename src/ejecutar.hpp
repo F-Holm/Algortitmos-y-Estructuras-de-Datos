@@ -34,5 +34,19 @@ inline void Ejecutar(const string& unidad, const string& ejercicio) {
   cmd.replace_extension(".exe");
 #endif
 
-  system(cmd.string().c_str());
+  // Guardar el directorio actual
+  // fs::path old_cwd = fs::current_path();
+
+  // Cambiar al directorio donde está el ejecutable
+  fs::current_path(cmd.parent_path());
+
+// Ejecutar el ejecutable desde ese directorio
+#include <iostream>
+  std::cout << ("./" + cmd.filename().string()) << std::endl;
+  system(("./" + cmd.filename().string()).c_str());
+
+  // Restaurar el directorio original
+  // fs::current_path(old_cwd);
+
+  // system(cmd.string().c_str());
 }
