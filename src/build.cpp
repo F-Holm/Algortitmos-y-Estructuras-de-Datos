@@ -71,7 +71,8 @@ inline string ComandoCompilar(const fs::path& src) {
          string(kExtraInfo) + " " +
          string(kModoBuild == Modo::RELEASE_ && kDebug == false ? kReleaseFlags
                                                                 : kDebugFlags) +
-         " \"" + src.string() + "\" -o \"" + exe.string() + "\" 2>&1";
+         " " + string(kInclude) + " \"" + src.string() + "\" -o \"" +
+         exe.string() + "\" 2>&1";
 }
 
 inline bool EstaExcluido(const fs::path& archivo) {

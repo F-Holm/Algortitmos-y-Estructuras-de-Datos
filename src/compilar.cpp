@@ -63,7 +63,8 @@ inline string ComandoCompilar(const string& unidad, const string& ejercicio) {
          string(kModoCompilar == Modo::DEBUG_ && kRelease == false
                     ? kDebugFlags
                     : kReleaseFlags) +
-         " \"" + src.string() + "\" -o \"" + exe.string() + "\"";
+         " " + string(kInclude) + " \"" + src.string() + "\" -o \"" +
+         exe.string() + "\"";
 }
 
 inline void VerificarArgumentos(string& unidad, string& ejercicio,

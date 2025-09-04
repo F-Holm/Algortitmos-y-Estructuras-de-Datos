@@ -22,6 +22,7 @@ inline const fs::path kRespuestas[] = {
     "./unidad_1/diagramas_en_visio/", "./unidad_2/respuestas/",
     "./unidad_4/respuestas/",         "./unidad_4/diagramas_en_visio/"};
 inline const uint8_t kCantRespuestas = sizeof(kRespuestas) / sizeof(fs::path);
+inline constexpr str kInclude = "-Isrc/borland.h";
 };  // namespace Configuracion
 
 namespace Flags {
