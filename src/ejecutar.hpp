@@ -40,9 +40,7 @@ inline void Ejecutar(const string& unidad, const string& ejercicio) {
   // Cambiar al directorio donde está el ejecutable
   fs::current_path(cmd.parent_path());
 
-// Ejecutar el ejecutable desde ese directorio
-#include <iostream>
-  std::cout << ("./" + cmd.filename().string()) << std::endl;
+  // Ejecutar el ejecutable desde ese directorio
   system(("./" + cmd.filename().string()).c_str());
 
   // Restaurar el directorio original
