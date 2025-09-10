@@ -2,7 +2,7 @@ Nomenclatura:
 
 #define ALIAS texto
 struct tsNom;
-#typedef tvs tsNom[size]
+#typedef tvsNom tsNom[size]
 set<tipo> cjtoT (T=1°Letra de tipo)
 
 Entrega TPs:
@@ -317,7 +317,7 @@ Modo de apertura (ios::*)
 Modo de Acceso (secuencial | random)
 - se utiliza una expresión artimetica para obtener la posición en el hashing
 
-hashing perfect -> direccionamiento directo
+hashing perfecto -> direccionamiento directo
 hashing no perfecto -> direccionamiento indirecto
 
 en organizacion de archivos:
@@ -352,4 +352,3 @@ Balanceado = Árbol simétrico
 Cortes de control
 n+1 ciclos
 n = nivel de corte de control
-

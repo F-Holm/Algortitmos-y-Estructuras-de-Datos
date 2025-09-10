@@ -158,8 +158,8 @@ Palabras reservadas/operaciones:
 - ios::binary
 - ios::in
 - ios::out
-- ios::trunc
-- ios::app
+- ios::trunc (elimina todo y escribe)
+- ios::app (escribe al final sin sobreescribir)
 - ios::ate (sobreescribe)
 - ios::cur
 - ios::beg

@@ -11,6 +11,7 @@
 
 #include <fstream>
 #include <iomanip>
+#include <cstring>
 using namespace std;
 
 #define IVA 0.21
