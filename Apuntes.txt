@@ -335,7 +335,7 @@ intérpretes vs compiladores
 - Python -> intérprete
 - C++ -> compilador
 - El intérprete traduce una sentencia a la vez
-- compilador traduce todo y luego se puede ejecutar cualquier cantidad de veces
+- Compilador traduce todo y luego se puede ejecutar cualquier cantidad de veces
 
 Árbol binario:
 - Raiz: primer nodo
@@ -352,3 +352,19 @@ Balanceado = Árbol simétrico
 Cortes de control
 n+1 ciclos
 n = nivel de corte de control
+
+Organización de archivos
+- Secuencial
+- Relativa -> Las rutas no son absolutas (son en base al inicio del archivo)
+- Indexada
+
+Hashing:
+
+hashing perfecto -> DD (Direccionamiento directo)
+hashing imperfecto -> DI (Direccionamiento indirecto)
+
+- Caso 1: clave[1;100] & archivo[1;100] -> clave=dir -> DD
+- Caso 2: clave[1001;1100] & archivo[1;100] -> f(clave)=(clave-1000)=dir -> DD
+- Caso 3: clave[3795;7862] & archivo[1;100] -> f(clave)=[(clave%100)+1]=dir -> DI
+- Caso 4: clave[Alfanumérica] & archivo[1;100] -> f(clave)=hash(clave)=dir -> DI
+hash_imperfecto(clave)=[sumatoria(clave[k]*pk)%100 +1] ; pk = k° número primo
