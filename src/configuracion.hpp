@@ -26,7 +26,9 @@ inline const fs::path kRespuestas[] = {
     "./unidad_1/diagramas_en_visio/", "./unidad_2/respuestas/",
     "./unidad_4/respuestas/",         "./unidad_4/diagramas_en_visio/"};
 inline const uint8_t kCantRespuestas = sizeof(kRespuestas) / sizeof(fs::path);
-inline constexpr str kInclude = "-Isrc/borland.h";
+// inline constexpr str kInclude = "-I./src/borland.h";
+inline const string kInclude = "-I" + (fs::current_path() / "src").string();
+
 };  // namespace Configuracion
 
 namespace Flags {
@@ -35,6 +37,7 @@ constexpr char kDebug[2] = {'-', 'd'};
 constexpr char kRelease[2] = {'-', 'r'};
 constexpr char kNoEjecutar[2] = {'-', 'n'};
 constexpr char kEliminarTodo[2] = {'-', 't'};
+constexpr char kHideWarnings[2] = {'-', 'w'};
 
 inline bool CmpFlags(const char f1[2], const char f2[2]) {
   return f1[0] == f2[0] && f1[1] == f2[1];

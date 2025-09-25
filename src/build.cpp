@@ -32,6 +32,7 @@ std::mutex mutex_compilar;
 
 bool kExcluir = false;
 bool kDebug = false;
+bool kHideWarnings = false;
 // bool kRelease = false;
 
 int main(int argc, char* argv[]) {
@@ -42,6 +43,8 @@ int main(int argc, char* argv[]) {
       kExcluir = true;
     if (Flags::CmpFlags(argv[i], Flags::kDebug))
       kDebug = true;
+    if (Flags::CmpFlags(argv[i], Flags::kHideWarnings))
+      kHideWarnings = true;
     // if (Flags::CmpFlags(argv[i], Flags::kRelease)) kRelease = true;
   }
 
@@ -101,7 +104,8 @@ inline void Compilar(const fs::path& archivo) {
   const string salida = EjecutarComando(cmd);
   const Estado estado = AnalizarSalida(salida);
 
-  if (estado != Estado::SUCCESS) {
+  if (estado != Estado::SUCCESS &&
+      (!kHideWarnings || (kHideWarnings && estado != Estado::WARNING))) {
     std::lock_guard<std::mutex> lock(mutex_compilar);
     std::cout << salida << '\n' << DivisorHorizontal() << std::flush;
   }
