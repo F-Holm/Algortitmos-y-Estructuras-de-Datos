@@ -34,9 +34,9 @@ inline void Ejecutar(const string& unidad, const string& ejercicio) {
   fs::current_path(cmd.parent_path());
 
 #ifdef _WIN32
-  system(("./" + cmd.filename().string()).c_str());
+  system(("\"/" + cmd.filename().string() + "\"").c_str());
 #else
-  system(("wine ./" + cmd.filename().string()).c_str());
+  system(("wine \"./" + cmd.filename().string() + "\"").c_str());
 #endif
 
   fs::current_path(old_cwd);
