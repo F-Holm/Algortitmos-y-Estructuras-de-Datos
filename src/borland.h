@@ -40,7 +40,7 @@ void clreol() {
   std::cout << "\033[K";
 }
 
-#ifdef _WIN32
+/*#ifdef _WIN32
 #include <windows.h>
 void gotoxy(int x, int y) {
   HANDLE hCon;
@@ -51,4 +51,4 @@ void gotoxy(int x, int y) {
   dwPos.Y = y;
   SetConsoleCursorPosition(hCon, dwPos);
 }
-#endif
+#endif*/

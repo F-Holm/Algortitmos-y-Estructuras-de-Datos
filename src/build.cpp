@@ -61,11 +61,7 @@ inline string ComandoCompilar(const fs::path& src) {
   using namespace Configuracion;
   fs::path exe = src;
 
-#ifdef _WIN32
   exe.replace_extension(".exe");
-#else
-  exe.replace_extension("");
-#endif
 
   return string(kCompilador) + " " + string(kEstandar) + " " +
          string(kExtraInfo) + " " +

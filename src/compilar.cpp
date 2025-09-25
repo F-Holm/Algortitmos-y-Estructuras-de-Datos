@@ -52,11 +52,7 @@ inline string ComandoCompilar(const string& unidad, const string& ejercicio) {
   fs::path src("./unidad_" + unidad + "/ejercicio_" + ejercicio + ".cpp");
   fs::path exe = src;
 
-#ifdef _WIN32
   exe.replace_extension(".exe");
-#else
-  exe.replace_extension("");
-#endif
 
   return string(kCompilador) + " " + string(kEstandar) + " " +
          string(kExtraInfo) + " " +

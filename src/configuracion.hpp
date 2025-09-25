@@ -12,7 +12,11 @@ enum class Modo : bool { RELEASE_ = true, DEBUG_ = false };
 namespace Configuracion {
 inline constexpr Modo kModoBuild = Modo::RELEASE_;
 inline constexpr Modo kModoCompilar = Modo::DEBUG_;
+#ifdef _WIN32
 inline constexpr str kCompilador = "clang++";
+#else
+inline constexpr str kCompilador = "x86_64-w64-mingw32-g++ -static";
+#endif
 inline constexpr str kEstandar = "-std=c++23";
 inline constexpr str kExtraInfo = "-Wall -Wextra -Wpedantic";
 inline constexpr str kDebugFlags = "-g -O0 -DDEBUG";

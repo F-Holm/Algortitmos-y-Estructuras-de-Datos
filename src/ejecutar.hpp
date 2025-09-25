@@ -29,22 +29,15 @@ inline bool EsValido(const string& dir) {
 inline void Ejecutar(const string& unidad, const string& ejercicio) {
   fs::path cmd("./unidad_" + unidad + "/ejercicio_" + ejercicio);
   cmd = fs::absolute(cmd);
-
-#ifdef _WIN32
   cmd.replace_extension(".exe");
-#endif
-
-  // Guardar el directorio actual
-  // fs::path old_cwd = fs::current_path();
-
-  // Cambiar al directorio donde está el ejecutable
+  fs::path old_cwd = fs::current_path();
   fs::current_path(cmd.parent_path());
 
-  // Ejecutar el ejecutable desde ese directorio
+#ifdef _WIN32
   system(("./" + cmd.filename().string()).c_str());
+#else
+  system(("wine ./" + cmd.filename().string()).c_str());
+#endif
 
-  // Restaurar el directorio original
-  // fs::current_path(old_cwd);
-
-  // system(cmd.string().c_str());
+  fs::current_path(old_cwd);
 }
