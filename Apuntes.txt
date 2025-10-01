@@ -416,7 +416,7 @@ cada nodo ocupa 4+n Bytes (4 de puntero (32 bits) y n del dato)
 
 struct sNodo {
     tInfo info;
-    tPila ant; (anterior)
+    tPila ant; // anterior
 };
 
 void push(tPila& stack, tInfo valor){
@@ -429,7 +429,7 @@ void push(tPila& stack, tInfo valor){
 void pop(tPila& stack, tInfo& valor){
     tPila pElim = stack;
     valor = stack->info;
-    stack = stakc->ant;
+    stack = stack->ant;
     delete pElim;
 }
 
@@ -445,3 +445,22 @@ short elem;
 tCola colaFte = NULL;
 tCola colaFin = NULL;
 
+void Enqueue(tCola& cFte, tCola&, cFin, tInfo valor){
+    tCola pNodo = new sNodo;
+    pNodo->info = valor;
+    pNodo->sgte = NULL;
+    if(cFte == NULL)
+        cFte = pNodo;
+    else
+        cFin->sgte = pNodo;
+    cFin = pNodo;
+}
+
+void Dequeue(tCola& cFte, tCola&, cFin, tInfo& valor){
+    pCola pElim = cFte;
+    valor = cFte->info;
+    cFte = cFte->sgte;
+    if (cFte == NULL)
+        cFin = NULL;
+    delete pElim;
+}
