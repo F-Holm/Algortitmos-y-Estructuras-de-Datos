@@ -368,3 +368,80 @@ hashing imperfecto -> DI (Direccionamiento indirecto)
 - Caso 3: clave[3795;7862] & archivo[1;100] -> f(clave)=[(clave%100)+1]=dir -> DI
 - Caso 4: clave[Alfanumérica] & archivo[1;100] -> f(clave)=hash(clave)=dir -> DI
 hash_imperfecto(clave)=[sumatoria(clave[k]*pk)%100 +1] ; pk = k° número primo
+
+UNIDAD 5:
+
+memoria contigua
+
+punteros solo operadores == y !=
+int *ptr = NULL; -> puntero nulo
+
+punteros cercanos (NEAR): apuntan al mismo segmento (hasta 64kB)
+punteros lejanos (FAR): apuntan a lugares fuera del mismo segmento (hasta 4GB (32 bits))
+
+puntero externo:
+    me permite acceder a una estructura dinámica
+    Hay que inicializarlos como NULL
+
+puntero empotrado:
+    Enlaza nodos (nodo anterior o posterior)
+
+Estructuras dinámicas de datos:
+    Estructuras Lineares:
+        Con restricciones:
+            Pilas
+            Colas
+        Sin restricciones:
+            Listas
+    Estructuras No Lineares:
+        grafos (un tipo de grafo)
+        Árboles:
+            Árbol Binario de Búsqueda (ABB)
+
+Una Pila obedece a las siguientes acciones:
+    Cuando se incorpora y elimina elementos por LIFO (invierte el orden)
+Una Cola obedece a las siguientes acciones:
+    Cuando se incorporan o eliminan elementos por FIFO
+
+Se agregan y eliminan con push y pop
+
+typedef short tInfo;
+typedef struct sNodo* tPila;
+push(pila, elemento)
+pop(pila, elemento) // Si tiene un valor debe retornar el elemento
+tPila pila = NULL;
+while (pila) {} // pila != NULL
+
+cada nodo ocupa 4+n Bytes (4 de puntero (32 bits) y n del dato)
+
+struct sNodo {
+    tInfo info;
+    tPila ant; (anterior)
+};
+
+void push(tPila& stack, tInfo valor){
+    tPila pNodo = new sNodo;
+    pNodo->info = valor;
+    pNodo->ant = stack;
+    stack = pNodo;
+}
+
+void pop(tPila& stack, tInfo& valor){
+    tPila pElim = stack;
+    valor = stack->info;
+    stack = stakc->ant;
+    delete pElim;
+}
+
+pila->info
+(*pila).info
+
+colas:
+
+enqueue(claFte, colaFin, elem); // 
+dequeue(claFte, colaFin, elem); // 
+
+short elem;
+tCola colaFte = NULL;
+tCola colaFin = NULL;
+

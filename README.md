@@ -21,8 +21,9 @@ winget install --id LLVM.LLVM --source winget
 sudo apt update
 ```
 ```bash
-sudo apt install clang clang-format
+sudo apt install clang clang-format wine
 ```
+También requiere llvm-mingw para x64 o mingw para x64 (Este requiere cambiar la [Configuración de build y compilar](/src/configuracion.hpp))
 
 ---
 
