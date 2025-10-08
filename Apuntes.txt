@@ -464,3 +464,63 @@ void Dequeue(tCola& cFte, tCola&, cFin, tInfo& valor){
         cFin = NULL;
     delete pElim;
 }
+
+-- Listas --
+
+struct sNodo{
+    tipo info;
+    tLista sgte;   
+};
+
+void InsertaInicio(tLista& lista, tInfo valor) { // == a push()
+    sNodo nodo = new sNodo;
+    nodo->info = valor;
+    nodo->sgte = lista;
+    lista = nodo;
+}
+
+void InsertaEnMedio(tLista& lista, tInfo valor){
+    sNodo nodo = new tsNodo;
+    nodo->info = valor;
+
+    tLista aux = lista;
+
+    while(aux->sgte != NULL && aux->sgte->info < valor) {
+        aux = aux->sgte;
+    }
+
+    nodo->sgte = aux->sgte;
+    aux->sgte = nodo;
+}
+
+void InsertaNodo(tLista& lista, tInfo valor){
+    if (list || valor < list->info) // list <==> lista == NULL
+        InsertarInicio(lista, valor);
+    else
+        InsertarEnMedio(lista, valor);
+}
+
+void SacarPrimerNodo(tLista& lista, tInfo& valor){
+    tLista pElim = lista;
+    valor = pElim->info;
+    lista = lista->sgte;
+    delete pElim;
+}
+
+void SuprimirNodo(tLista& lista, tipo valor) {
+    tLista pAct = list;
+    tLista pAnt = NULL;
+
+    while(pAct != NULL && valor > pAct->info) {
+        pAnt = pAct;
+        pAct = pAct->sgte;
+    }
+
+    if (pAct != NULL && valor == pAct->info){
+        if (pArt == NULL)
+            lista = lista->sgte;
+        else
+            pAnt->sgte = pAct->sgte;
+        delete pAct;
+    }
+}
