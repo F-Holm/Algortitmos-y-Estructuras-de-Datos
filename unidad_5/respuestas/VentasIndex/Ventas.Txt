@@ -1,0 +1,22 @@
+183   30 1021.75 Monitor LCD 18p
+ 12  105  302.01 Soporte Tablet 7p
+ 65 1375   21.55 Mouse inhalambric
+  3   10   45.90 TV LED 24P
+ 71  201   12.83 Teclado con luz
+ 24    4  245.00 Computadora HP15p
+ 38   12  157.08 Disco externo 1 Tb.
+ 19   57   86.02 Camara Web alta res
+ 86   21   12.12 Pendrive 2 Gb.
+503  100 2987.50 Parlante portatil
+704 2905  375.92 Notebook Compaq 14p
+601   12  286.68 Tablet Samsung Note
+ 82   30   23.32 Computadora only one
+  9   55   15.91 Tripode camara fotos
+ 45   23  291.12 Celular Samsung Gx
+321    7   84.43 Cable USB 3.0
+ 15   19    5.23 Impresora multifunci
+ 96  402   52.35 Tarjeta de video
+149   83  145.70 Tarjeta de sonido
+ 55   70   76.05 Tablet 10p Samsung
+301    9   31.89 Pendrive 1 Tb.
+112   93  243.89 Router-Modem

@@ -23,3 +23,11 @@
 *.Dat   binary
 *.DAT   binary
 *.vsd   binary
+*.Idx   binary
+*.idx   binary
+*.rar   binary
+*.Rar   binary
+*.Zip   binary
+*.zip   binary
+*.ppsx  binary
+*.Ppsx  binary
