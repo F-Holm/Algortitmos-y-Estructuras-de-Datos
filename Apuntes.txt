@@ -524,3 +524,13 @@ void SuprimirNodo(tLista& lista, tipo valor) {
         delete pAct;
     }
 }
+
+recursividad:
++más simple a nivel decódigo
+-consume más recursos (memoria y tiempo)
+
+- lineal: factorial (fact) -> similar en uso de recursos a su forma iterativa
+- múltiple: fib (fibonacci) -> no usar, usar su forma iterativa
+
+- directa
+- indirecta
