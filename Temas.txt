@@ -17,6 +17,7 @@ Cosas fundamentales:
 - cola circular
 - lista
 - recursividad
+- punteros a funciones
 
 Librerías y Funciones:
 

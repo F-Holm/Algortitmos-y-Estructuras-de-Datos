@@ -534,3 +534,80 @@ recursividad:
 
 - directa
 - indirecta
+
+template:
+evita la sobrecarga funcional y el código repetiiddo
+Sirve para hacer un módulo que pueda recibir cualquier parámetro válido
+Se adapta como un camaleon
+template<typename T, typename R>
+
+Ejemplos:
+
+template <typename T>
+struct sNodo{
+    T info;
+    sNodo<T>* ptrEmpo; // puntero empotrado
+};
+
+// Pilas
+template <typename T>
+void Push(sNodo<T>* &pila, T valor){
+    sNodo<T>* pNodo = new sNodo<T>;
+    pNodo->info = valor;
+    pNodo->ptrEmpo = pila;
+    pila = pNodo;
+}
+
+template <typename T>
+void Pop(sNodo<T>* &pila, T &valor){
+    sNodo<T>* pElim = pila;
+    valor = pila->info;
+    pila = pila->ptrEmpo;
+    delete pElim;
+}
+
+// Colas
+template <typename T>
+void Enqueue(sNodo<T>* &cFte, sNodo<T>* &cFin, T valor){
+    sNodo<T>* pNodo = new sNodo<T>;
+    pNodo->ptrEmpo = cFin->ptrEmpo;
+    pNodo->info = valor;
+    cFin->ptrEmpo = pNodo;
+}
+
+template <typename T>
+void Denqueue(sNodo<T>* &cFte, sNodo<T>* &cFin, T &valor){
+    sNodo<T>* pElim = cFte;
+    valor = cFte->info;
+    cFte = cFte->ptrEmpo;
+    delete cFte;
+}
+
+// Listas
+template <typename T>
+void InsertaInicio(sNodo<T>* &lista, T valor){
+    sNodo<T>* pNodo = new sNodo<T>;
+    pNodo->info = valor;
+    pNodo->ptrEmpo = lista;
+    lista = pNodo;
+}
+
+template <typename T>
+void SacarPrimerNodo(sNodo<T>* &lista, T &valor){
+    sNodo<T>* pElim = lista;
+    valor = lista->info;
+    lista = lista->ptrEmpo;
+    delete pElim;
+}
+
+Punteros a funciones:
+1:
+2: desde la cabecera del módulo
+3: desde el cuerpo del módulo
+
+float (*nombre)(tipo, tipo, ...)
+funcion (arg1, arg2, (bool(*)(void *, void *)) (funcCriterio));
+void funcion (tipo &arg1, tipo &arg2, (bool(*)(void *, void *)) (funcCriterio));
+criterio(arg1, arg2);
+Los argumentos siempre por referencia
+los nombres de los criterio empiezan con 'f'
