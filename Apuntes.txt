@@ -611,3 +611,6 @@ void funcion (tipo &arg1, tipo &arg2, (bool(*)(void *, void *)) (funcCriterio));
 criterio(arg1, arg2);
 Los argumentos siempre por referencia
 los nombres de los criterio empiezan con 'f'
+
+
+- Árbol binario
