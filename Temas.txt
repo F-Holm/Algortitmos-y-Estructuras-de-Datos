@@ -18,6 +18,7 @@ Cosas fundamentales:
 - lista
 - recursividad
 - punteros a funciones
+- árbol binario (in-orden | pre-orden | pos-orden)
 
 Librerías y Funciones:
 

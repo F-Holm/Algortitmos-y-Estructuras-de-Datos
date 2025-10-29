@@ -612,5 +612,75 @@ criterio(arg1, arg2);
 Los argumentos siempre por referencia
 los nombres de los criterio empiezan con 'f'
 
+Ej:
+#include <iostream>
+
+using namespace std;
+
+const short sizeArreglo = 10;
+typedef int tArreglo[sizeArreglo];
+
+bool fCreciente (int a, int b) {
+  return a > b;
+} // fCreciente
+
+bool fDecreciente (int a, int b) {
+  return a < b;
+} // fDecreciente
+
+void IntCmb(int &sElem1, int &sElem2) {
+  sElem1 = sElem1 ^ sElem2;
+  sElem2 = sElem1 ^ sElem2;
+  sElem1 = sElem1 ^ sElem2;
+}  // IntCmb
+
+void OrdxBur(tArreglo &arreglo, ushort card, bool (*criterio)(int, int)) {
+  bool hayCambios;
+  short k = 0;
+
+  do {
+    hayCambios = false;
+    k++;
+
+    for (short i = 0; i < card - k; i++) {
+      if (criterio(arreglo[i], arreglo[i+1])) {
+        IntCmb(arreglo[i], arreglo[i + 1]);
+        hayCambios = true;
+      }
+    }
+  } while (hayCambios);
+}  // OrdxBur
+
+void Mostrar(tArreglo arreglo) {
+  for (short i = 0;i < sizeArreglo;i++)
+      cout << arreglo[i] << ' ';
+  cout << endl;
+}  // Mostrar
+
+int main()
+{
+  tArreglo arreglo = {3, 1, 2, 5, 4, 7, 6, 9, 8, 0};
+  cout << "Original:    ";
+  Mostrar(arreglo);
+  OrdxBur(arreglo, sizeArreglo, fCreciente);
+  cout << "Creciente:   ";
+  Mostrar(arreglo);
+  OrdxBur(arreglo, sizeArreglo, fDecreciente);
+  cout << "Decreciente: ";
+  Mostrar(arreglo);
+  return 0;
+}  // Main
 
 - Árbol binario
+ in-orden (IRD): menor a mayor: si x en menor -> izquierda | si x es menor -> derecha
+pre-orden (RID): 
+pos-orden (IDR): 
+
+struct tTree {
+    pIzq;
+    info;
+    pDer;
+}:
+
+SIEMPRE se acceden de forma RECURSIVA
+Eliminar un nodo es extremadamente complejo
