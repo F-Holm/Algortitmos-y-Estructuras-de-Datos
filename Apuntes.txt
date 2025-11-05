@@ -684,3 +684,119 @@ struct tTree {
 
 SIEMPRE se acceden de forma RECURSIVA
 Eliminar un nodo es extremadamente complejo
+
+Árbol balanceado
+
+typedef unsigned short word;
+typedef word tInfo;
+typedef struct tNodo *tTree;
+struct tNodo {
+  tTree pIzq;
+  tInfo Info;
+  tTree pDer;
+};
+
+#include <conio.h>
+#include <iomanip.h>
+#include <iostream>
+using namespace std;
+
+void CrearArbol(tTree &Tree) {
+  Tree = NULL;
+} //CrearAbrol
+
+bool ArbolVacio(tTree &Tree) {
+  return Tree == NULL;
+} //ArbolVacio
+
+bool ArbolLleno(word MagnitudNodo) {
+  return MagnitudNodo > 10000;
+} //ArbolLleno
+
+void InsertarHoja(tTree &Tree, tTree pNvo) {
+  if (ArbolVacio(Tree))
+    Tree = pNvo;
+  else
+    if (pNvo->Info < Tree->Info)
+      InsertarHoja(Tree->pIzq,pNvo);
+    else
+      InsertarHoja(Tree->pDer,pNvo);
+} //InsertaNodoHoja
+
+void ListarInOrden(tTree &Tree) {
+  if (!ArbolVacio(Tree)) {
+    ListarInOrden(Tree->pIzq);
+    cout << setw(3) << Tree->Info;
+    ListarInOrden(Tree->pDer);
+  }
+} //ListarInOrden
+
+void ListarPreOrden(tTree &Tree) {
+  if (!ArbolVacio(Tree)) {
+    cout << setw(3) << Tree->Info;
+    ListarPreOrden(Tree->pIzq);
+    ListarPreOrden(Tree->pDer);
+  }
+} //ListarPreOrden
+
+void ListarPosOrden(tTree &Tree) {
+  if (!ArbolVacio(Tree)) {
+    ListarPosOrden(Tree->pIzq);
+    ListarPosOrden(Tree->pDer);
+    cout << setw(3) << Tree->Info;
+  }
+} //ListarPosOrden
+
+tTree BuscarNodo(tTree &Tree, tInfo valor) {
+  if (ArbolVacio(Tree))
+    return NULL;
+  else
+    if (valor == Tree->Info)
+      return Tree;
+    else
+      if (valor < Tree->Info)
+        return BuscarNodo(Tree->pIzq,valor);
+      else
+        return BuscarNodo(Tree->pDer,valor);
+} //BuscarNodo
+
+void EliminarNodo(tTree &Tree, tInfo valor) {
+  tTree pAct,
+        pAnt,
+        pElim;
+
+  if (!ArbolVacio(Tree))
+    if (valor < Tree->Info)
+      EliminarNodo(Tree->pIzq,valor);
+    else
+      if (valor > Tree->Info)
+        EliminarNodo(Tree->pDer,valor);
+      else {
+        pElim = Tree;
+        if (!pElim->pDer)
+          Tree = pElim->pIzq;
+        else
+          if (!pElim->pIzq)
+            Tree = pElim->pDer;
+          else {
+            pAct = pElim->pIzq;
+            pAnt = pAct;
+            while (pAct->pDer) {
+              pAnt = pAct;
+              pAct = pAct->pDer;
+            }
+            if (pAct == pAnt)
+              pElim->pIzq = pAct->pIzq;
+            pElim->Info = pAct->Info;
+            pElim = pAct;
+            pAnt->pDer = pAct->pIzq;
+          }
+        delete pElim;
+        gotoxy(1,24); clreol();
+        cout << "El elemento " << setw(3) << valor << " fue eliminado... ";
+      }
+  else {
+    gotoxy(1,24); clreol();
+    cout << "El elemento " << valor << " no existe... ";
+  }
+} //EliminarNodo
