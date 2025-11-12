@@ -25,7 +25,7 @@ inline const fs::path kRespuestas[] = {
     "./unidad_1/respuestas/",         "./unidad_1/respuestas_std/",
     "./unidad_1/diagramas_en_visio/", "./unidad_2/respuestas/",
     "./unidad_4/respuestas/",         "./unidad_4/diagramas_en_visio/",
-    "./unidad_5/respuestas/"};
+    "./unidad_5/respuestas/", "./parciales/"};
 inline const uint8_t kCantRespuestas = sizeof(kRespuestas) / sizeof(fs::path);
 // inline constexpr str kInclude = "-I./src/borland.h";
 inline const string kInclude = "-I" + (fs::current_path() / "src").string();

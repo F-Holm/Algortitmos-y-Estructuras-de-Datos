@@ -31,3 +31,5 @@
 *.zip   binary
 *.ppsx  binary
 *.Ppsx  binary
+*.idx   binary
+*.Idx   binary

@@ -1,0 +1,35 @@
+Examenes de Superficies de Figuras Geometricas
+Alumno/a   cResp.Cor. cResp.InCor. Evaluacion
+PATRICIA        3          4       Lo lamento
+MARCOS          4          1       Excelente
+RICARDO         3          3       Lo lamento
+MARISABEL       6          2       Excelente
+ROCIO           6          0       Excelente
+LUIS            2          4       Lo lamento
+PEDRO           7          0       Excelente
+IGNACIO         3          1       Excelente
+TERESA          5          0       Excelente
+PABLO           5          1       Excelente
+
+Listado cant. Resp.Cor. e Incor. por Figuras Geometricas
+Nombre Figura          cResp.Cor. cResp.Incor
+             CIRCULO        3          1
+     CORONA CIRCULAR        2          1
+            CUADRADO        1          1
+            DECAGONO        3          0
+            DELTOIDE        2          0
+          DODECAGONO        2          2
+              ELIPSE        4          1
+   ESTRELLA 4 PUNTAS        0          1
+           HEPTAGONO        3          0
+            HEXAGONO        4          2
+            OCTOGONO        1          0
+               OVALO        1          0
+       PARALELOGRAMO        2          1
+           PENTAGONO        2          0
+          RECTANGULO        1          0
+               ROMBO        2          1
+            ROMBOIDE        2          3
+     SECTOR CIRCULAR        1          0
+          TRAPEZOIDE        4          1
+           TRIANGULO        4          1

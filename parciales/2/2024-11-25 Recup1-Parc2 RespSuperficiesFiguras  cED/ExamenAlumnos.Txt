@@ -1,0 +1,157 @@
+Examenes de Superficies de Figuras Geometricas
+Alumno/a   cResp.Cor. cResp.InCor. Evaluacion
+IGNACIO         3          1       Excelente
+LUIS            2          4       Lo lamento
+MARCOS          4          1       Excelente
+MARISABEL       6          2       Excelente
+PABLO           5          1       Excelente
+PATRICIA        3          4       Lo lamento
+PEDRO           7          0       Excelente
+RICARDO         3          3       Lo lamento
+ROCIO           6          0       Excelente
+TERESA          5          0       Excelente
+
+Listado cant. Resp.Cor. e Incor. por Figuras Geometricas
+CIRCULO
+Nombre Alumno Respuesta
+MARISABEL     1 bien
+PATRICIA      0 mal
+PEDRO         1 bien
+TERESA        1 bien
+Total Figura: CIRCULO              bien: 3 mal.: 1 
+
+CORONA CIRCULAR
+Nombre Alumno Respuesta
+IGNACIO       1 bien
+MARCOS        0 mal
+PABLO         1 bien
+Total Figura: CORONA CIRCULAR      bien: 2 mal.: 1 
+
+CUADRADO
+Nombre Alumno Respuesta
+MARCOS        1 bien
+PATRICIA      0 mal
+Total Figura: CUADRADO             bien: 1 mal.: 1 
+
+DECAGONO
+Nombre Alumno Respuesta
+LUIS          1 bien
+PEDRO         1 bien
+ROCIO         1 bien
+Total Figura: DECAGONO             bien: 3 mal.: 0 
+
+DELTOIDE
+Nombre Alumno Respuesta
+ROCIO         1 bien
+TERESA        1 bien
+Total Figura: DELTOIDE             bien: 2 mal.: 0 
+
+DODECAGONO
+Nombre Alumno Respuesta
+LUIS          1 bien
+MARISABEL     0 mal
+RICARDO       0 mal
+ROCIO         1 bien
+Total Figura: DODECAGONO           bien: 2 mal.: 2 
+
+ELIPSE
+Nombre Alumno Respuesta
+LUIS          0 mal
+MARCOS        1 bien
+PABLO         1 bien
+PATRICIA      1 bien
+PEDRO         1 bien
+Total Figura: ELIPSE               bien: 4 mal.: 1 
+
+ESTRELLA 4 PUNTAS
+Nombre Alumno Respuesta
+RICARDO       0 mal
+Total Figura: ESTRELLA 4 PUNTAS    bien: 0 mal.: 1 
+
+HEPTAGONO
+Nombre Alumno Respuesta
+MARISABEL     1 bien
+PABLO         1 bien
+PEDRO         1 bien
+Total Figura: HEPTAGONO            bien: 3 mal.: 0 
+
+HEXAGONO
+Nombre Alumno Respuesta
+IGNACIO       1 bien
+LUIS          0 mal
+MARISABEL     1 bien
+PEDRO         1 bien
+RICARDO       0 mal
+TERESA        1 bien
+Total Figura: HEXAGONO             bien: 4 mal.: 2 
+
+OCTOGONO
+Nombre Alumno Respuesta
+MARISABEL     1 bien
+Total Figura: OCTOGONO             bien: 1 mal.: 0 
+
+OVALO
+Nombre Alumno Respuesta
+MARISABEL     1 bien
+Total Figura: OVALO                bien: 1 mal.: 0 
+
+PARALELOGRAMO
+Nombre Alumno Respuesta
+LUIS          0 mal
+ROCIO         1 bien
+TERESA        1 bien
+Total Figura: PARALELOGRAMO        bien: 2 mal.: 1 
+
+PENTAGONO
+Nombre Alumno Respuesta
+PATRICIA      1 bien
+RICARDO       1 bien
+Total Figura: PENTAGONO            bien: 2 mal.: 0 
+
+RECTANGULO
+Nombre Alumno Respuesta
+PATRICIA      1 bien
+Total Figura: RECTANGULO           bien: 1 mal.: 0 
+
+ROMBO
+Nombre Alumno Respuesta
+MARCOS        1 bien
+MARISABEL     1 bien
+PATRICIA      0 mal
+Total Figura: ROMBO                bien: 2 mal.: 1 
+
+ROMBOIDE
+Nombre Alumno Respuesta
+IGNACIO       0 mal
+MARISABEL     0 mal
+PABLO         0 mal
+PEDRO         1 bien
+RICARDO       1 bien
+Total Figura: ROMBOIDE             bien: 2 mal.: 3 
+
+SECTOR CIRCULAR
+Nombre Alumno Respuesta
+MARCOS        1 bien
+Total Figura: SECTOR CIRCULAR      bien: 1 mal.: 0 
+
+TRAPEZOIDE
+Nombre Alumno Respuesta
+IGNACIO       1 bien
+LUIS          0 mal
+PABLO         1 bien
+RICARDO       1 bien
+ROCIO         1 bien
+Total Figura: TRAPEZOIDE           bien: 4 mal.: 1 
+
+TRIANGULO
+Nombre Alumno Respuesta
+PABLO         1 bien
+PATRICIA      0 mal
+PEDRO         1 bien
+ROCIO         1 bien
+TERESA        1 bien
+Total Figura: TRIANGULO            bien: 4 mal.: 1 
+
+
+Tot.Resp.Correctas  : 44
+Tot.Resp.InCorrectas: 16

@@ -1,0 +1,25 @@
+  35  10 Martillo plano         153.26
+1409   5 Tenaza                  85.00
+  83 123 Pinza punta             96.00
+8524  12 Pintura al latex       105.24
+ 315   7 Papel de lija fina      32.15
+  12  10 Taladro grande        1325.12
+ 187 102 Amoladora             2019.43
+  19  30 Pintura al aceite      193.76
+8153  12 Alicate                 76.15
+ 153   5 Escalera chica         895.81
+  86 214 Llave francesa          76.84
+ 823   7 Llave pico de loro      89.09
+5162  10 Papel lija gruesa       45.86
+   3  83 Cable de acero         452.09
+  89 143 Clavos caja x 100     1452.20
+1891  35 Codo 3.5 diam.         785.65
+ 783  12 Pala plana            5423.70
+3684 425 Clavos largos         2459.74
+5028  15 Mechas de vidia       3652.09
+ 357  23 Pegamento contacto    5429.06
+   6   5 Gancho mediano         694.25
+ 899  29 Poxipol A-B           6597.60
+2264  32 Destornillador        2960.34
+  32  24 Cinta aisladora        873.65
+ 621 152 Tenaza mediana        2473.56

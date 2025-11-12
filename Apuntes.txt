@@ -747,6 +747,15 @@ void ListarPosOrden(tTree &Tree) {
   }
 } //ListarPosOrden
 
+// Falta desarrollar este modulo
+void ListarEnAnchura(tTree &Tree) { // ListarPorNivel
+  if (!ArbolVacio(Tree)) {
+    cout << setw(3) << Tree->Info;
+    ListarPosOrden(Tree->pIzq);
+    ListarPosOrden(Tree->pDer);
+  }
+} //ListarEnAnchura
+
 tTree BuscarNodo(tTree &Tree, tInfo valor) {
   if (ArbolVacio(Tree))
     return NULL;
@@ -800,3 +809,18 @@ void EliminarNodo(tTree &Tree, tInfo valor) {
     cout << "El elemento " << valor << " no existe... ";
   }
 } //EliminarNodo
+
+void EliminarPosOrden(tTree &Tree) {
+  if (!ArbolVacio(Tree)) {
+    EliminarPosOrden(Tree->pIzq);
+    EliminarPosOrden(Tree->pDer);
+    delete Tree;
+  }
+  // Tree = NULL; luego de llamar a esta funcion;
+} //EliminarPosOrden
+
+- Recorrer árbol por anchura/niveles
+De arriba hacia abajo y de ezquierda a derecha
+
+SORT/MERGE (Como lo dice Cuello) -> MERGE SORT
+
