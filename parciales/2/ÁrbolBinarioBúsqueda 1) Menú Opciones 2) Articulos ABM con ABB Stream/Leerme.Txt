@@ -1,0 +1,24 @@
+Los archivos de copia (Articulos - copia.Dat y Articulos - copia.Idx) 
+son utilizados para restablecer los datos originales cuando se ejecutó 
+una vez el programa, Articulos ABM con ABB Stream.cpp, ya que, las Altas 
+válidas, dejarían de ser válidas para ser, Error por Alta Existente, 
+algo similar pasarían con Bajas y Modificaciones.
+Por eso cada vez que se vuelva a ejecutar el programa mencionado
+más arriba debemos resetear a los datos originales.
+Los archivos a resetear son:
+  * Articulos.Dat
+  * Articulos.Idx
+Por otro lado, el programa, ArbolBinarioEnFileAnchura.cpp,
+inicia cargando a la RAM, en una estructura dinámica de tipo Arbol
+Binario de Búsqueda, los datos contenidos en el archivo, Datos.Txt,
+en donde la representación gráfica está indicada en el archivo,
+Dibujo del Árbol Binario de Búsqueda con valores iniciales.docx,
+el cual, podrá ser modificado al ejecutar dicho programa al
+incorporar nuevos nodos o eliminar nodos existentes.
+Si deseamos crear otra forma del Árbol B.B. podemos asignar
+arbitrariamente nuevos valores, incluso sin necesidad de 
+incorporarlos para mantener una forma preestablecida, ya que,
+al ejecutar el proceso antes de finalizar lo grabará en prioridad
+de PreOrden. Incluso durante el Menú de opciones una de ellas
+lo graba en la prioridad por Niveles.
+ 

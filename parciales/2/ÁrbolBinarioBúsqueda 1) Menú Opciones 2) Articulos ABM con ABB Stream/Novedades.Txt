@@ -1,0 +1,20 @@
+B471M LIQUIDO REFRIGERANTE 23   127.34   40 20 30 A
+D185N CABLE NEGATIVO BATER  4   502.78   25 20 30 A
+Q312Y GRAMPA DE LATON      35   312.78   43 32 41 A
+L343T *                     0     0.00    0  0  0 B
+D558V *                     0     0.00    0  0  0 B
+F762D *                     0     0.00    0  0  0 B
+Q545T *                     0   426.79    0  0  0 M
+B385T *                     0     0.00    0  0 15 M
+F724M *                     0     0.00    0  0  0 M
+L429C BUJIA FF             12   521.08    4  2 30 A
+A121F ACEITE LUBRICANTE    23   978.04   30 10 20 A
+Q865R *                     0     0.00    0  0  0 B
+D872F *                     0     0.00    0  0  0 B
+H743D *                     0   432.29    0  0 75 M
+M775G *                     0   276.98    0  0  0 M
+R704E CORREA CALEFACCION   25   309.65   30 10 20 A
+M175X CABLE LUCES           4   187.34   40 10 23 A
+H317C ESPEJO OCULTO         7   219.45   50 30 40 A
+T232M *                     0     0.00    0  0  0 B
+A115B *                     0    29.64    0  0  0 M
