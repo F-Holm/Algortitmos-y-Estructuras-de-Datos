@@ -1,3 +1,8 @@
+/*
+  Muchos de estos modulos solo son ejemplos de un ejercicio
+  en específico y su implementacion puede cambiar
+*/
+
 #pragma once
 
 #include <conio.h>
@@ -22,6 +27,52 @@ struct sNodo {
   T info;
   sNodo<T> *ptrEmpo;
 };
+
+// Generales
+int BusBinVec(tvsIndDesc &vsIndDesc, str30 descArt, ushort ult) {
+  int li = 0, ls = ult, pm;
+
+  strlwr(descArt);
+
+  while (li <= ls) {
+    pm = (li + ls) / 2;
+
+    int cmp = strcmp(descArt, vsIndDesc[pm].descArt);
+
+    if (cmp == 0) {
+      return pm;
+    } else if (cmp < 0) {
+      ls = pm - 1;
+    } else {
+      li = pm + 1;
+    }
+  }
+
+  return -1;  // No encontrado
+}  // BusBinVec
+
+void OrdxBur(tvsArtRub &vsArtRub, ushort card) {
+  bool hayCambios;
+  ushort k = 0;
+
+  do {
+    hayCambios = false;
+    k++;
+
+    for (ushort i = 0; i < card - k; i++) {
+      if (vsArtRub[i].codRub > vsArtRub[i + 1].codRub) {
+        IntCmb(vsArtRub[i], vsArtRub[i + 1]);
+        hayCambios = true;
+      }
+    }
+  } while (hayCambios);
+}  // OrdxBur
+
+void IntCmb(sTblAerop &sElem1, sTblAerop &sElem2) {
+  sTblAerop auxiliar = sElem1;
+  sElem1 = sElem2;
+  sElem2 = auxiliar;
+}  // IntCmb
 
 // Pilas
 template <typename T>
@@ -58,6 +109,27 @@ void Denqueue(sNodo<T> *&cFte, sNodo<T> *&cFin, T &valor) {
 }  // Denqueue
 
 // Listas
+template <typename T>
+void InsertaNodo(sNodo<T> *&lista, T valor) {
+  if (lista == NULL || ???) // ??? = Si va antes que el primer nodo actual o no
+    InsertaInicio(lista, valor);
+  else
+    InsertaEnMedio(lista, valor);
+}  // InsertaNodo
+
+template <typename T>
+void InsertaEnMedio(sNodo<T> *&lista, T valor) {
+  sNodo<T> *nodo = new sNodo<T>;
+  nodo->info = valor;
+  sNodo<T> *aux = lista;
+
+  while (aux->ptr != NULL && valor.exp < aux->info.exp)
+    aux = aux->ptr;
+
+  nodo->ptr = aux->ptr;
+  aux->ptr = nodo;
+}  // InsertaEnMedio
+
 template <typename T>
 void InsertaInicio(sNodo<T> *&lista, T valor) {
   sNodo<T> *pNodo = new sNodo<T>;

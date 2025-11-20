@@ -1,0 +1,9 @@
+Lista A
+Archivo A
+
+Leo 10 primeros elementos del archivo A
+Interto nodo (ordenado) de las 10 claves de A en lista A
+Voy cargando nodos en el archivo auxiliar
+Paso el primer nodo a la lista B
+La lista B tiene 
+
